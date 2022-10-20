@@ -1,0 +1,31 @@
+@import "./variables.scss";
+
+@mixin sm {
+  @media (max-width: map-get($breakpoint,"sm")) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media (max-width: map-get($breakpoint,"md")) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media (max-width: map-get($breakpoint,"lg")) {
+    @content;
+  }
+}
+
+@mixin xl {
+  @media (max-width: map-get($breakpoint,"xl")) {
+    @content;
+  }
+}
+
+@mixin breakpoint($bp: 48em) {
+  @media (max-width: $bp) {
+    @content;
+  }
+}

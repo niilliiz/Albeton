@@ -2,8 +2,20 @@
 @import "../styles/variables.scss";
 @import "../styles/utilities.scss";
 @import "../styles/reset.scss";
+@import "../styles/media.scss";
 
 .app {
   // font-size: 24px;
   color: $clr-secondary;
+  @include xl {
+    color: $clr-primary;
+  }
+
+  @include lg {
+    color: $clr-cyan;
+  }
+
+  @include sm {
+    color: $clr-green;
+  }
 }
