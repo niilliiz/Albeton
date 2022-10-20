@@ -1,0 +1,9 @@
+@import "../styles/general.scss";
+@import "../styles/variables.scss";
+@import "../styles/utilities.scss";
+@import "../styles/reset.scss";
+
+.app {
+  // font-size: 24px;
+  color: $clr-secondary;
+}
