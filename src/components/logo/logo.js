@@ -1,9 +1,9 @@
 import React from "react";
 
 import styles from "./logo_style.module.scss";
-const Logo = () => {
+const Logo = ({ className = "" }) => {
   return (
-    <a href="/">
+    <a href="/" className={className}>
       <svg
         role="img"
         aria-labelledby="logo"

@@ -55,7 +55,7 @@ const Header = () => {
           secondaryNavLinks ? styles["primary--border"] : ""
         }`}
       >
-        <Logo />
+        <Logo className={styles.logo} />
         <div
           className={styles.primary__menu}
           onClick={() => setIsOpen(!isOpen)}
