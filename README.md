@@ -19,18 +19,16 @@ You may also see any lint errors in the console.
 1. ingredients
    1. img
    2. _variables_
-   3. utilities
-   4. general styles
-   5. _font-family_
+   3. _font-family_
 2. header
-   1. nav-data
+   1. _nav-data_
       1. more + , -
-   2. manage secondary and primary
+   2. _manage secondary and primary_
    3. cart
       1. slider
-   4. responsive
-      1. mobile
-      2. descktop
+   4. _responsive_
+      1. _mobile_
+      2. _descktop_
 3. footer
    1. mobile
    2. descktop

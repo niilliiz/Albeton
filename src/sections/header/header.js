@@ -1,13 +1,18 @@
-import React, { useState } from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect, useState, useRef } from "react";
 import NavLinks from "../../nav_data/nave_data";
 import { CaretDown } from "phosphor-react";
 import Logo from "../../components/logo/logo";
 
 import styles from "./header_style.module.scss";
 const Header = () => {
+  const headerRef = useRef(null);
+
   const [isOpen, setIsOpen] = useState(false);
+  const [lastScrollTop, setLastScrollTop] = useState(() => window.scrollY);
 
   const [secondaryNavLinks, setSecondaryNavLinks] = useState(null);
+
   const [secondaryActiveItem, setSecondaryActiveItem] = useState();
   const [primaryActiveItem, setPrimaryActiveItem] = useState(0);
 
@@ -23,9 +28,27 @@ const Header = () => {
     setIsOpen(false);
   };
 
+  const handleScrollEffect = () => {
+    let currentScrolTop = window.scrollY;
+    if (lastScrollTop < currentScrolTop) {
+      headerRef.current.classList.add(styles["header--top"]);
+    } else {
+      headerRef.current.classList.remove(styles["header--top"]);
+    }
+    setLastScrollTop(currentScrolTop);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScrollEffect);
+    return () => {
+      window.removeEventListener("scroll", handleScrollEffect);
+    };
+  }, [lastScrollTop]);
+
   return (
     <header
-      className={`${styles.header} ${isOpen ? styles["header--blue"] : ""}`}
+      ref={headerRef}
+      className={`${styles.header} ${isOpen ? styles["header--bg"] : ""}`}
     >
       <div
         className={`${styles.primary} ${
@@ -72,6 +95,7 @@ const Header = () => {
           </div>
         </nav>
       </div>
+      {/* ---------------SECONDARY NAVBAR IF THERE IS-------------- */}
       {secondaryNavLinks && (
         <nav className={styles.secondary}>
           <ul className={styles.list}>

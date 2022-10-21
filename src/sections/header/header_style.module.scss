@@ -3,19 +3,38 @@
 @import "../../styles/media.scss";
 
 .header {
-  transition: all 0.3s ease-in-out;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   z-index: 2;
+  background-color: $clr-neutral-1;
+  transition: 0.3s ease-in-out;
+  transition-property: top, background-color;
 
-  &--blue {
+  + * {
+    margin-top: 73px;
+    transition: margin-bottom 0.3s ease-in-out;
+  }
+
+  &--bg {
     background-color: $clr-primary;
-    color: white;
-    fill: white;
+    color: $clr-neutral-1;
+    fill: $clr-neutral-1;
+  }
+
+  &.header--top {
+    top: -100px;
+
+    + * {
+      margin-top: 0;
+      transition: margin-bottom 0.3s ease-in-out;
+    }
   }
 
   // PRIMARY -----------------------------
   .primary {
     @include Flex;
-
     @include Container("small");
 
     position: relative;
@@ -48,6 +67,7 @@
       @include Container("small");
       @include Flex($direction: column);
 
+      display: none;
       position: fixed;
       top: 3.9rem;
       left: 0;
@@ -60,6 +80,7 @@
       z-index: -1;
 
       &.navigation--shown {
+        display: flex;
         transform: translateY(0);
         transition: transform 0.5s ease-in-out;
       }
@@ -99,18 +120,16 @@
       @include Flex;
 
       align-items: center;
-      font-size: $fs-100;
+      font-size: $fs-200;
       white-space: nowrap;
 
-      > li {
-        > a {
-          line-height: 3;
-          font-weight: $fw-500;
+      > li > a {
+        line-height: 3;
+        font-weight: $fw-500;
 
-          &.active {
-            font-weight: $fw-600;
-            color: $clr-secondary;
-          }
+        &.active {
+          font-weight: $fw-600;
+          color: $clr-secondary;
         }
       }
     }
@@ -118,6 +137,11 @@
 
   // MEDIA QUERY -----------------------------------
   @include lg {
+    &--bg {
+      background-color: $clr-neutral-1;
+      color: $clr-neutral-900;
+      fill: $clr-neutral-900;
+    }
     .primary {
       @include Flex(row, $space-2);
 
@@ -133,7 +157,7 @@
 
         padding-right: 0;
         padding-left: 0;
-        position: static;
+        position: unset;
         background-color: $clr-neutral-1;
         color: $clr-neutral-900;
 
