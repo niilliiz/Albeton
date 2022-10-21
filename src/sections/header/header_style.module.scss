@@ -1,5 +1,6 @@
 @import "../../styles/variables.scss";
 @import "../../styles/utilities.scss";
+@import "../../styles/media.scss";
 
 .header {
   transition: all 0.3s ease-in-out;
@@ -11,7 +12,7 @@
     fill: white;
   }
 
-  // ------------------------PRIMARY
+  // PRIMARY -----------------------------
   .primary {
     @include Flex;
 
@@ -25,10 +26,11 @@
       border-bottom: 1px solid $clr-neutral-400;
     }
 
-    .menu {
+    &__menu {
       @include Flex($gap: $space-0_5);
 
       align-items: center;
+      flex-grow: 1;
       font-weight: $fw-600;
       font-size: $fs-300;
       cursor: pointer;
@@ -42,52 +44,60 @@
       }
     }
 
-    .navigation {
+    &__navigation {
+      @include Container("small");
+      @include Flex($direction: column);
+
+      position: fixed;
+      top: 3.9rem;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: $clr-primary;
+      color: $clr-neutral-1;
+      font-weight: $fw-600;
+      font-size: $fs-300;
       z-index: -1;
-      &.navigation--small-screen {
-        @include Container("small");
 
-        position: fixed;
-        top: 3.7rem;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: $clr-primary;
-        color: $clr-neutral-1;
-        font-weight: $fw-300;
-        font-size: $fs-400;
-      }
-
-      &--shown {
+      &.navigation--shown {
         transform: translateY(0);
         transition: transform 0.5s ease-in-out;
       }
 
-      &--hid {
+      &.navigation--hid {
         transform: translateY(-150%);
-
         transition: transform 0.5s ease-in-out;
       }
 
-      &__lists {
+      .list {
+        flex-grow: 1;
         @include Flex($direction: column);
 
         li > a {
           &.active {
-            font-weight: $fw-600;
+            font-weight: $fw-700;
             color: $clr-neutral-0;
           }
         }
       }
     }
+
+    &__auth {
+      font-weight: $fw-600;
+      color: $clr-neutral-900;
+    }
   }
+
+  // SECONDARY-----------------------------
 
   .secondary {
     @include Container("small");
+
     overflow: auto;
 
-    &__lists {
+    .list {
       @include Flex;
+
       align-items: center;
       font-size: $fs-100;
       white-space: nowrap;
@@ -100,6 +110,47 @@
           &.active {
             font-weight: $fw-600;
             color: $clr-secondary;
+          }
+        }
+      }
+    }
+  }
+
+  // MEDIA QUERY -----------------------------------
+  @include lg {
+    .primary {
+      @include Flex(row, $space-2);
+
+      align-self: stretch;
+
+      &__menu {
+        display: none;
+      }
+
+      &__navigation {
+        @include Flex($direction: row);
+        flex-grow: 1;
+
+        padding-right: 0;
+        padding-left: 0;
+        position: static;
+        background-color: $clr-neutral-1;
+        color: $clr-neutral-900;
+
+        &.navigation--hid {
+          transform: translateY(0);
+        }
+
+        .list {
+          @include Flex(row);
+
+          flex-grow: 1;
+
+          li > a {
+            &.active {
+              font-weight: $fw-600;
+              color: $clr-secondary;
+            }
           }
         }
       }

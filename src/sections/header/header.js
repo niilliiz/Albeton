@@ -33,7 +33,10 @@ const Header = () => {
         }`}
       >
         <Logo />
-        <div className={styles.menu} onClick={() => setIsOpen(!isOpen)}>
+        <div
+          className={styles.primary__menu}
+          onClick={() => setIsOpen(!isOpen)}
+        >
           <span>Menu</span>
           <CaretDown
             size="1.125rem"
@@ -43,11 +46,11 @@ const Header = () => {
         </div>
 
         <nav
-          className={`${styles.navigation} ${styles["navigation--small-screen"]}
+          className={`${styles.primary__navigation}
           ${isOpen ? styles["navigation--shown"] : styles["navigation--hid"]}
            `}
         >
-          <ul className={styles.navigation__lists}>
+          <ul className={styles.list}>
             {NavLinks.map((nav, index) => (
               <li
                 key={`${nav.title}`}
@@ -64,11 +67,14 @@ const Header = () => {
               </li>
             ))}
           </ul>
+          <div className={styles.primary__auth}>
+            <a href="/register">Login or Register</a>
+          </div>
         </nav>
       </div>
       {secondaryNavLinks && (
-        <div className={styles.secondary}>
-          <ul className={styles.secondary__lists}>
+        <nav className={styles.secondary}>
+          <ul className={styles.list}>
             {secondaryNavLinks.map((nav, index) => (
               <li
                 key={`${nav.title}`}
@@ -83,7 +89,7 @@ const Header = () => {
               </li>
             ))}
           </ul>
-        </div>
+        </nav>
       )}
     </header>
   );
@@ -91,5 +97,5 @@ const Header = () => {
 export default Header;
 
 /* 
-TODO: show active link
+TODO: show active link based on the url
 */

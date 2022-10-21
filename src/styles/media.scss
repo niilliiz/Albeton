@@ -1,31 +1,35 @@
 @import "./variables.scss";
 
+// 480px
 @mixin sm {
-  @media (max-width: map-get($breakpoint,"sm")) {
+  @media (min-width: map-get($breakpoint,"sm")) {
     @content;
   }
 }
 
+// 768px
 @mixin md {
-  @media (max-width: map-get($breakpoint,"md")) {
+  @media (min-width: map-get($breakpoint,"md")) {
     @content;
   }
 }
 
+// 1024px
 @mixin lg {
-  @media (max-width: map-get($breakpoint,"lg")) {
+  @media (min-width: map-get($breakpoint,"lg")) {
     @content;
   }
 }
 
+// 1280px
 @mixin xl {
-  @media (max-width: map-get($breakpoint,"xl")) {
+  @media (min-width: map-get($breakpoint,"xl")) {
     @content;
   }
 }
 
 @mixin breakpoint($bp: 48em) {
-  @media (max-width: $bp) {
+  @media (min-width: $bp) {
     @content;
   }
 }

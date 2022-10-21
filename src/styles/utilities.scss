@@ -16,5 +16,16 @@
 @mixin Flex($direction: row, $gap: $space-2) {
   display: flex;
   flex-direction: $direction;
-  gap: $gap;
+
+  @if $direction == row {
+    > *:not(:last-child) {
+      margin-inline-end: $gap;
+      margin-block-end: 0;
+    }
+  } @else {
+    > *:not(:last-child) {
+      margin-block-end: $gap;
+      margin-inline-end: 0;
+    }
+  }
 } ;
