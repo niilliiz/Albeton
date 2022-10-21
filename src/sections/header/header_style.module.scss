@@ -1,0 +1,78 @@
+@import "../../styles/variables.scss";
+@import "../../styles/utilities.scss";
+
+.header {
+  @include Container("small");
+  font-weight: $fw-700;
+  font-size: $fs-400;
+  transition: all 0.3s ease-in-out;
+  z-index: 2;
+
+  &--blue {
+    background-color: $clr-primary;
+    color: white;
+    fill: white;
+  }
+
+  // ------------------------PRIMARY
+  .primary {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: $space-2;
+    z-index: 1;
+
+    .menu {
+      display: flex;
+      align-items: center;
+      gap: $space-0_5;
+      cursor: pointer;
+
+      > svg {
+        transition: all 0.3s ease-in-out;
+
+        &.rotate {
+          transform: rotate(-180deg);
+        }
+      }
+    }
+
+    .navigation {
+      z-index: -1;
+      &.navigation--small-screen {
+        @include Container("small");
+
+        position: fixed;
+        top: 5rem;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: $clr-primary;
+        color: $clr-neutral-1;
+        font-weight: $fw-400;
+        font-size: $fs-400;
+      }
+
+      &--shown {
+        transform: translateY(0);
+        transition: transform 0.5s ease-in-out;
+      }
+
+      &--hid {
+        transform: translateY(-150%);
+
+        transition: transform 0.5s ease-in-out;
+      }
+
+      &__lists {
+        display: flex;
+        flex-direction: column;
+        gap: $space-2;
+      }
+    }
+  }
+
+  // ------------------------SECONDARY
+  // &__secondary {
+  // }
+}

@@ -1,4 +1,4 @@
-$clr-neutral-0: #ffffff;
+$clr-neutral-1: #ffffff;
 $clr-neutral-100: #f1f3f5;
 $clr-neutral-200: #e9ecef;
 $clr-neutral-300: #dee2e6;
@@ -8,7 +8,7 @@ $clr-neutral-600: #868e96;
 $clr-neutral-700: #495057;
 $clr-neutral-800: #343a40;
 $clr-neutral-900: #212529;
-$clr-neutral-1: #000000;
+$clr-neutral-0: #000000;
 
 $clr-primary: #0000ff;
 $clr-secondary: #ff764d;
@@ -25,9 +25,9 @@ $ff: "Nunito Sans", sans-serif;
 $fs-100: 0.875rem; /*14px*/
 $fs-200: 1rem; /*16px*/
 $fs-300: 1.25rem; /*20px*/
-$fs-400: 1.75rem; /*28*/
+$fs-400: 1.625rem; /*28*/
 $fs-500: 2.125rem; /*34px*/
-$fs-600: 2.5; /*40px*/
+$fs-600: 2.5rem; /*40px*/
 $fs-700: 3rem; /*48px*/
 $fs-800: 3.5rem; /*56px*/
 $fs-900: 3.75rem; /*60px*/
@@ -44,6 +44,10 @@ $fw-900: 900;
 
 /*-----------BORDER----------*/
 $border: 1rem;
+
+/*-----------SPACE----------*/
+$space-0_5: 0.5rem;
+$space-2: 2rem;
 
 /*-----------Break Point----------*/
 // 1280 + 1024

@@ -1,11 +1,7 @@
 // const base = "";
-export const links = [
+const NavLinks = [
   { title: "Live", path: "/" },
   { title: "Push", path: "/push" },
-  {
-    title: "Push",
-    path: "/push",
-  },
   { title: "Notes", path: "/note" },
   { title: "Link", path: "/link" },
   {
@@ -28,3 +24,5 @@ export const links = [
   { title: "help", path: "/help" },
   { title: "More+", path: "/more" },
 ];
+
+export default NavLinks;

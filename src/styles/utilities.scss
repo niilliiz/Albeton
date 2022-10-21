@@ -1,0 +1,13 @@
+@import "./media.scss";
+
+@mixin Container($type) {
+  @if $type == "small" {
+    padding: 0.5rem 2rem;
+    // @include md {
+    //   border: 2px solid green;
+    // }
+  } @else if $type == "section" {
+    padding: 3rem 4rem;
+    border: 2px solid blue;
+  }
+} ;
