@@ -1,4 +1,5 @@
 @import "./media.scss";
+@import "./variables.scss";
 
 @mixin Container($type) {
   @if $type == "small" {
@@ -10,4 +11,10 @@
     padding: 3rem 4rem;
     border: 2px solid blue;
   }
+}
+
+@mixin Flex($direction: row, $gap: $space-2) {
+  display: flex;
+  flex-direction: $direction;
+  gap: $gap;
 } ;

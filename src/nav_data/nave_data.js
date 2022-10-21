@@ -21,7 +21,7 @@ const NavLinks = [
     ],
   },
   { title: "Packs", path: "/packs" },
-  { title: "help", path: "/help" },
+  { title: "Help", path: "/help" },
   { title: "More+", path: "/more" },
 ];
 

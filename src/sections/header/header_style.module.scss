@@ -2,9 +2,6 @@
 @import "../../styles/utilities.scss";
 
 .header {
-  @include Container("small");
-  font-weight: $fw-700;
-  font-size: $fs-400;
   transition: all 0.3s ease-in-out;
   z-index: 2;
 
@@ -16,16 +13,24 @@
 
   // ------------------------PRIMARY
   .primary {
+    @include Flex;
+
+    @include Container("small");
+
     position: relative;
-    display: flex;
     align-items: center;
-    gap: $space-2;
     z-index: 1;
 
+    &--border {
+      border-bottom: 1px solid $clr-neutral-400;
+    }
+
     .menu {
-      display: flex;
+      @include Flex($gap: $space-0_5);
+
       align-items: center;
-      gap: $space-0_5;
+      font-weight: $fw-600;
+      font-size: $fs-300;
       cursor: pointer;
 
       > svg {
@@ -43,13 +48,13 @@
         @include Container("small");
 
         position: fixed;
-        top: 5rem;
+        top: 3.7rem;
         left: 0;
         right: 0;
         bottom: 0;
         background-color: $clr-primary;
         color: $clr-neutral-1;
-        font-weight: $fw-400;
+        font-weight: $fw-300;
         font-size: $fs-400;
       }
 
@@ -65,14 +70,39 @@
       }
 
       &__lists {
-        display: flex;
-        flex-direction: column;
-        gap: $space-2;
+        @include Flex($direction: column);
+
+        li > a {
+          &.active {
+            font-weight: $fw-600;
+            color: $clr-neutral-0;
+          }
+        }
       }
     }
   }
 
-  // ------------------------SECONDARY
-  // &__secondary {
-  // }
+  .secondary {
+    @include Container("small");
+    overflow: auto;
+
+    &__lists {
+      @include Flex;
+      align-items: center;
+      font-size: $fs-100;
+      white-space: nowrap;
+
+      > li {
+        > a {
+          line-height: 3;
+          font-weight: $fw-500;
+
+          &.active {
+            font-weight: $fw-600;
+            color: $clr-secondary;
+          }
+        }
+      }
+    }
+  }
 }
