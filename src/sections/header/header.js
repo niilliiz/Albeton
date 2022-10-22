@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState, useRef } from "react";
 import NavLinks from "../../nav_data/nave_data";
 import { CaretDown } from "phosphor-react";

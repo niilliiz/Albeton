@@ -133,6 +133,16 @@
 
   // MEDIA QUERY -----------------------------------
   @include lg {
+    &--bg {
+      color: $clr-neutral-0;
+      background-color: $clr-neutral-1;
+
+      .logo {
+        svg {
+          fill: $clr-neutral-0;
+        }
+      }
+    }
     .primary {
       @include Flex(row, $space-2);
 
