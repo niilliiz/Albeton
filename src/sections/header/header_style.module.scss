@@ -1,4 +1,4 @@
-@import "../../styles/variables.scss";
+// @import "../../styles/variables.scss";
 @import "../../styles/utilities.scss";
 @import "../../styles/media.scss";
 
@@ -12,10 +12,11 @@
   transition: 0.3s ease-in-out;
   transition-property: top, background-color, color;
 
-  + * {
-    margin-top: 73px;
-    transition: margin-bottom 0.3s ease-in-out;
-  }
+  // TODO
+  // + * {
+  //   margin-top: 73px;
+  //   transition: margin-bottom 0.3s ease-in-out;
+  // }
 
   &--bg {
     background-color: $clr-primary;
@@ -31,10 +32,10 @@
   &.header--top {
     top: -250px;
 
-    + * {
-      margin-top: 0;
-      transition: margin-bottom 0.3s ease-in-out;
-    }
+    // + * {
+    //   // margin-top: 0;
+    //   transition: margin-bottom 0.3s ease-in-out;
+    // }
   }
 
   // PRIMARY -----------------------------
@@ -147,6 +148,8 @@
       @include Flex(row, $gap: $space-2);
 
       align-self: stretch;
+      font-weight: $fw-700;
+      font-size: $fs-200;
 
       &__menu {
         display: none;
