@@ -52,58 +52,58 @@
   // padding: 0.65rem 2rem;
 }
 
-@mixin Selector {
-  position: relative;
-  padding: 0.45rem 2rem 0.45rem 0.4rem;
-  background-color: $clr-neutral-100;
-  color: $clr-neutral-900;
+// @mixin Selector {
+//   position: relative;
+//   padding: 0.45rem 2rem 0.45rem 0.4rem;
+//   background-color: $clr-neutral-100;
+//   color: $clr-neutral-900;
 
-  &::after {
-    display: block;
-    content: "";
-    position: absolute;
-    border-width: 5px;
-    border-style: solid;
-    border-color: transparent;
-    border-top-color: $clr-neutral-600;
-    border-radius: 2px;
-    right: 15px;
-    bottom: 13px;
-  }
+//   &::after {
+//     display: block;
+//     content: "";
+//     position: absolute;
+//     border-width: 5px;
+//     border-style: solid;
+//     border-color: transparent;
+//     border-top-color: $clr-neutral-600;
+//     border-radius: 2px;
+//     right: 15px;
+//     bottom: 13px;
+//   }
 
-  .select--options {
-    overflow: auto;
-    max-height: 90px;
-    position: absolute;
-    top: 105%;
-    left: 0;
-    color: inherit;
-    z-index: 1;
-    background-color: $clr-neutral-100;
-    width: 100%;
-    padding: 0.5rem 0;
-  }
+//   .select--options {
+//     overflow: auto;
+//     max-height: 90px;
+//     position: absolute;
+//     top: 105%;
+//     left: 0;
+//     color: inherit;
+//     z-index: 1;
+//     background-color: $clr-neutral-100;
+//     width: 100%;
+//     padding: 0.5rem 0;
+//   }
 
-  .select--options > li {
-    cursor: pointer;
-    padding: 0.125rem 1rem;
-    background-color: transparent;
-    transition: background-color 0.3s ease-in-out;
-  }
+//   .select--options > li {
+//     cursor: pointer;
+//     padding: 0.125rem 1rem;
+//     background-color: transparent;
+//     transition: background-color 0.3s ease-in-out;
+//   }
 
-  .select--options > li:hover {
-    background-color: $clr-neutral-300;
-  }
+//   .select--options > li:hover {
+//     background-color: $clr-neutral-300;
+//   }
 
-  > select {
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    -ms-appearance: none;
+//   > select {
+//     -moz-appearance: none;
+//     -webkit-appearance: none;
+//     -ms-appearance: none;
 
-    outline: none;
-    border: none;
-    background-color: transparent;
-    padding: 0.3rem;
-    color: inherit;
-  }
-}
+//     outline: none;
+//     border: none;
+//     background-color: transparent;
+//     padding: 0.3rem;
+//     color: inherit;
+//   }
+// }

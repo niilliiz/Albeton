@@ -80,6 +80,7 @@
 
     .row {
       @include Flex(row, $space-1);
+      margin-top: $space-3;
       align-items: center;
     }
   }
