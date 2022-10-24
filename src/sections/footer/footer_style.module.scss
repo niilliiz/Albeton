@@ -120,6 +120,9 @@
       .footer__nav {
         @include Flex(row, $space-0_5);
       }
+      .row {
+        margin-top: 0;
+      }
     }
   }
 }
