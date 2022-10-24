@@ -1,0 +1,149 @@
+@import "../../styles/utilities.scss";
+@import "../../styles/media.scss";
+
+.shop {
+  @include Grid;
+
+  border-bottom: 1px solid $clr-neutral-200;
+
+  .card {
+    @include Container(medium);
+
+    @include Flex($direction: column, $gap: $space-1);
+    background-color: $clr-neutral-1;
+    align-items: flex-start;
+    background-position: center;
+    background-size: cover;
+    height: 500px;
+
+    &__h2 {
+      font-size: $fs-400;
+    }
+    &__h3 {
+      font-size: $fs-300;
+    }
+
+    &__h4 {
+      font-size: $fs-200;
+    }
+
+    &__h5 {
+      font-size: $fs-100;
+    }
+
+    &__button {
+      @include Button;
+    }
+
+    .clr--primary {
+      color: $clr-primary;
+    }
+
+    .display--inline {
+      display: inline-flex;
+      margin-inline-start: $space-0_5;
+    }
+    .clr--neutral {
+      color: $clr-neutral-600;
+    }
+
+    .text--underline {
+      text-decoration: dotted;
+    }
+
+    .bold--700 {
+      font-weight: $fw-700;
+    }
+    .bold--600 {
+      font-weight: $fw-700;
+    }
+
+    &[data-card="live"] {
+      background-image: url(../../asset/images/live--square.jpg);
+    }
+    &[data-card="push"] {
+      background-image: url(../../asset/images/push--square.jpg);
+      color: $clr-neutral-1;
+    }
+    &[data-card="student"] {
+      height: max-content;
+      background-color: $clr-purple;
+    }
+    &[data-card="max-for-live"] {
+      background-image: url(../../asset/images/max-for-live--square.jpg);
+      color: $clr-neutral-1;
+    }
+    &[data-card="making-music"] {
+      background-color: $clr-neutral-100;
+    }
+    &[data-card="packs"] {
+      background-color: $clr-green;
+      height: 250px;
+    }
+    &[data-card="merchandise"] {
+      background-color: $clr-cyan;
+      height: 250px;
+    }
+    &[data-card="payment-methods"] {
+      height: max-content;
+      .payment--wrapper {
+        @include Grid($repeat: 5);
+
+        img {
+          width: 50px;
+          height: 50px;
+          border: 1px solid $clr-neutral-200;
+        }
+      }
+    }
+    &[data-card="security"],
+    &[data-card="question"] {
+      height: max-content;
+    }
+  }
+
+  @include md {
+    grid-template-columns: repeat(2, 1fr);
+
+    .card {
+      height: 550px;
+
+      &[data-card="student"] {
+        // grid-area:
+        grid-column: span 2;
+      }
+
+      &[data-card="payment-methods"] {
+        .payment--wrapper {
+          @include Grid($repeat: 6);
+
+          img {
+            width: 70px;
+            height: 65px;
+          }
+        }
+      }
+      &[data-card="security"],
+      &[data-card="question"] {
+        height: max-content;
+      }
+    }
+  }
+
+  @include lg {
+    .card {
+      &__h2 {
+        font-size: $fs-600;
+      }
+      &__h3 {
+        font-size: $fs-500;
+      }
+      &__h4 {
+        font-size: $fs-300;
+      }
+      &__h5 {
+        font-size: $fs-200;
+      }
+    }
+  }
+}

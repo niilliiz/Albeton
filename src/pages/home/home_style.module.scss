@@ -2,7 +2,7 @@
 @import "../../styles/media.scss";
 
 .home {
-  @include Container(big);
+  @include Container(large);
   @include Flex($direction: column, $gap: $space-1);
 
   background-image: url(../../asset/images/home_banner.jpg);

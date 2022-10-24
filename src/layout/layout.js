@@ -1,4 +1,5 @@
 import Home from "../pages/home/home";
+import Shop from "../pages/shop/shop";
 import Footer from "../sections/footer/footer";
 import Header from "../sections/header/header";
 
@@ -7,7 +8,8 @@ function Layout() {
   return (
     <div className="layout">
       <Header />
-      <Home />
+      {/* <Home /> */}
+      <Shop />
       <Footer />
     </div>
   );
