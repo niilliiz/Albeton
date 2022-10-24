@@ -1,0 +1,11 @@
+@import "../../styles/utilities.scss";
+
+.link {
+  @include Flex(row, $space-0_25);
+
+  align-items: center;
+
+  p {
+    font-weight: inherit;
+  }
+}

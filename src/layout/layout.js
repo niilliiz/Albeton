@@ -6,7 +6,8 @@ function Layout() {
   return (
     <div className="layout">
       <Header />
-      {/* <Footer /> */}
+      <main></main>
+      <Footer />
     </div>
   );
 }

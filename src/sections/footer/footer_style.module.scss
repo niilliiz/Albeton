@@ -1,0 +1,124 @@
+@import "../../styles/utilities.scss";
+
+.footer {
+  @include Container("big");
+  @include Flex($direction: column, $gap: $space-2);
+
+  .h3 {
+    font-weight: $fw-700;
+  }
+
+  .row {
+    margin-top: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  &__header {
+    .albetonLogo {
+      width: 7.5rem;
+      height: 3.125rem;
+    }
+  }
+
+  &__main {
+    @include Flex($direction: column, $gap: $space-2);
+
+    &__card {
+      @include Flex(column, $space-0_25);
+      font-size: $fs-100;
+
+      .card__link {
+        font-weight: $fw-600;
+      }
+
+      .row {
+        @include Flex;
+        input[type="email"] {
+          padding: 0.5rem 0.7rem;
+          background-color: $clr-neutral-100;
+          margin-inline-end: 0 !important;
+          flex-grow: 1;
+        }
+
+        button[type="submit"] {
+          @include Button;
+        }
+      }
+
+      .row {
+        @include Flex($gap: $space-0_5);
+        .mediaLogo {
+          width: 40px;
+          height: 40px;
+
+          &:last-child {
+            margin-inline-end: 0;
+          }
+
+          &.facebook {
+            background-color: #3477f2;
+          }
+          &.twitter {
+            background-color: #1da1f2;
+          }
+          &.youtube {
+            background-color: #ff001d;
+          }
+          &.instagram {
+            background-color: #f77737;
+          }
+        }
+      }
+    }
+  }
+  &__footer {
+    @include Flex(column);
+    .footer__nav {
+      @include Flex(column, $space-0_5);
+      font-size: $fs-100;
+    }
+
+    .row {
+      @include Flex(row, $space-1);
+      align-items: center;
+    }
+  }
+
+  // MEDIA QUERY -----------------------------------
+
+  @include lg {
+    &__main {
+      @include Grid($repeat: 3);
+      grid-template-areas: "medias education newsletter" "community distributors .";
+
+      div[data-area="medias"] {
+        grid-area: medias;
+      }
+
+      div[data-area="education"] {
+        grid-area: education;
+      }
+
+      div[data-area="newsletter"] {
+        grid-area: newsletter;
+      }
+
+      div[data-area="community"] {
+        grid-area: community;
+      }
+
+      div[data-area="distributors"] {
+        grid-area: distributors;
+      }
+    }
+    &__footer {
+      @include Flex(row);
+      align-items: center;
+      justify-content: space-between;
+
+      .footer__nav {
+        @include Flex(row, $space-0_5);
+      }
+    }
+  }
+}

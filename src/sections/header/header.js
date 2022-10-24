@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import NavLinks from "../../nav_data/nave_data";
+import NavLinks from "../../data/nave_data";
 import { CaretDown } from "phosphor-react";
 import Logo from "../../components/logo/logo";
 
@@ -39,6 +39,7 @@ const Header = () => {
 
   useEffect(() => {
     window.addEventListener("scroll", handleScrollEffect);
+
     return () => {
       window.removeEventListener("scroll", handleScrollEffect);
     };

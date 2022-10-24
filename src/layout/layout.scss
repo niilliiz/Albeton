@@ -1,7 +1,11 @@
 @import "../styles/main.scss";
 
 .layout {
+  position: relative;
   max-width: 100rem;
   margin: 0 auto;
   background-color: $clr-neutral-1;
+  main {
+    height: 150px;
+  }
 }

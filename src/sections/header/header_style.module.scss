@@ -3,7 +3,7 @@
 @import "../../styles/media.scss";
 
 .header {
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
   right: 0;
@@ -29,7 +29,7 @@
   }
 
   &.header--top {
-    top: -100px;
+    top: -250px;
 
     + * {
       margin-top: 0;
@@ -39,7 +39,7 @@
 
   // PRIMARY -----------------------------
   .primary {
-    @include Flex;
+    @include Flex(row, $gap: $space-2);
     @include Container("small");
 
     position: relative;
@@ -70,7 +70,7 @@
 
     &__navigation {
       @include Container("small");
-      @include Flex($direction: column);
+      @include Flex($direction: column, $gap: $space-2);
 
       position: fixed;
       top: 4.2rem;
@@ -93,7 +93,7 @@
 
       .list {
         flex-grow: 1;
-        @include Flex($direction: column);
+        @include Flex($direction: column, $gap: $space-2);
 
         li > a {
           &.active {
@@ -115,7 +115,7 @@
     font-weight: $fw-500;
 
     .list {
-      @include Flex;
+      @include Flex(row, $gap: $space-2);
 
       align-items: center;
       white-space: nowrap;
@@ -144,7 +144,7 @@
       }
     }
     .primary {
-      @include Flex(row, $space-2);
+      @include Flex(row, $gap: $space-2);
 
       align-self: stretch;
 
@@ -153,7 +153,7 @@
       }
 
       &__navigation {
-        @include Flex($direction: row);
+        @include Flex($direction: row, $gap: $space-2);
         flex-grow: 1;
 
         padding-right: 0;
@@ -167,7 +167,7 @@
         }
 
         .list {
-          @include Flex(row);
+          @include Flex(row, $gap: $space-2);
 
           flex-grow: 1;
 
