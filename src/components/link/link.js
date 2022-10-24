@@ -8,6 +8,7 @@ const Link = ({
   link = "#",
   content,
   size = "12",
+  weight = "regular",
   underline = false,
 }) => {
   return (
@@ -15,7 +16,7 @@ const Link = ({
       <p style={{ textDecoration: underline ? "underline" : "none" }}>
         {content}
       </p>
-      <CaretRight size={size} />
+      <CaretRight size={size} weight={weight} />
     </a>
   );
 };
