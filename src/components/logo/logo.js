@@ -1,7 +1,7 @@
 import React from "react";
 
 import styles from "./logo_style.module.scss";
-const Logo = ({ className = "" }) => {
+const Logo = ({ className = "", width = "64", height = "50" }) => {
   return (
     <a href="/" className={className}>
       <svg
@@ -9,8 +9,8 @@ const Logo = ({ className = "" }) => {
         aria-labelledby="logo"
         className={styles.logo}
         xmlns="http://www.w3.org/2000/svg"
-        width="45"
-        height="21"
+        width={width}
+        height={height}
         viewBox="0 0 45 21"
       >
         <title id="logo">Ableton Homepage</title>
