@@ -1,0 +1,47 @@
+@import "../../styles/utilities.scss";
+@import "../../styles/media.scss";
+
+.home {
+  @include Container(big);
+  @include Flex($direction: column, $gap: $space-1);
+
+  background-image: url(../../asset/images/home_banner.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 400px;
+  color: $clr-yellow;
+  margin-bottom: 3rem;
+
+  h1 {
+    @include Flex($direction: column, $gap: $space-0_5);
+    font-size: $fs-300;
+    font-weight: $fw-700;
+  }
+
+  .link {
+    font-size: $fs-200;
+  }
+
+  @include breakpoint {
+    h1 {
+      font-size: $fs-400;
+    }
+
+    .link {
+      font-size: $fs-300;
+    }
+  }
+  @include lg {
+    height: 800px;
+    margin-bottom: 4rem;
+
+    h1 {
+      font-size: $fs-900;
+    }
+
+    .link {
+      font-size: $fs-400;
+    }
+  }
+}

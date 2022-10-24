@@ -1,3 +1,4 @@
+import Home from "../pages/home/home";
 import Footer from "../sections/footer/footer";
 import Header from "../sections/header/header";
 
@@ -6,7 +7,7 @@ function Layout() {
   return (
     <div className="layout">
       <Header />
-      <main></main>
+      <Home />
       <Footer />
     </div>
   );
