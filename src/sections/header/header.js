@@ -4,6 +4,7 @@ import { CaretDown } from "phosphor-react";
 import Logo from "../../components/logo/logo";
 
 import styles from "./header_style.module.scss";
+import DisableScroll from "../../components/UI/disable_scroll";
 const Header = () => {
   const headerRef = useRef(null);
 
@@ -50,6 +51,7 @@ const Header = () => {
       ref={headerRef}
       className={`${styles.header} ${isOpen ? styles["header--bg"] : ""}`}
     >
+      <DisableScroll disable={isOpen} />
       <div
         className={`${styles.primary} ${
           secondaryNavLinks ? styles["primary--border"] : ""
