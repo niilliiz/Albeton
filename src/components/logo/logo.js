@@ -3,7 +3,7 @@ import React from "react";
 import styles from "./logo_style.module.scss";
 const Logo = ({ className = "", width = "64", height = "50" }) => {
   return (
-    <a href="/" className={className}>
+    <a href="/" className={`${styles.logo} ${className}`}>
       <svg
         role="img"
         aria-labelledby="logo"
