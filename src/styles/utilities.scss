@@ -3,13 +3,18 @@
 
 @mixin Container($type) {
   @if $type == "small" {
-    padding: 0.5rem 1.75rem;
-    // @include md {
-    //   border: 2px solid green;
-    // }
-  } @else if $type == "big" {
-    padding: 3.5rem 2rem;
+    padding: 0.5rem 1.25rem;
 
+    @include lg {
+      padding: 1rem 2rem;
+    }
+  } @else if $type == "medium" {
+    padding: 3.5rem 2.5rem;
+    @include lg {
+      padding: 4rem;
+    }
+  } @else if $type == "large" {
+    padding: 3.5rem 2.5rem 0;
     @include lg {
       padding: 12rem 8rem 5rem;
     }
@@ -50,7 +55,10 @@
   font-size: $fs;
   font-weight: $fw;
   padding: 0.65rem 1rem;
-  // padding: 0.65rem 2rem;
+
+  @include lg {
+    padding: 0.65rem 2rem;
+  }
 }
 
 // @mixin Selector {

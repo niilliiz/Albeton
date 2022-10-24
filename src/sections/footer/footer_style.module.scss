@@ -1,7 +1,7 @@
 @import "../../styles/utilities.scss";
 
 .footer {
-  @include Container("big");
+  @include Container("medium");
   @include Flex($direction: column, $gap: $space-2);
 
   .h3 {

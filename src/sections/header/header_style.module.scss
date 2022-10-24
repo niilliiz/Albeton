@@ -41,7 +41,7 @@
   // PRIMARY -----------------------------
   .primary {
     @include Flex(row, $gap: $space-2);
-    @include Container("small");
+    @include Container(small);
 
     position: relative;
     align-items: center;
@@ -70,7 +70,7 @@
     }
 
     &__navigation {
-      @include Container("small");
+      @include Container(small);
       @include Flex($direction: column, $gap: $space-2);
 
       position: fixed;
@@ -109,7 +109,7 @@
   // SECONDARY-----------------------------
 
   .secondary {
-    @include Container("small");
+    @include Container(small);
 
     overflow: auto;
     font-size: $fs-200;
