@@ -25,7 +25,7 @@
 
     &__card {
       @include Flex(column, $space-0_25);
-      font-size: $fs-100;
+      font-size: $fs-14;
 
       .card__link {
         font-weight: $fw-600;
@@ -75,7 +75,7 @@
     @include Flex(column);
     .footer__nav {
       @include Flex(column, $space-0_5);
-      font-size: $fs-100;
+      font-size: $fs-14;
     }
 
     .row {

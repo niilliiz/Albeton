@@ -12,12 +12,6 @@
   transition: 0.3s ease-in-out;
   transition-property: top, background-color, color;
 
-  // TODO
-  // + * {
-  //   margin-top: 73px;
-  //   transition: margin-bottom 0.3s ease-in-out;
-  // }
-
   &--bg {
     background-color: $clr-primary;
     color: $clr-neutral-1;
@@ -31,11 +25,6 @@
 
   &.header--top {
     top: -250px;
-
-    // + * {
-    //   // margin-top: 0;
-    //   transition: margin-bottom 0.3s ease-in-out;
-    // }
   }
 
   // PRIMARY -----------------------------
@@ -47,7 +36,7 @@
     align-items: center;
     z-index: 1;
     font-weight: $fw-600;
-    font-size: $fs-300;
+    font-size: $fs-20;
 
     &--border {
       border-bottom: 1px solid $clr-neutral-400;
@@ -112,7 +101,7 @@
     @include Container(small);
 
     overflow: auto;
-    font-size: $fs-200;
+    font-size: $fs-16;
     font-weight: $fw-500;
 
     .list {
@@ -149,7 +138,7 @@
 
       align-self: stretch;
       font-weight: $fw-700;
-      font-size: $fs-200;
+      font-size: $fs-16;
 
       &__menu {
         display: none;

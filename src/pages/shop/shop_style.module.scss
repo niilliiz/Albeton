@@ -17,18 +17,18 @@
     height: 500px;
 
     &__h2 {
-      font-size: $fs-400;
+      font-size: $fs-28;
     }
     &__h3 {
-      font-size: $fs-300;
+      font-size: $fs-20;
     }
 
     &__h4 {
-      font-size: $fs-200;
+      font-size: $fs-16;
     }
 
     &__h5 {
-      font-size: $fs-100;
+      font-size: $fs-14;
     }
 
     &__button {
@@ -133,16 +133,16 @@
   @include lg {
     .card {
       &__h2 {
-        font-size: $fs-600;
+        font-size: $fs-40;
       }
       &__h3 {
-        font-size: $fs-500;
+        font-size: $fs-34;
       }
       &__h4 {
-        font-size: $fs-300;
+        font-size: $fs-20;
       }
       &__h5 {
-        font-size: $fs-200;
+        font-size: $fs-16;
       }
     }
   }
