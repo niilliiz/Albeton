@@ -1,0 +1,67 @@
+@import "../../styles/utilities.scss";
+@import "../../styles/media.scss";
+
+.packs {
+  @include Container(large);
+  @include Flex($direction: column, $gap: $space-1);
+
+  background-image: url(../../asset/images/packs_banner.jpg);
+  background-position: center right;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 400px;
+  color: $clr-yellow;
+  margin-bottom: 3rem;
+
+  .h1 {
+    font-size: $fs-24;
+    font-weight: $fw-600;
+  }
+
+  .h3 {
+    font-weight: $fw-600;
+    font-size: $fs-20;
+  }
+
+  .link {
+    font-size: $fs-16;
+  }
+
+  // @include breakpoint {
+  //   h1 {
+  //     font-size: $fs-28;
+  //   }
+
+  //   .link {
+  //     font-size: $fs-20;
+  //   }
+  // }
+
+  @include md {
+    .h1 {
+      font-size: $fs-34;
+      font-weight: $fw-700;
+    }
+
+    .h3 {
+      font-size: $fs-24;
+    }
+  }
+
+  @include lg {
+    height: 800px;
+    margin-bottom: 4rem;
+
+    .h1 {
+      font-size: $fs-61;
+    }
+
+    .h3 {
+      font-size: $fs-28;
+    }
+
+    .link {
+      font-size: $fs-28;
+    }
+  }
+}
