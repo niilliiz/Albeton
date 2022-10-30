@@ -35,8 +35,6 @@ const Packs = () => {
     return filtered;
   }, [filterOption]);
 
-  console.log(products);
-
   const getPrice = (product) => {
     if (product.isNew) {
       return <span className={styles.h3}>Included in Live 11 Suits</span>;
@@ -108,7 +106,7 @@ const Packs = () => {
                 New in Live 11
               </div>
             )}
-            <img src={`../../asset/images/${product.img}.jpg`} alt="Product" />
+            <img src={`../../packs/images/${product.img}.jpg`} alt="Product" />
             <span
               className={styles.h3}
               style={{ color: OPTION_COLOR[product.category] }}
