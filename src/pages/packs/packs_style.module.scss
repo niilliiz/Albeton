@@ -4,6 +4,18 @@
 .packs {
   @include Flex($direction: column, $gap: $space-0_5);
 
+  .underline {
+    text-decoration: underline;
+  }
+
+  .primary {
+    color: $clr-primary;
+  }
+
+  .lineThrough {
+    text-decoration: line-through;
+  }
+
   &__banner {
     @include Container(medium);
     @include Flex($direction: column, $gap: $space-1);
@@ -31,19 +43,37 @@
     }
   }
 
+  &__header {
+    @include Container(medium);
+    padding-bottom: 0 !important;
+    padding-top: 2rem !important;
+  }
+
   &__filter {
     @include Container(medium);
+    padding-bottom: 0 !important;
 
-    select {
+    font-weight: $fw-700;
+
+    > select {
       color: $clr-neutral-800;
-      font-weight: $fw-600;
-      font-size: $fs-20;
       width: 100%;
       outline: none;
       border: none;
-      border-bottom: 1px solid $clr-neutral-300;
       padding-bottom: 0.5rem;
+      border-bottom: 1px solid $clr-neutral-300;
+
       background-color: transparent;
+    }
+
+    > ul {
+      border-bottom: 1px solid $clr-neutral-300;
+      padding-bottom: 1rem;
+      display: none;
+
+      > li {
+        cursor: pointer;
+      }
     }
   }
 
@@ -52,41 +82,63 @@
     @include Grid($row-gap: $space-3);
 
     .card {
-      @include Flex($direction: column, $gap: $space-2);
+      @include Flex($direction: column, $gap: $space-0_5);
+
+      position: relative;
       font-weight: $fw-700;
+
+      .label {
+        position: absolute;
+        right: 0;
+        background-color: $clr-green;
+        padding: 0.3rem 0.5rem;
+      }
+
+      > p.h3 {
+        flex-grow: 1;
+        margin-bottom: 1.5rem;
+      }
+
+      img {
+        max-width: 50%;
+        height: 40%;
+        align-self: flex-start;
+        object-fit: cover;
+      }
 
       .h3 {
         font-size: $fs-14;
-        line-height: 1.5;
+        font-weight: $fw-700;
       }
 
-      .primary {
-        color: $clr-primary;
+      > div {
+        @include Flex($direction: column, $gap: $space-0_25);
       }
 
-      .lineThrough {
-        text-decoration: line-through;
+      button {
+        @include Button;
+        align-self: flex-start;
+      }
+    }
+  }
+
+  @include breakpoint {
+    &__filter {
+      > select {
+        display: none;
       }
 
-      &__info {
-        @include Flex($direction: column, $gap: $space-0_5);
+      > ul {
+        @include Flex($gap: $space-1);
+      }
+    }
+    &__cards {
+      @include Grid($repeat: 2, $row-gap: $space-3, $col-gap: $space-3);
 
+      .card {
         img {
-          max-width: 60%;
-          align-self: flex-start;
-          display: block;
-        }
-
-        > div {
-          @include Flex($direction: column, $gap: $space-0_25);
-        }
-      }
-      &__footer {
-        @include Flex($direction: column, $gap: $space-0_5);
-
-        button {
-          @include Button;
-          align-self: flex-start;
+          max-width: 100%;
+          align-self: stretch;
         }
       }
     }
@@ -106,15 +158,8 @@
         font-weight: $fw-600;
       }
     }
-
     &__cards {
-      @include Grid($repeat: 2, $row-gap: $space-3, $col-gap: $space-3);
-
-      .card {
-        img {
-          max-width: 100%;
-        }
-      }
+      @include Grid($repeat: 3, $row-gap: $space-3, $col-gap: $space-3);
     }
   }
 
@@ -126,6 +171,18 @@
 
       .link {
         font-size: $fs-20;
+      }
+    }
+  }
+
+  @include breakpoint($bp: 81.25em) {
+    &__cards {
+      @include Grid($repeat: 4, $row-gap: $space-3, $col-gap: $space-4);
+
+      .card {
+        img {
+          max-width: 80%;
+        }
       }
     }
   }

@@ -1,15 +1,15 @@
-import React from "react";
+import React, { useState, useMemo } from "react";
 import Products from "../../data/products_data";
 import Link from "../../components/link/link";
 
 import styles from "./packs_style.module.scss";
 
 const FILTER_OPTIONS = [
-  { key: "All", value: "all" },
-  { key: "Sound", value: "sound" },
-  { key: "Max for Live", value: "max-for-live" },
-  { key: "Software Instruments", value: "software-instruments" },
-  { key: "Free", value: "free" },
+  { key: "All" },
+  { key: "Sound" },
+  { key: "Max for Live" },
+  { key: "Software Instruments" },
+  { key: "Free" },
 ];
 
 const OPTION_COLOR = {
@@ -19,6 +19,24 @@ const OPTION_COLOR = {
 };
 
 const Packs = () => {
+  const [filterOption, setFilterOption] = useState("All");
+
+  const products = useMemo(() => {
+    let filtered = null;
+    if (filterOption === "All") {
+      filtered = [...Products];
+    } else if (filterOption === "Free") {
+      filtered = Products.filter((product) => product.isFree === true);
+    } else {
+      filtered = Products.filter(
+        (product) => product.category === filterOption
+      );
+    }
+    return filtered;
+  }, [filterOption]);
+
+  console.log(products);
+
   const getPrice = (product) => {
     if (product.isNew) {
       return <span className={styles.h3}>Included in Live 11 Suits</span>;
@@ -54,50 +72,70 @@ const Packs = () => {
       </div>
 
       <div className={styles.packs__filter}>
-        <select name="filter">
+        <select name="filter" onChange={(e) => setFilterOption(e.target.value)}>
           {FILTER_OPTIONS.map((option) => (
-            <option value={option.value}>{option.key}</option>
+            <option key={option.key} value={option.key}>
+              {option.key}
+            </option>
           ))}
         </select>
+
+        <ul>
+          {FILTER_OPTIONS.map((option) => (
+            <li
+              onClick={() => setFilterOption(option.key)}
+              className={`${styles.h2} ${
+                option.key === filterOption ? styles.underline : ""
+              }`}
+              key={option.key}
+            >
+              {option.key}
+            </li>
+          ))}
+        </ul>
       </div>
+      <div className={styles.packs__header}>
+        <h2>
+          {filterOption} ({products.length})
+        </h2>
+      </div>
+
       <div className={styles.packs__cards}>
-        {Products.map((product) => (
-          <div className={styles.card}>
-            <div className={styles.card__info}>
-              <img
-                src={`../../asset/images/${product.img}.jpg`}
-                alt="Product"
-              />
-              <span
-                className={styles.h3}
-                style={{ color: OPTION_COLOR[product.category] }}
-              >
-                {product.category}
-              </span>
-              <div>
-                <span className={`${styles.h2} ${styles.primary}`}>
-                  {product.name}
-                </span>
-                <span className={`${styles.h3} ${styles.by}`}>
-                  by <span className={styles.primary}>{product.by}</span>
-                </span>
+        {products.map((product) => (
+          <div key={product.id} className={styles.card}>
+            {product.isNew && (
+              <div className={`${styles.label} ${styles.h3}`}>
+                New in Live 11
               </div>
-
-              <p className={styles.h3}>{product.description}</p>
+            )}
+            <img src={`../../asset/images/${product.img}.jpg`} alt="Product" />
+            <span
+              className={styles.h3}
+              style={{ color: OPTION_COLOR[product.category] }}
+            >
+              {product.category}
+            </span>
+            <div>
+              <span className={`${styles.h2} ${styles.primary}`}>
+                {product.name}
+              </span>
+              <span className={`${styles.h3} ${styles.by}`}>
+                by <span className={styles.primary}>{product.by}</span>
+              </span>
             </div>
 
-            <div className={styles.card__footer}>
-              {getPrice(product)}
-              {product.discounted_price ? (
-                <span
-                  style={{ color: OPTION_COLOR[product.category] }}
-                  className={styles.h2}
-                >
-                  EUR {product.discounted_price}
-                </span>
-              ) : null}
-              <button className={styles.h2}>Buy now</button>
-            </div>
+            <p className={styles.h3}>{product.description}</p>
+
+            {getPrice(product)}
+            {product.discounted_price ? (
+              <span
+                style={{ color: OPTION_COLOR[product.category] }}
+                className={styles.h2}
+              >
+                EUR {product.discounted_price}
+              </span>
+            ) : null}
+            {!product.isNew && <button className={styles.h2}>Buy now</button>}
           </div>
         ))}
       </div>
