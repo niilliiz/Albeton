@@ -1,4 +1,6 @@
 import React from "react";
+import { Link as RouterLink } from "react-router-dom";
+
 import { CaretRight } from "phosphor-react";
 
 import styles from "./link_style.module.scss";
@@ -12,12 +14,12 @@ const Link = ({
   underline = false,
 }) => {
   return (
-    <a className={`${styles.link} ${className}`} href={link}>
+    <RouterLink className={`${styles.link} ${className}`} to={link}>
       <p style={{ textDecoration: underline ? "underline" : "none" }}>
         {content}
       </p>
       <CaretRight size={size} weight={weight} />
-    </a>
+    </RouterLink>
   );
 };
 export default Link;

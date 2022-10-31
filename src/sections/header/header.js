@@ -1,4 +1,6 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState, useRef } from "react";
+import { NavLink } from "react-router-dom";
 import NavLinks from "../../data/nave_data";
 import { CaretDown } from "phosphor-react";
 import Logo from "../../components/logo/logo";
@@ -29,13 +31,13 @@ const Header = () => {
   };
 
   const handleScrollEffect = () => {
-    let currentScrolTop = window.scrollY;
-    if (lastScrollTop < currentScrolTop) {
+    let currentScrollTop = window.scrollY;
+    if (lastScrollTop < currentScrollTop) {
       headerRef.current.classList.add(styles["header--top"]);
     } else {
       headerRef.current.classList.remove(styles["header--top"]);
     }
-    setLastScrollTop(currentScrolTop);
+    setLastScrollTop(currentScrollTop);
   };
 
   useEffect(() => {
@@ -52,6 +54,7 @@ const Header = () => {
       className={`${styles.header} ${isOpen ? styles["header--bg"] : ""}`}
     >
       <DisableScroll disable={isOpen} />
+      {/* ---------------PRIMARY NAVBAR-------------- */}
       <div
         className={`${styles.primary} ${
           secondaryNavLinks ? styles["primary--border"] : ""
@@ -78,17 +81,19 @@ const Header = () => {
           <ul className={styles.list}>
             {NavLinks.map((nav, index) => (
               <li
+                className={!nav.isActive ? styles.inactive : ""}
                 key={`${nav.title}`}
                 onClick={(e) => {
                   setSecondaryNavbar(e, nav.title, index);
                 }}
               >
-                <a
-                  className={primaryActiveItem === index ? styles.active : ""}
-                  href={nav.path}
+                <NavLink
+                  // className={primaryActiveItem === index ? styles.active : ""}
+                  className={({ isActive }) => (isActive ? styles.active : "")}
+                  to={nav.path}
                 >
                   {nav.title}
-                </a>
+                </NavLink>
               </li>
             ))}
           </ul>

@@ -85,10 +85,17 @@
         flex-grow: 1;
         @include Flex($direction: column, $gap: $space-2);
 
-        li > a {
-          &.active {
-            font-weight: $fw-700;
-            color: $clr-neutral-0;
+        li {
+          &.inactive {
+            pointer-events: none;
+            color: $clr-neutral-500;
+            font-size: $fs-16;
+          }
+          > a {
+            &.active {
+              font-weight: $fw-700;
+              color: $clr-neutral-0;
+            }
           }
         }
       }

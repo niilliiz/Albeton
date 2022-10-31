@@ -125,13 +125,13 @@ const Shop = () => {
         <p className={`${styles.card__h2} ${styles["bold--700"]}`}>
           Payments methods
         </p>
-        <p className={styles.card__h4}>
+        <span className={styles.card__h4}>
           We accept payments via Credit Card, PayPal, iDEAL, Google Pay.
           <Link
             className={`${styles["clr--primary"]} ${styles.card__h5} ${styles["display--inline"]}`}
             content="Learn more"
           />
-        </p>
+        </span>
         <div className={styles["payment--wrapper"]}>
           {PAYMENTS_LOGO.map((logo, index) => (
             <img key={index + 1} src={logo} alt="Payment logo" />

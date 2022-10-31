@@ -1,6 +1,6 @@
 // const base = "";
 const NavLinks = [
-  { title: "Live", path: "/", isActive: true },
+  { title: "Live", path: "/live", isActive: false },
   { title: "Push", path: "/push", isActive: false },
   { title: "Notes", path: "/note", isActive: false },
   { title: "Link", path: "/link", isActive: false },
