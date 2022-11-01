@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect, useState, useRef } from "react";
-import { NavLink } from "react-router-dom";
+import React, { useEffect, useState, useRef, useMemo } from "react";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import NavLinks from "../../data/nave_data";
 import { CaretDown } from "phosphor-react";
 import Logo from "../../components/logo/logo";
@@ -9,26 +9,24 @@ import styles from "./header_style.module.scss";
 import DisableScroll from "../../components/UI/disable_scroll";
 const Header = () => {
   const headerRef = useRef(null);
+  const location = useLocation();
 
   const [isOpen, setIsOpen] = useState(false);
   const [lastScrollTop, setLastScrollTop] = useState(() => window.scrollY);
 
   const [secondaryNavLinks, setSecondaryNavLinks] = useState(null);
 
-  const [secondaryActiveItem, setSecondaryActiveItem] = useState();
-  const [primaryActiveItem, setPrimaryActiveItem] = useState(0);
-
-  const setSecondaryNavbar = (e, title, index) => {
-    e.preventDefault();
-    const secondaryLinks = NavLinks.find((nav) => nav.title === title);
-
-    setSecondaryNavLinks(
-      secondaryLinks.links !== undefined ? [...secondaryLinks.links] : null
+  useMemo(() => {
+    const current = location.pathname.split("/")[1];
+    const currentNav = NavLinks.find(
+      (nav) => nav.title.toLowerCase() === current
     );
-    setSecondaryActiveItem(0);
-    setPrimaryActiveItem(index);
-    setIsOpen(false);
-  };
+    if (currentNav?.links?.length > 0) {
+      setSecondaryNavLinks(currentNav.links);
+    } else {
+      setSecondaryNavLinks(null);
+    }
+  }, [location]);
 
   const handleScrollEffect = () => {
     let currentScrollTop = window.scrollY;
@@ -61,6 +59,7 @@ const Header = () => {
         }`}
       >
         <Logo className={styles.logo} />
+
         <div
           className={styles.primary__menu}
           onClick={() => setIsOpen(!isOpen)}
@@ -81,15 +80,13 @@ const Header = () => {
           <ul className={styles.list}>
             {NavLinks.map((nav, index) => (
               <li
-                className={!nav.isActive ? styles.inactive : ""}
+                className={nav.disable ? styles.disabled : ""}
                 key={`${nav.title}`}
-                onClick={(e) => {
-                  setSecondaryNavbar(e, nav.title, index);
-                }}
               >
                 <NavLink
-                  // className={primaryActiveItem === index ? styles.active : ""}
-                  className={({ isActive }) => (isActive ? styles.active : "")}
+                  className={({ isActive }) =>
+                    isActive ? styles.active : styles.inactive
+                  }
                   to={nav.path}
                 >
                   {nav.title}
@@ -98,7 +95,7 @@ const Header = () => {
             ))}
           </ul>
           <div className={styles.primary__auth}>
-            <a href="/register">Login or Register</a>
+            <Link to="/login">Login or Register</Link>
           </div>
         </nav>
       </div>
@@ -107,16 +104,15 @@ const Header = () => {
         <nav className={styles.secondary}>
           <ul className={styles.list}>
             {secondaryNavLinks.map((nav, index) => (
-              <li
-                key={`${nav.title}`}
-                onClick={() => setSecondaryActiveItem(index)}
-              >
-                <a
-                  href={nav.path}
-                  className={secondaryActiveItem === index ? styles.active : ""}
+              <li key={`${nav.title}`}>
+                <NavLink
+                  to={nav.path}
+                  className={({ isActive }) =>
+                    isActive ? styles.active : styles.inactive
+                  }
                 >
                   {nav.title}
-                </a>
+                </NavLink>
               </li>
             ))}
           </ul>
@@ -126,7 +122,3 @@ const Header = () => {
   );
 };
 export default Header;
-
-/* 
-TODO: show active link based on the url
-*/

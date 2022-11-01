@@ -1,30 +1,30 @@
 // const base = "";
 const NavLinks = [
-  { title: "Live", path: "/live", isActive: false },
-  { title: "Push", path: "/push", isActive: false },
-  { title: "Notes", path: "/note", isActive: false },
-  { title: "Link", path: "/link", isActive: false },
+  { title: "Live", path: "/live", disable: true },
+  { title: "Push", path: "/push", disable: true },
+  { title: "Notes", path: "/note", disable: true },
+  { title: "Link", path: "/link", disable: true },
   {
     title: "Shop",
     path: "/shop",
-    isActive: true,
+    disable: false,
     links: [
-      { title: "Overview", path: "/shop/", isActive: true },
-      { title: "Live", path: "/shop/live", isActive: false },
-      { title: "Push", path: "/shop/push", isActive: false },
+      { title: "Overview", path: "/shop/preview", disable: true },
+      { title: "Live", path: "/shop/live", disable: true },
+      { title: "Push", path: "/shop/push", disable: true },
       {
         title: "Educational offers",
         path: "/shop/educational-offers",
-        isActive: false,
+        disable: true,
       },
-      { title: "Max for live", path: "/shop/Max-for-live", isActive: false },
-      { title: "Making music", path: "/shop/making-music", isActive: false },
-      { title: "Merchandise", path: "/shop/merchandise", isActive: false },
+      { title: "Max for live", path: "/shop/Max-for-live", disable: true },
+      { title: "Making music", path: "/shop/making-music", disable: true },
+      { title: "Merchandise", path: "/shop/merchandise", disable: true },
     ],
   },
-  { title: "Packs", path: "/packs", isActive: true },
-  { title: "Help", path: "/help", isActive: false },
-  { title: "More+", path: "/more", isActive: false },
+  { title: "Packs", path: "/packs", disable: false },
+  { title: "Help", path: "/help", disable: true },
+  { title: "More+", path: "/more", disable: true },
 ];
 
 export default NavLinks;

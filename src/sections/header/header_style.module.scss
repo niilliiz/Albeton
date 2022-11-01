@@ -27,6 +27,26 @@
     top: -250px;
   }
 
+  .list {
+    flex-grow: 1;
+    @include Flex($direction: column, $gap: $space-2);
+
+    li {
+      &.disabled {
+        pointer-events: none;
+        font-size: $fs-16;
+        color: $clr-neutral-400;
+      }
+
+      > a {
+        &.active {
+          font-weight: $fw-700;
+          color: $clr-neutral-900;
+        }
+      }
+    }
+  }
+
   // PRIMARY -----------------------------
   .primary {
     @include Flex(row, $gap: $space-2);
@@ -63,7 +83,7 @@
       @include Flex($direction: column, $gap: $space-2);
 
       position: fixed;
-      top: 4.2rem;
+      top: 4rem;
       left: 0;
       right: 0;
       bottom: 0;
@@ -80,25 +100,6 @@
         transform: translateY(-150%);
         transition: transform 0.5s ease-in-out;
       }
-
-      .list {
-        flex-grow: 1;
-        @include Flex($direction: column, $gap: $space-2);
-
-        li {
-          &.inactive {
-            pointer-events: none;
-            color: $clr-neutral-500;
-            font-size: $fs-16;
-          }
-          > a {
-            &.active {
-              font-weight: $fw-700;
-              color: $clr-neutral-0;
-            }
-          }
-        }
-      }
     }
   }
 
@@ -112,19 +113,7 @@
     font-weight: $fw-500;
 
     .list {
-      @include Flex(row, $gap: $space-2);
-
-      align-items: center;
-      white-space: nowrap;
-
-      > li > a {
-        line-height: 3;
-
-        &.active {
-          font-weight: $fw-600;
-          color: $clr-secondary;
-        }
-      }
+      @include Flex($direction: row, $gap: $space-2);
     }
   }
 
@@ -172,7 +161,6 @@
 
           li > a {
             &.active {
-              font-weight: $fw-600;
               color: $clr-secondary;
             }
           }
