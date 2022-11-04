@@ -9,7 +9,7 @@ const NavLinks = [
     path: "/shop",
     disable: false,
     links: [
-      { title: "Overview", path: "/shop/preview", disable: true },
+      { title: "Overview", path: "/shop", disable: true },
       { title: "Live", path: "/shop/live", disable: true },
       { title: "Push", path: "/shop/push", disable: true },
       {

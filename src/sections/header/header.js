@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState, useRef, useMemo } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
-import NavLinks from "../../data/nave_data";
+import NavLinks from "../../data/nav_data";
 import { CaretDown } from "phosphor-react";
 import Logo from "../../components/logo/logo";
 
@@ -78,7 +78,7 @@ const Header = () => {
            `}
         >
           <ul className={styles.list}>
-            {NavLinks.map((nav, index) => (
+            {NavLinks.map((nav) => (
               <li
                 className={nav.disable ? styles.disabled : ""}
                 key={`${nav.title}`}
@@ -87,6 +87,7 @@ const Header = () => {
                   className={({ isActive }) =>
                     isActive ? styles.active : styles.inactive
                   }
+                  onClick={() => setIsOpen(!isOpen)}
                   to={nav.path}
                 >
                   {nav.title}
@@ -95,7 +96,9 @@ const Header = () => {
             ))}
           </ul>
           <div className={styles.primary__auth}>
-            <Link to="/login">Login or Register</Link>
+            <Link onClick={() => setIsOpen(!isOpen)} to="/auth">
+              Login or Register
+            </Link>
           </div>
         </nav>
       </div>
@@ -103,7 +106,7 @@ const Header = () => {
       {secondaryNavLinks && (
         <nav className={styles.secondary}>
           <ul className={styles.list}>
-            {secondaryNavLinks.map((nav, index) => (
+            {secondaryNavLinks.map((nav) => (
               <li key={`${nav.title}`}>
                 <NavLink
                   to={nav.path}
