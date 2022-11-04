@@ -16,11 +16,13 @@ const FIELD = {
 
 const SingIn = () => {
   const [field, setField] = useState(FIELD);
-  // const [password, setPassword] = useState("");
-
   const { email, password } = field;
 
   const [errors, setErrors] = useState({});
+
+  const resetField = () => {
+    setField(FIELD);
+  };
 
   const googleLogin = async (e) => {
     e.preventDefault();
@@ -33,9 +35,17 @@ const SingIn = () => {
     const errors = {};
 
     try {
-      const response = await singInUserWithEmailAndPass(email, password);
+      await singInUserWithEmailAndPass(email, password);
+      resetField();
     } catch (error) {
-      console.log(error);
+      if (error.code === "auth/user-not-found") {
+        errors.noFound = "You should sign up first.";
+      }
+      if (error.code === "auth/wrong-password") {
+        errors.wrongPassword = "Wrong password.";
+      }
+
+      setErrors(errors);
     }
   };
 
@@ -55,14 +65,17 @@ const SingIn = () => {
           type="email"
           placeholder="Email"
           labelContent="Email *"
+          helperText={errors.noFound}
           onChange={(e) => setField({ ...field, email: e.target.value })}
         />
 
         <Input
           value={password}
           name="password"
+          type="password"
           placeholder="Password"
           labelContent="Password *"
+          helperText={errors.wrongPassword}
           onChange={(e) => setField({ ...field, password: e.target.value })}
         />
 

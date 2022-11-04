@@ -10,6 +10,7 @@ const Input = ({
   placeholder,
   labelContent,
   element = null,
+  helperText = "",
 }) => {
   return (
     <div className={`${styles.input} ${className}`}>
@@ -20,10 +21,14 @@ const Input = ({
         required={required}
         type={type}
         id={name}
+        name={name}
         placeholder={placeholder}
         value={value}
         onChange={onChange}
       />
+      {helperText && (
+        <span className={`${styles.h4} ${styles.warning}`}>{helperText}</span>
+      )}
       {element && element}
     </div>
   );

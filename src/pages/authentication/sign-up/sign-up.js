@@ -8,7 +8,7 @@ import {
   createUserDocumentFromAuth,
 } from "../../../utils/firebase";
 
-import styles from "./sign-out_style.module.scss";
+import styles from "./sign-up_style.module.scss";
 import { useMemo } from "react";
 
 const FIELD = {
@@ -18,23 +18,39 @@ const FIELD = {
   confirm_password: "",
 };
 
-const SignOut = () => {
+const SignUp = () => {
   const [field, setField] = useState(FIELD);
-  const [showWarning, setShowWarning] = useState(false);
   const { email, password, confirm_password, name } = field;
 
   const [errors, setErrors] = useState({});
 
   useMemo(() => {
     if (password !== confirm_password) {
-      setShowWarning(true);
+      setErrors({ ...errors, notEqualPassword: "Password is not the same" });
     } else {
-      setShowWarning(false);
+      setErrors({ ...errors, notEqualPassword: null });
     }
   }, [confirm_password]);
 
+  useMemo(() => {
+    if (password.length > 0 && password.length < 6) {
+      setErrors({
+        ...errors,
+        weakPass: "Weak password. it must be at least 6 characters",
+      });
+    } else {
+      setErrors({ ...errors, weakPass: null });
+    }
+  }, [password]);
+
+  const resetField = () => {
+    setField(FIELD);
+  };
+
   const nativeRegister = async (e) => {
     e.preventDefault();
+
+    const errors = {};
     if (password !== confirm_password) return;
 
     try {
@@ -42,8 +58,16 @@ const SignOut = () => {
       await createUserDocumentFromAuth(user, {
         displayName: name,
       });
+      resetField();
     } catch (error) {
-      console.dir(error);
+      if (error.code === "auth/email-already-in-use") {
+        errors.isUsed = "Email has already been registered";
+      }
+      if (error.code === "auth/weak-password") {
+        errors.weakPass = "Password should be at least 6 characters";
+      }
+
+      setErrors(errors);
     }
   };
 
@@ -73,6 +97,7 @@ const SignOut = () => {
           name="email"
           type="email"
           placeholder="Email"
+          helperText={errors.isUsed}
           labelContent="Email *"
           onChange={(e) => setField({ ...field, email: e.target.value })}
         />
@@ -80,6 +105,7 @@ const SignOut = () => {
           value={password}
           name="password"
           type="password"
+          helperText={errors.weakPass}
           placeholder="Password"
           labelContent="Password *"
           onChange={(e) => setField({ ...field, password: e.target.value })}
@@ -93,13 +119,7 @@ const SignOut = () => {
           onChange={(e) =>
             setField({ ...field, confirm_password: e.target.value })
           }
-          element={
-            showWarning && (
-              <span className={`${styles.h4} ${styles.warning}`}>
-                Password is not the same
-              </span>
-            )
-          }
+          helperText={errors.notEqualPassword}
         />
         <button type="submit" className={styles.button}>
           Create account
@@ -108,4 +128,4 @@ const SignOut = () => {
     </section>
   );
 };
-export default SignOut;
+export default SignUp;
