@@ -55,7 +55,7 @@ const SingIn = () => {
           type="email"
           placeholder="Email"
           labelContent="Email *"
-          setValue={(e) => setField({ ...field, email: e.target.value })}
+          onChange={(e) => setField({ ...field, email: e.target.value })}
         />
 
         <Input
@@ -63,7 +63,7 @@ const SingIn = () => {
           name="password"
           placeholder="Password"
           labelContent="Password *"
-          setValue={(e) => setField({ ...field, password: e.target.value })}
+          onChange={(e) => setField({ ...field, password: e.target.value })}
         />
 
         <button onSubmit={nativeLogin} className={styles.button}>

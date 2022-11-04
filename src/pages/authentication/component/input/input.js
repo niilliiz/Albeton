@@ -4,7 +4,7 @@ const Input = ({
   className = "",
   required = true,
   value,
-  setValue,
+  onChange,
   type,
   name,
   placeholder,
@@ -22,7 +22,7 @@ const Input = ({
         id={name}
         placeholder={placeholder}
         value={value}
-        onChange={setValue}
+        onChange={onChange}
       />
       {element && element}
     </div>

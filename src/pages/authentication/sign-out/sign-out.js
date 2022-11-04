@@ -32,7 +32,7 @@ const SignOut = () => {
         displayName: name,
       });
     } catch (error) {
-      console.log(error);
+      console.dir(error);
     }
   };
 
@@ -50,7 +50,7 @@ const SignOut = () => {
           name="name"
           placeholder="Your name"
           labelContent="Name *"
-          setValue={(e) => setField({ ...field, name: e.target.value })}
+          onChange={(e) => setField({ ...field, name: e.target.value })}
           element={
             <h4 className={`${styles.h4} ${styles.cyan}`}>
               So that we know what to call you if we email you
@@ -63,7 +63,7 @@ const SignOut = () => {
           type="email"
           placeholder="Email"
           labelContent="Email *"
-          setValue={(e) => setField({ ...field, email: e.target.value })}
+          onChange={(e) => setField({ ...field, email: e.target.value })}
         />
         <Input
           value={password}
@@ -71,7 +71,7 @@ const SignOut = () => {
           type="password"
           placeholder="Password"
           labelContent="Password *"
-          setValue={(e) => setField({ ...field, password: e.target.value })}
+          onChange={(e) => setField({ ...field, password: e.target.value })}
         />
         <Input
           value={confirm_password}
@@ -79,7 +79,7 @@ const SignOut = () => {
           type="password"
           placeholder="Confirm the password"
           labelContent="Confirm password *"
-          setValue={(e) =>
+          onChange={(e) =>
             setField({ ...field, confirm_password: e.target.value })
           }
         />
