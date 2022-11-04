@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React from "react";
 import { useState } from "react";
 
@@ -8,6 +9,7 @@ import {
 } from "../../../utils/firebase";
 
 import styles from "./sign-out_style.module.scss";
+import { useMemo } from "react";
 
 const FIELD = {
   name: "",
@@ -18,9 +20,18 @@ const FIELD = {
 
 const SignOut = () => {
   const [field, setField] = useState(FIELD);
+  const [showWarning, setShowWarning] = useState(false);
   const { email, password, confirm_password, name } = field;
 
   const [errors, setErrors] = useState({});
+
+  useMemo(() => {
+    if (password !== confirm_password) {
+      setShowWarning(true);
+    } else {
+      setShowWarning(false);
+    }
+  }, [confirm_password]);
 
   const nativeRegister = async (e) => {
     e.preventDefault();
@@ -81,6 +92,13 @@ const SignOut = () => {
           labelContent="Confirm password *"
           onChange={(e) =>
             setField({ ...field, confirm_password: e.target.value })
+          }
+          element={
+            showWarning && (
+              <span className={`${styles.h4} ${styles.warning}`}>
+                Password is not the same
+              </span>
+            )
           }
         />
         <button type="submit" className={styles.button}>
