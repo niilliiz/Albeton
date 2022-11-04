@@ -1,0 +1,23 @@
+@import "../../../../styles/media.scss";
+@import "../../../../styles/utilities.scss";
+
+.input {
+  @include Flex($direction: column, $gap: $space-0_25);
+
+  input {
+    background-color: $clr-neutral-200;
+    padding: 0.8rem;
+    font-size: $fs-14;
+  }
+
+  .h4 {
+    font-size: $fs-12;
+    font-weight: $fw-700;
+  }
+
+  @include md {
+    .h4 {
+      font-size: $fs-14;
+    }
+  }
+}

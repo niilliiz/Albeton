@@ -1,0 +1,41 @@
+@import "../../../styles/utilities.scss";
+@import "../../../styles/media.scss";
+
+.login {
+  @include Flex($direction: column, $gap: $space-1);
+
+  .h2 {
+    font-size: $fs-34;
+    font-weight: $fw-600;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid $clr-neutral-300;
+  }
+
+  .h4 {
+    font-size: $fs-12;
+    font-weight: $fw-700;
+  }
+
+  form {
+    @include Flex($direction: column, $gap: $space-1);
+
+    > div {
+      @include Flex($direction: column, $gap: $space-0_25);
+    }
+
+    .button {
+      @include Button;
+      align-self: flex-start;
+
+      &--google {
+        @include Button($bg: #e54335);
+      }
+    }
+  }
+
+  @include md {
+    .h4 {
+      font-size: $fs-14;
+    }
+  }
+}

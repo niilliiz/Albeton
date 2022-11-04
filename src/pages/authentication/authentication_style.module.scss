@@ -1,0 +1,19 @@
+@import "../../styles/utilities.scss";
+@import "../../styles/media.scss";
+
+.auth {
+  @include Container(medium);
+  @include Flex($direction: column, $gap: $space-3);
+
+  > * {
+    flex: 1 1 50%;
+  }
+
+  @include md {
+    @include Flex($direction: row, $gap: $space-4);
+
+    .h4 {
+      font-size: $fs-14;
+    }
+  }
+}
