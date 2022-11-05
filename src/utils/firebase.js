@@ -32,9 +32,6 @@ export const auth = getAuth();
 // LOGIN OR SING UP WITH GOOGLE ACCOUNT-------------------------------------
 export const signInWithGooglePopup = () => signInWithPopup(auth, provider);
 
-// SIGN OUT-----------------------------------------------
-export const userSingOut = async () => signOut(auth);
-
 // CREATING USER DOCUMENT----------------------------------------------------
 export const createUserDocumentFromAuth = async (userAuth, metaData = {}) => {
   if (!userAuth) return;
@@ -71,5 +68,8 @@ export const singInUserWithEmailAndPass = async (email, password) => {
   if (!email || !password) return;
   return await signInWithEmailAndPassword(auth, email, password);
 };
+
+// SIGN OUT-----------------------------------------------
+export const userSingOut = async () => signOut(auth);
 
 export const db = getFirestore();
