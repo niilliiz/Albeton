@@ -46,9 +46,16 @@ const SingIn = () => {
     } catch (error) {
       if (error.code === "auth/user-not-found") {
         errors.noFound = "You should sign up first.";
-      }
-      if (error.code === "auth/wrong-password") {
+        setToast({
+          type: "error",
+          message: "You should sign up first!",
+        });
+      } else if (error.code === "auth/wrong-password") {
         errors.wrongPassword = "Wrong password.";
+        setToast({
+          type: "error",
+          message: "Wrong password!",
+        });
       } else {
         setToast({
           type: "error",

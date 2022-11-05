@@ -69,8 +69,11 @@ const SignUp = () => {
     } catch (error) {
       if (error.code === "auth/email-already-in-use") {
         errors.isUsed = "Email has already been registered";
-      }
-      if (error.code === "auth/weak-password") {
+        setToast({
+          type: "error",
+          message: "Email has already been registered",
+        });
+      } else if (error.code === "auth/weak-password") {
         errors.weakPass = "Password should be at least 6 characters";
       } else {
         setToast({
