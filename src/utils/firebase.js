@@ -1,5 +1,6 @@
 import { initializeApp } from "firebase/app";
 import {
+  signOut,
   getAuth,
   signInWithPopup,
   GoogleAuthProvider,
@@ -26,9 +27,13 @@ provider.setCustomParameters({
   prompt: "select_account",
 });
 
-// LOGIN OR SING UP WITH GOOGLE ACCOUNT-------------------------------------
 export const auth = getAuth();
+
+// LOGIN OR SING UP WITH GOOGLE ACCOUNT-------------------------------------
 export const signInWithGooglePopup = () => signInWithPopup(auth, provider);
+
+// SIGN OUT-----------------------------------------------
+export const userSingOut = async () => signOut(auth);
 
 // CREATING USER DOCUMENT----------------------------------------------------
 export const createUserDocumentFromAuth = async (userAuth, metaData = {}) => {
@@ -59,17 +64,6 @@ export const createWithEmailAndPass = async (email, password) => {
   if (!email || !password) return;
 
   return await createUserWithEmailAndPassword(auth, email, password);
-  // .then((userCredential) => {
-  //   // Signed in
-  //   const user = userCredential.user;
-  //   createUserDocumentFromAuth(user);
-  //   // ...
-  // })
-  // .catch((error) => {
-  //   const errorCode = error.code;
-  //   const errorMessage = error.message;
-  //   // ..
-  // });
 };
 
 // SING IN WITH EMAIL AND PASSWORD---------------------------------------
@@ -77,17 +71,5 @@ export const singInUserWithEmailAndPass = async (email, password) => {
   if (!email || !password) return;
   return await signInWithEmailAndPassword(auth, email, password);
 };
-// .then((userCredential) => {
-//   // Signed in
-//   const user = userCredential.user;
-//   console.log(user);
-
-//   // ...
-// })
-// .catch((error) => {
-//   const errorCode = error.code;
-//   const errorMessage = error.message;
-//   // ..
-// });
 
 export const db = getFirestore();
