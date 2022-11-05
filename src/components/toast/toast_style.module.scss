@@ -1,0 +1,47 @@
+@import "../../styles/utilities.scss";
+
+.toast {
+  @include Flex($gap: $space-1);
+  align-items: center;
+
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  font-size: $fs-20;
+  font-weight: $fw-600;
+  padding: 0.3rem 2rem;
+  z-index: 1000;
+  background-color: $clr-neutral-900;
+  opacity: 0;
+
+  pointer-events: none;
+  transition: 0.3s ease-in-out;
+  transition-property: opacity, transform;
+
+  > span {
+    color: $clr-neutral-1;
+  }
+
+  &.showToast {
+    animation: showToast 4s ease-in-out 1;
+  }
+}
+
+@keyframes showToast {
+  0% {
+    opacity: 0;
+    transform: translateX(150%);
+  }
+  10% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  85% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(150%);
+  }
+}

@@ -7,6 +7,7 @@ import {
   createWithEmailAndPass,
   createUserDocumentFromAuth,
 } from "../../../utils/firebase";
+import Toast from "../../../components/toast/toast";
 
 import styles from "./sign-up_style.module.scss";
 import { useMemo } from "react";
@@ -20,6 +21,8 @@ const FIELD = {
 
 const SignUp = () => {
   const [field, setField] = useState(FIELD);
+  const [toast, setToast] = useState({});
+
   const { email, password, confirm_password, name } = field;
 
   const [errors, setErrors] = useState({});
@@ -58,6 +61,10 @@ const SignUp = () => {
       await createUserDocumentFromAuth(user, {
         displayName: name,
       });
+      setToast({
+        type: "success",
+        message: "You're signed up successfully :)",
+      });
       resetField();
     } catch (error) {
       if (error.code === "auth/email-already-in-use") {
@@ -65,6 +72,11 @@ const SignUp = () => {
       }
       if (error.code === "auth/weak-password") {
         errors.weakPass = "Password should be at least 6 characters";
+      } else {
+        setToast({
+          type: "error",
+          message: "Something went wrong :(",
+        });
       }
 
       setErrors(errors);
@@ -73,6 +85,8 @@ const SignUp = () => {
 
   return (
     <section className={styles.register}>
+      <Toast message={toast.message} type={toast.type} />
+
       <h2 className={styles.h2}>Sing Up</h2>
       <strong>New Customer? Please create an account.</strong>
       <p>

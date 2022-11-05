@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import Toast from "../../../components/toast/toast";
 import {
   signInWithGooglePopup,
   singInUserWithEmailAndPass,
@@ -17,6 +17,7 @@ const FIELD = {
 const SingIn = () => {
   const [field, setField] = useState(FIELD);
   const { email, password } = field;
+  const [toast, setToast] = useState({});
 
   const [errors, setErrors] = useState({});
 
@@ -28,6 +29,7 @@ const SingIn = () => {
     e.preventDefault();
     const { user } = await signInWithGooglePopup();
     await createUserDocumentFromAuth(user);
+    setToast({ type: "success", message: "You're signed in successfully :)" });
   };
 
   const nativeLogin = async (e) => {
@@ -36,6 +38,10 @@ const SingIn = () => {
 
     try {
       await singInUserWithEmailAndPass(email, password);
+      setToast({
+        type: "success",
+        message: "You're signed in successfully :)",
+      });
       resetField();
     } catch (error) {
       if (error.code === "auth/user-not-found") {
@@ -43,6 +49,11 @@ const SingIn = () => {
       }
       if (error.code === "auth/wrong-password") {
         errors.wrongPassword = "Wrong password.";
+      } else {
+        setToast({
+          type: "error",
+          message: "Something went wrong :(",
+        });
       }
 
       setErrors(errors);
@@ -51,6 +62,7 @@ const SingIn = () => {
 
   return (
     <section className={styles.login}>
+      <Toast message={toast.message} type={toast.type} />
       <h2 className={styles.h2}>Log in</h2>
       <strong>Why do I need to log in?</strong>
       <p>
