@@ -101,12 +101,17 @@ const Packs = () => {
       <div className={styles.packs__cards}>
         {products.map((product) => (
           <div key={product.id} className={styles.card}>
-            {product.isNew && (
-              <div className={`${styles.label} ${styles.h3}`}>
-                New in Live 11
-              </div>
-            )}
-            <img src={`../../packs/images/${product.img}.jpg`} alt="Product" />
+            <div className={styles["img--wrapper"]}>
+              {product.isNew && (
+                <div className={`${styles.label} ${styles.h3}`}>
+                  New in Live 11
+                </div>
+              )}
+              <img
+                src={`../../packs/images/${product.img}.jpg`}
+                alt="Product"
+              />
+            </div>
             <span
               className={styles.h3}
               style={{ color: OPTION_COLOR[product.category] }}

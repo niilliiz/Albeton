@@ -84,26 +84,28 @@
     .card {
       @include Flex($direction: column, $gap: $space-0_5);
 
-      position: relative;
       font-weight: $fw-700;
-
-      .label {
-        position: absolute;
-        right: 0;
-        background-color: $clr-green;
-        padding: 0.3rem 0.5rem;
-      }
 
       > p.h3 {
         flex-grow: 1;
         margin-bottom: 1.5rem;
       }
 
-      img {
-        max-width: 50%;
-        height: 40%;
+      .img--wrapper {
+        position: relative;
         align-self: flex-start;
-        object-fit: cover;
+        max-width: 70%;
+
+        .label {
+          position: absolute;
+          right: 0;
+          background-color: $clr-green;
+          padding: 0.3rem 0.5rem;
+        }
+
+        img {
+          object-fit: cover;
+        }
       }
 
       .h3 {
@@ -136,9 +138,10 @@
       @include Grid($repeat: 2, $row-gap: $space-3, $col-gap: $space-3);
 
       .card {
-        img {
+        .img--wrapper {
+          position: relative;
+          align-self: flex-start;
           max-width: 100%;
-          align-self: stretch;
         }
       }
     }
@@ -180,7 +183,9 @@
       @include Grid($repeat: 4, $row-gap: $space-3, $col-gap: $space-4);
 
       .card {
-        img {
+        .img--wrapper {
+          position: relative;
+          align-self: flex-start;
           max-width: 80%;
         }
       }
