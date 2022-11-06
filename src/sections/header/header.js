@@ -2,14 +2,16 @@
 import React, { useEffect, useState, useRef, useMemo, useContext } from "react";
 import { userSingOut } from "../../utils/firebase";
 import { Link, NavLink, useLocation } from "react-router-dom";
-import NavLinks from "../../data/nav_data";
-import { CaretDown, ShoppingCartSimple } from "phosphor-react";
-
+import { CaretDown } from "phosphor-react";
 import { UserContext } from "../../contexts/user_context";
+
+import NavLinks from "../../data/nav_data";
 import Logo from "../../components/logo/logo";
-import styles from "./header_style.module.scss";
 import DisableScroll from "../../components/UI/disable_scroll";
 import Toast from "../../components/toast/toast";
+import CartIcon from "../../components/cart_icon/cart_icon";
+
+import styles from "./header_style.module.scss";
 
 const Header = () => {
   const headerRef = useRef(null);
@@ -81,7 +83,7 @@ const Header = () => {
           secondaryNavLinks ? styles["primary--border"] : ""
         }`}
       >
-        <Logo className={styles.logo} />
+        <Logo onClick={() => setIsOpen(false)} className={styles.logo} />
 
         <div
           className={styles.primary__menu}
@@ -127,7 +129,7 @@ const Header = () => {
               </Link>
             )}
 
-            {currentUser && <ShoppingCartSimple size={24} />}
+            {currentUser && <CartIcon onClick={() => setIsOpen(!isOpen)} />}
           </div>
         </nav>
       </div>
