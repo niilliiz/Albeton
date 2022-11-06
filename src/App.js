@@ -5,6 +5,8 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
+import { UserProvider } from "./contexts/user_context";
+
 import Layout from "./layout/layout";
 import Home from "./pages/home/home";
 import Shop from "./pages/shop/shop";
@@ -23,7 +25,11 @@ const router = createBrowserRouter(
 );
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <UserProvider>
+      <RouterProvider router={router} />
+    </UserProvider>
+  );
 }
 
 export default App;

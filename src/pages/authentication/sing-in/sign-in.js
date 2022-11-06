@@ -4,8 +4,8 @@ import Toast from "../../../components/toast/toast";
 import {
   signInWithGooglePopup,
   singInUserWithEmailAndPass,
-  createUserDocumentFromAuth,
 } from "../../../utils/firebase";
+
 import Input from "../component/input/input";
 import styles from "./sign-in_style.module.scss";
 
@@ -27,9 +27,20 @@ const SingIn = () => {
 
   const googleLogin = async (e) => {
     e.preventDefault();
-    const { user } = await signInWithGooglePopup();
-    await createUserDocumentFromAuth(user);
-    setToast({ type: "success", message: "You're signed in successfully :)" });
+    try {
+      await signInWithGooglePopup();
+      setToast({
+        type: "success",
+        message: "You're signed in successfully :)",
+      });
+    } catch (error) {
+      console.dir("Sing in with google error: " + error);
+
+      setToast({
+        type: "error",
+        message: "Something went wrong :(",
+      });
+    }
   };
 
   const nativeLogin = async (e) => {
@@ -40,8 +51,9 @@ const SingIn = () => {
       await singInUserWithEmailAndPass(email, password);
       setToast({
         type: "success",
-        message: "You're signed in successfully :)",
+        message: "welcome back! :)",
       });
+
       resetField();
     } catch (error) {
       if (error.code === "auth/user-not-found") {
@@ -57,6 +69,8 @@ const SingIn = () => {
           message: "Wrong password!",
         });
       } else {
+        console.dir("Sing in error: " + error);
+
         setToast({
           type: "error",
           message: "Something went wrong :(",

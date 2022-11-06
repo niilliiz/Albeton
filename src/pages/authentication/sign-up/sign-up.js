@@ -7,8 +7,8 @@ import {
   createWithEmailAndPass,
   createUserDocumentFromAuth,
 } from "../../../utils/firebase";
-import Toast from "../../../components/toast/toast";
 
+import Toast from "../../../components/toast/toast";
 import styles from "./sign-up_style.module.scss";
 import { useMemo } from "react";
 
@@ -63,7 +63,7 @@ const SignUp = () => {
       });
       setToast({
         type: "success",
-        message: "You're signed up successfully :)",
+        message: "congrats! You've just registered successfully! :)",
       });
       resetField();
     } catch (error) {
@@ -76,6 +76,8 @@ const SignUp = () => {
       } else if (error.code === "auth/weak-password") {
         errors.weakPass = "Password should be at least 6 characters";
       } else {
+        console.dir("sign up error: " + error);
+
         setToast({
           type: "error",
           message: "Something went wrong :(",

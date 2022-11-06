@@ -63,6 +63,9 @@
     }
 
     &__auth {
+      @include Flex(row, $gap: $space-1);
+      align-items: center;
+
       font-size: $fs-14;
     }
 

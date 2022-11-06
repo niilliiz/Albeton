@@ -1,20 +1,27 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect, useState, useRef, useMemo } from "react";
+import React, { useEffect, useState, useRef, useMemo, useContext } from "react";
+import { userSingOut } from "../../utils/firebase";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import NavLinks from "../../data/nav_data";
-import { CaretDown } from "phosphor-react";
-import Logo from "../../components/logo/logo";
+import { CaretDown, ShoppingCartSimple } from "phosphor-react";
 
+import { UserContext } from "../../contexts/user_context";
+import Logo from "../../components/logo/logo";
 import styles from "./header_style.module.scss";
 import DisableScroll from "../../components/UI/disable_scroll";
+import Toast from "../../components/toast/toast";
+
 const Header = () => {
   const headerRef = useRef(null);
   const location = useLocation();
 
   const [isOpen, setIsOpen] = useState(false);
   const [lastScrollTop, setLastScrollTop] = useState(() => window.scrollY);
+  const [toast, setToast] = useState({});
 
   const [secondaryNavLinks, setSecondaryNavLinks] = useState(null);
+
+  const { currentUser } = useContext(UserContext);
 
   useMemo(() => {
     const current = location.pathname.split("/")[1];
@@ -38,6 +45,21 @@ const Header = () => {
     setLastScrollTop(currentScrollTop);
   };
 
+  const handleSignOut = async () => {
+    try {
+      await userSingOut();
+      setToast({
+        message: "Hope to see you again",
+        type: "success",
+      });
+    } catch (error) {
+      console.dir("sign out error: " + error);
+      setToast({
+        message: "Something went wrong!! :(",
+        type: "error",
+      });
+    }
+  };
   useEffect(() => {
     window.addEventListener("scroll", handleScrollEffect);
 
@@ -51,6 +73,7 @@ const Header = () => {
       ref={headerRef}
       className={`${styles.header} ${isOpen ? styles["header--bg"] : ""}`}
     >
+      <Toast message={toast.message} type={toast.type} />
       <DisableScroll disable={isOpen} />
       {/* ---------------PRIMARY NAVBAR-------------- */}
       <div
@@ -96,9 +119,15 @@ const Header = () => {
             ))}
           </ul>
           <div className={styles.primary__auth}>
-            <Link onClick={() => setIsOpen(!isOpen)} to="/auth">
-              Login or Register
-            </Link>
+            {currentUser ? (
+              <span onClick={handleSignOut}>Sign out</span>
+            ) : (
+              <Link onClick={() => setIsOpen(!isOpen)} to="/auth">
+                Login or Register
+              </Link>
+            )}
+
+            {currentUser && <ShoppingCartSimple size={24} />}
           </div>
         </nav>
       </div>
