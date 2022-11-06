@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React from "react";
 import { CheckCircle, Warning } from "phosphor-react";
 import styles from "./toast_style.module.scss";
 
