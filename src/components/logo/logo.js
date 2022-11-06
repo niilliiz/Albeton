@@ -2,9 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import styles from "./logo_style.module.scss";
-const Logo = ({ className = "", width = "64", height = "50" }) => {
+const Logo = ({
+  className = "",
+  width = "64",
+  height = "50",
+  onClick = null,
+}) => {
   return (
-    <Link to="/" className={`${styles.logo} ${className}`}>
+    <Link to="/" className={`${styles.logo} ${className}`} onClick={onClick}>
       <svg
         role="img"
         className={styles.logo}
