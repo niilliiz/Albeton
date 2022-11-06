@@ -1,4 +1,3 @@
-// @import "../../styles/variables.scss";
 @import "../../styles/utilities.scss";
 @import "../../styles/media.scss";
 
@@ -124,6 +123,7 @@
 
       li > a {
         font-size: $fs-14;
+        white-space: nowrap;
         &.active {
           font-size: $fs-16;
 
