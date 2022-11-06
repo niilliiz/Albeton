@@ -1,15 +1,9 @@
 import React from "react";
 import Link from "../../components/link/link";
 
-import Visa from "../../asset/images/visa.png";
-import GooglePay from "../../asset/images/google-pay.png";
-import iDEAL from "../../asset/images/ideal.png";
-import JCB from "../../asset/images/jcb.png";
-import MasterCard from "../../asset/images/mastercard.png";
-import PayPal from "../../asset/images/worldpay-paypal.png";
-import styles from "./shop_style.module.scss";
+import PaymentLogos from "../../components/payment_logo/payment_logo";
 
-const PAYMENTS_LOGO = [Visa, MasterCard, JCB, PayPal, iDEAL, GooglePay];
+import styles from "./shop_style.module.scss";
 
 const Shop = () => {
   return (
@@ -133,9 +127,7 @@ const Shop = () => {
           />
         </span>
         <div className={styles["payment--wrapper"]}>
-          {PAYMENTS_LOGO.map((logo, index) => (
-            <img key={index + 1} src={logo} alt="Payment logo" />
-          ))}
+          <PaymentLogos />
         </div>
       </div>
       <div className={styles.card} data-card="security">
