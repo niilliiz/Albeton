@@ -1,0 +1,138 @@
+@import "../../styles/utilities.scss";
+@import "../../styles/media.scss";
+
+.cart {
+  @include Container("medium");
+  @include Flex($direction: column, $gap: $space-2);
+
+  h1 {
+    font-size: $fs-34;
+    font-weight: $fw-600;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid $clr-neutral-300;
+  }
+  .primary {
+    color: $clr-primary;
+  }
+  .secondary {
+    color: $clr-secondary;
+  }
+
+  .h2 {
+    font-size: $fs-16;
+  }
+
+  .h3 {
+    font-size: $fs-14;
+  }
+
+  .fw--700 {
+    font-weight: $fw-700;
+  }
+
+  .display--inline {
+    display: inline-flex;
+    margin-inline-start: $space-0_5;
+  }
+
+  .row {
+    @include Flex($gap: $space-0_5);
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+
+  &__main {
+    @include Flex($direction: column, $gap: $space-1);
+
+    .cards {
+      @include Flex($direction: column, $gap: $space-1);
+
+      > *:not(:last-child) {
+        border-bottom: 1px solid $clr-neutral-400;
+      }
+
+      .card {
+        @include Flex($gap: $space-1);
+        justify-content: space-between;
+        padding-bottom: 1rem;
+        &__info {
+          max-width: 50%;
+        }
+        &__price {
+          @include Flex($direction: column, $gap: $space-0_25);
+
+          .price {
+            &--discounted {
+              text-decoration: line-through;
+            }
+          }
+
+          > button {
+            align-self: flex-end;
+          }
+        }
+      }
+    }
+
+    .footer {
+      @include Flex($direction: column, $gap: $space-0_5);
+      > button {
+        @include Button;
+        align-self: flex-end;
+      }
+    }
+  }
+
+  &__footer {
+    align-self: flex-start;
+    @include Flex($direction: column, $gap: $space-0_5);
+    background-color: $clr-neutral-200;
+    padding: 2rem 1.5rem;
+
+    .payment {
+      @include Flex($direction: column, $gap: $space-0_25);
+
+      padding-top: 0 !important;
+      .payment--wrapper {
+        max-width: max-content;
+        @include Grid($repeat: 4);
+
+        img {
+          width: 80px;
+          height: 50px;
+          border: 1px solid $clr-neutral-200;
+        }
+      }
+    }
+  }
+
+  @include md {
+    &__footer {
+      .payment {
+        .payment--wrapper {
+          @include Grid($repeat: 5);
+        }
+      }
+    }
+  }
+
+  @include lg {
+    @include Flex($gap: $space-4);
+    justify-content: space-between;
+
+    h1 {
+      font-size: $fs-40;
+    }
+
+    .h2 {
+      font-size: $fs-18;
+    }
+    .h3 {
+      font-size: $fs-16;
+    }
+
+    &__main {
+      flex: 1 0 60%;
+    }
+  }
+}
