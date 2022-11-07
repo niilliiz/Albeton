@@ -92,7 +92,7 @@ const SignUp = () => {
     <section className={styles.register}>
       <Toast message={toast.message} type={toast.type} />
 
-      <h2 className={styles.h2}>Sing Up</h2>
+      <h1>Sing Up</h1>
       <strong>New Customer? Please create an account.</strong>
       <p>
         Your account lets you authorize and download Live plus your included

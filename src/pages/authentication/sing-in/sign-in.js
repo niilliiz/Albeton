@@ -84,7 +84,7 @@ const SingIn = () => {
   return (
     <section className={styles.login}>
       <Toast message={toast.message} type={toast.type} />
-      <h2 className={styles.h2}>Log in</h2>
+      <h1>Log in</h1>
       <strong>Why do I need to log in?</strong>
       <p>
         To use any version of Live (including Live Lite or our free trial) you
