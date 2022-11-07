@@ -14,13 +14,13 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-#### Fixes
+#### TODOs
 
 1. container
 2. font-family should to be better
-3. click on logo must close the menu
+3. _click on logo must close the menu_
 4. header: lists must be a separate component
-5. packs: label
+5. _packs: label_
 6. auth page: white space
 7. home page
-8. click on sign out must close the menu
+8. _click on sign out must close the menu_
