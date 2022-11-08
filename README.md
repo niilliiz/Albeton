@@ -24,3 +24,5 @@ You may also see any lint errors in the console.
 6. auth page: white space
 7. home page
 8. _click on sign out must close the menu_
+9. button can be component instead of mixin
+10. sign out ui -> pointer cursor

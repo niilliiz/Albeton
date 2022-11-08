@@ -1,6 +1,10 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useContext } from "react";
+import { useNavigate } from "react-router-dom";
+
 import Products from "../../data/products_data";
 import Link from "../../components/link/link";
+import { UserContext } from "../../contexts/user_context";
+import { CartContext } from "../../contexts/cart_context";
 
 import styles from "./packs_style.module.scss";
 
@@ -20,6 +24,10 @@ const OPTION_COLOR = {
 
 const Packs = () => {
   const [filterOption, setFilterOption] = useState("All");
+
+  const { currentUser } = useContext(UserContext);
+  const { cartItems, setCartItems } = useContext(CartContext);
+  const navigate = useNavigate();
 
   const products = useMemo(() => {
     let filtered = null;
@@ -138,7 +146,29 @@ const Packs = () => {
                 EUR {product.discounted_price}
               </span>
             ) : null}
-            {!product.isNew && <button className={styles.h2}>Buy now</button>}
+            {!product.isNew && (
+              <button
+                onClick={() => {
+                  if (currentUser) {
+                    setCartItems([
+                      ...cartItems,
+                      {
+                        title: `${product.name} by ${product.by}`,
+                        description: product.description,
+                        price: product.price,
+                        discounted_price: product.discounted_price,
+                      },
+                    ]);
+                    console.log("add me to cart please....please work");
+                  } else {
+                    navigate("/auth");
+                  }
+                }}
+                className={styles.h2}
+              >
+                Buy now
+              </button>
+            )}
           </div>
         ))}
       </div>
