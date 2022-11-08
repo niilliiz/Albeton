@@ -70,13 +70,15 @@ const Header = () => {
     };
   }, [lastScrollTop]);
 
+  console.log(isOpen);
+
   return (
     <header
       ref={headerRef}
       className={`${styles.header} ${isOpen ? styles["header--bg"] : ""}`}
     >
       <Toast message={toast.message} type={toast.type} />
-      <DisableScroll disable={isOpen} />
+      <DisableScroll isHidden={isOpen} />
       {/* ---------------PRIMARY NAVBAR-------------- */}
       <div
         className={`${styles.primary} ${
@@ -112,7 +114,7 @@ const Header = () => {
                   className={({ isActive }) =>
                     isActive ? styles.active : styles.inactive
                   }
-                  onClick={() => setIsOpen(!isOpen)}
+                  onClick={() => setIsOpen(false)}
                   to={nav.path}
                 >
                   {nav.title}
@@ -122,14 +124,21 @@ const Header = () => {
           </ul>
           <div className={styles.primary__auth}>
             {currentUser ? (
-              <span onClick={handleSignOut}>Sign out</span>
+              <span
+                onClick={() => {
+                  handleSignOut();
+                  setIsOpen(false);
+                }}
+              >
+                Sign out
+              </span>
             ) : (
               <Link onClick={() => setIsOpen(!isOpen)} to="/auth">
                 Login or Register
               </Link>
             )}
 
-            {currentUser && <CartIcon onClick={() => setIsOpen(!isOpen)} />}
+            {currentUser && <CartIcon onClick={() => setIsOpen(false)} />}
           </div>
         </nav>
       </div>
