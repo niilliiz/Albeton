@@ -1,0 +1,60 @@
+@import "../../../../styles/utilities.scss";
+@import "../../../../styles/media.scss";
+
+.cart_item {
+  @include Flex($gap: $space-1);
+  justify-content: space-between;
+  padding-bottom: 1rem;
+
+  .primary {
+    color: $clr-primary;
+  }
+  .secondary {
+    color: $clr-secondary;
+  }
+
+  .h2 {
+    font-size: $fs-16;
+  }
+
+  .h3 {
+    font-size: $fs-14;
+  }
+
+  .fw--700 {
+    font-weight: $fw-700;
+  }
+
+
+  .row {
+    @include Flex($gap: $space-0_5);
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+
+  .info {
+    max-width: 50%;
+  }
+  .price {
+    @include Flex($direction: column, $gap: $space-0_25);
+
+    .price {
+      &--discounted {
+        text-decoration: line-through;
+      }
+    }
+
+    > button {
+      align-self: flex-end;
+    }
+  }
+  @include lg {
+
+    .h2 {
+      font-size: $fs-18;
+    }
+    .h3 {
+      font-size: $fs-16;
+    }
+  }
+}

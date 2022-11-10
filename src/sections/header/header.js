@@ -9,9 +9,9 @@ import NavLinks from "../../data/nav_data";
 import Logo from "../../components/logo/logo";
 import DisableScroll from "../../components/UI/disable_scroll";
 import Toast from "../../components/toast/toast";
-import CartIcon from "../../components/cart_icon/cart_icon";
 
 import styles from "./header_style.module.scss";
+import { CartContext } from "../../contexts/cart_context";
 
 const Header = () => {
   const headerRef = useRef(null);
@@ -24,6 +24,7 @@ const Header = () => {
   const [secondaryNavLinks, setSecondaryNavLinks] = useState(null);
 
   const { currentUser } = useContext(UserContext);
+  const { cartCount } = useContext(CartContext);
 
   useMemo(() => {
     const current = location.pathname.split("/")[1];
@@ -69,8 +70,6 @@ const Header = () => {
       window.removeEventListener("scroll", handleScrollEffect);
     };
   }, [lastScrollTop]);
-
-  console.log(isOpen);
 
   return (
     <header
@@ -138,7 +137,16 @@ const Header = () => {
               </Link>
             )}
 
-            {currentUser && <CartIcon onClick={() => setIsOpen(false)} />}
+            {currentUser && (
+              <Link to="/cart">
+                <span className={styles.cart} onClick={() => setIsOpen(false)}>
+                  <span>Cart</span>
+                  {cartCount > 0 && (
+                    <span className={styles.cart__count}>{cartCount}</span>
+                  )}
+                </span>
+              </Link>
+            )}
           </div>
         </nav>
       </div>

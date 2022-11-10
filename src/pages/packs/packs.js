@@ -26,7 +26,7 @@ const Packs = () => {
   const [filterOption, setFilterOption] = useState("All");
 
   const { currentUser } = useContext(UserContext);
-  const { cartItems, setCartItems } = useContext(CartContext);
+  const { addItemsToCart } = useContext(CartContext);
   const navigate = useNavigate();
 
   const products = useMemo(() => {
@@ -150,16 +150,17 @@ const Packs = () => {
               <button
                 onClick={() => {
                   if (currentUser) {
-                    setCartItems([
-                      ...cartItems,
-                      {
-                        title: `${product.name} by ${product.by}`,
-                        description: product.description,
-                        price: product.price,
-                        discounted_price: product.discounted_price,
-                      },
-                    ]);
-                    console.log("add me to cart please....please work");
+                    addItemsToCart({
+                      id: product.id,
+                      title: `${product.name} by ${product.by}`,
+                      description: product.description,
+                      price: product.price,
+                      discounted_price: product.discounted_price,
+                      isFree: product.isFree,
+                      priceToPay: product.isFree
+                        ? 0
+                        : product.discounted_price || product.price,
+                    });
                   } else {
                     navigate("/auth");
                   }

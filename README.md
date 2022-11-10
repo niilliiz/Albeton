@@ -26,3 +26,11 @@ You may also see any lint errors in the console.
 8. _click on sign out must close the menu_
 9. button can be component instead of mixin
 10. sign out ui -> pointer cursor
+11. toast
+12. redirect registration
+13. if they choose repetitive product => toast
+14. add to cart successfully toast
+15. empty state for cart page
+16. show account contact if the user is logged in or registered
+17. _price and discount is not correct_
+18. price in cart ui
