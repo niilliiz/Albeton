@@ -137,7 +137,7 @@ const Header = () => {
               </Link>
             )}
 
-            {currentUser && (
+            {currentUser && cartCount > 0 && (
               <Link to="/cart">
                 <span className={styles.cart} onClick={() => setIsOpen(false)}>
                   <span>Cart</span>
