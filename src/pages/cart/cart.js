@@ -1,13 +1,20 @@
-import React, { useContext } from "react";
-import { CartContext } from "../../contexts/cart_context.js";
+import React from "react";
+import { useSelector } from "react-redux";
+
+import {
+  selectCartTotal,
+  selectCartItems,
+} from "../../store/cart/cart_selector";
 
 import Link from "../../components/link/link";
 import PaymentLogos from "../../components/payment_logo/payment_logo";
 
 import styles from "./cart_style.module.scss";
 import CartItem from "./component/cart_item/cart_item.js";
+
 const Cart = () => {
-  const { cartItems, cartTotal } = useContext(CartContext);
+  const cartItems = useSelector(selectCartItems);
+  const cartTotal = useSelector(selectCartTotal);
 
   return (
     <main className={styles.cart}>

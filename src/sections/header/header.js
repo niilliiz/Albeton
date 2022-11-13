@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect, useState, useRef, useMemo, useContext } from "react";
+import React, { useEffect, useState, useRef, useMemo } from "react";
 import { userSingOut } from "../../utils/firebase";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { CaretDown } from "phosphor-react";
@@ -10,9 +10,9 @@ import Logo from "../../components/logo/logo";
 import DisableScroll from "../../components/UI/disable_scroll";
 import Toast from "../../components/toast/toast";
 import { selectCurrentUser } from "../../store/user/user_selector";
+import { selectCartCount } from "../../store/cart/cart_selector";
 
 import styles from "./header_style.module.scss";
-import { CartContext } from "../../contexts/cart_context";
 
 const Header = () => {
   const headerRef = useRef(null);
@@ -26,7 +26,7 @@ const Header = () => {
 
   const [secondaryNavLinks, setSecondaryNavLinks] = useState(null);
 
-  const { cartCount } = useContext(CartContext);
+  const cartCount = useSelector(selectCartCount);
 
   useMemo(() => {
     const current = location.pathname.split("/")[1];
@@ -72,8 +72,6 @@ const Header = () => {
       window.removeEventListener("scroll", handleScrollEffect);
     };
   }, [lastScrollTop]);
-
-  console.log(currentUser);
 
   return (
     <header

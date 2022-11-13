@@ -1,11 +1,16 @@
-import React, { useContext } from "react";
-import { CartContext } from "../../../../contexts/cart_context";
+import React from "react";
+
+import { useDispatch, useSelector } from "react-redux";
+import { removeItemsFromCart } from "../../../../store/cart/cart_action";
+import { selectCartItems } from "../../../../store/cart/cart_selector";
 import styles from "./cart_item_style.module.scss";
+
 const CartItem = ({ product }) => {
   const { title, description, price, discounted_price, isFree, id } = product;
   const onSale = discounted_price !== null;
 
-  const { removeItemsFromCart } = useContext(CartContext);
+  const dispatch = useDispatch();
+  const cartItems = useSelector(selectCartItems);
 
   return (
     <div className={styles.cart_item}>
@@ -32,7 +37,7 @@ const CartItem = ({ product }) => {
         </div>
         <button
           className={`${styles.primary} ${styles.h3} ${styles["fw--700"]}`}
-          onClick={() => removeItemsFromCart(id)}
+          onClick={() => dispatch(removeItemsFromCart(cartItems, id))}
         >
           Remove
         </button>

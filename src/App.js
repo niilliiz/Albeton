@@ -12,7 +12,6 @@ import {
   createUserDocumentFromAuth,
 } from "./utils/firebase";
 
-import { CartProvider } from "./contexts/cart_context";
 import { useDispatch } from "react-redux";
 import { setCurrentUser } from "./store/user/user_action";
 
@@ -47,11 +46,7 @@ function App() {
     return unsubscribe;
   }, []);
 
-  return (
-    <CartProvider>
-      <RouterProvider router={router} />
-    </CartProvider>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;

@@ -1,11 +1,12 @@
-import React, { useState, useMemo, useContext } from "react";
+import React, { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
-import { useSelector, shallowEqual } from "react-redux";
+import { useSelector, shallowEqual, useDispatch } from "react-redux";
 
 import Products from "../../data/products_data";
 import Link from "../../components/link/link";
 import { selectCurrentUser } from "../../store/user/user_selector";
-import { CartContext } from "../../contexts/cart_context";
+import { addItemsToCart } from "../../store/cart/cart_action";
+import { selectCartItems } from "../../store/cart/cart_selector";
 
 import styles from "./packs_style.module.scss";
 
@@ -25,11 +26,32 @@ const OPTION_COLOR = {
 
 const Packs = () => {
   const [filterOption, setFilterOption] = useState("All");
+  const dispatch = useDispatch();
 
   const currentUser = useSelector(selectCurrentUser, shallowEqual);
+  const cartItems = useSelector(selectCartItems);
 
-  const { addItemsToCart } = useContext(CartContext);
   const navigate = useNavigate();
+
+  const handleAddItemsToCart = (product) => {
+    if (currentUser) {
+      dispatch(
+        addItemsToCart(cartItems, {
+          id: product.id,
+          title: `${product.name} by ${product.by}`,
+          description: product.description,
+          price: product.price,
+          discounted_price: product.discounted_price,
+          isFree: product.isFree,
+          priceToPay: product.isFree
+            ? 0
+            : product.discounted_price || product.price,
+        })
+      );
+    } else {
+      navigate("/auth");
+    }
+  };
 
   const products = useMemo(() => {
     let filtered = null;
@@ -150,23 +172,7 @@ const Packs = () => {
             ) : null}
             {!product.isNew && (
               <button
-                onClick={() => {
-                  if (currentUser) {
-                    addItemsToCart({
-                      id: product.id,
-                      title: `${product.name} by ${product.by}`,
-                      description: product.description,
-                      price: product.price,
-                      discounted_price: product.discounted_price,
-                      isFree: product.isFree,
-                      priceToPay: product.isFree
-                        ? 0
-                        : product.discounted_price || product.price,
-                    });
-                  } else {
-                    navigate("/auth");
-                  }
-                }}
+                onClick={() => handleAddItemsToCart(product)}
                 className={styles.h2}
               >
                 Buy now
