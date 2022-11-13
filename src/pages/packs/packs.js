@@ -1,9 +1,10 @@
 import React, { useState, useMemo, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { useSelector, shallowEqual } from "react-redux";
 
 import Products from "../../data/products_data";
 import Link from "../../components/link/link";
-import { UserContext } from "../../contexts/user_context";
+import { selectCurrentUser } from "../../store/user/user_selector";
 import { CartContext } from "../../contexts/cart_context";
 
 import styles from "./packs_style.module.scss";
@@ -25,7 +26,8 @@ const OPTION_COLOR = {
 const Packs = () => {
   const [filterOption, setFilterOption] = useState("All");
 
-  const { currentUser } = useContext(UserContext);
+  const currentUser = useSelector(selectCurrentUser, shallowEqual);
+
   const { addItemsToCart } = useContext(CartContext);
   const navigate = useNavigate();
 

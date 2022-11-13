@@ -1,4 +1,5 @@
-import React from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect } from "react";
 import {
   Route,
   createBrowserRouter,
@@ -6,8 +7,14 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
-import { UserProvider } from "./contexts/user_context";
+import {
+  onAuthStateListener,
+  createUserDocumentFromAuth,
+} from "./utils/firebase";
+
 import { CartProvider } from "./contexts/cart_context";
+import { useDispatch } from "react-redux";
+import { setCurrentUser } from "./store/user/user_action";
 
 import Layout from "./layout/layout";
 import Home from "./pages/home/home";
@@ -29,12 +36,21 @@ const router = createBrowserRouter(
 );
 
 function App() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const unsubscribe = onAuthStateListener((user) => {
+      if (user) {
+        createUserDocumentFromAuth(user);
+      }
+      dispatch(setCurrentUser(user));
+    });
+    return unsubscribe;
+  }, []);
+
   return (
-    <UserProvider>
-      <CartProvider>
-        <RouterProvider router={router} />
-      </CartProvider>
-    </UserProvider>
+    <CartProvider>
+      <RouterProvider router={router} />
+    </CartProvider>
   );
 }
 

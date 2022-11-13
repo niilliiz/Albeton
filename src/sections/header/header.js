@@ -3,12 +3,13 @@ import React, { useEffect, useState, useRef, useMemo, useContext } from "react";
 import { userSingOut } from "../../utils/firebase";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { CaretDown } from "phosphor-react";
-import { UserContext } from "../../contexts/user_context";
+import { useSelector, shallowEqual } from "react-redux";
 
 import NavLinks from "../../data/nav_data";
 import Logo from "../../components/logo/logo";
 import DisableScroll from "../../components/UI/disable_scroll";
 import Toast from "../../components/toast/toast";
+import { selectCurrentUser } from "../../store/user/user_selector";
 
 import styles from "./header_style.module.scss";
 import { CartContext } from "../../contexts/cart_context";
@@ -17,13 +18,14 @@ const Header = () => {
   const headerRef = useRef(null);
   const location = useLocation();
 
+  const currentUser = useSelector(selectCurrentUser, shallowEqual);
+
   const [isOpen, setIsOpen] = useState(false);
   const [lastScrollTop, setLastScrollTop] = useState(() => window.scrollY);
   const [toast, setToast] = useState({});
 
   const [secondaryNavLinks, setSecondaryNavLinks] = useState(null);
 
-  const { currentUser } = useContext(UserContext);
   const { cartCount } = useContext(CartContext);
 
   useMemo(() => {
@@ -70,6 +72,8 @@ const Header = () => {
       window.removeEventListener("scroll", handleScrollEffect);
     };
   }, [lastScrollTop]);
+
+  console.log(currentUser);
 
   return (
     <header
