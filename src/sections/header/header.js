@@ -3,7 +3,7 @@ import React, { useEffect, useState, useRef, useMemo } from "react";
 import { userSingOut } from "../../utils/firebase";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { CaretDown } from "phosphor-react";
-import { useSelector, shallowEqual } from "react-redux";
+import { useSelector } from "react-redux";
 
 import NavLinks from "../../data/nav_data";
 import Logo from "../../components/logo/logo";
@@ -18,15 +18,14 @@ const Header = () => {
   const headerRef = useRef(null);
   const location = useLocation();
 
-  const currentUser = useSelector(selectCurrentUser, shallowEqual);
+  const currentUser = useSelector(selectCurrentUser);
+  const cartCount = useSelector(selectCartCount);
 
   const [isOpen, setIsOpen] = useState(false);
   const [lastScrollTop, setLastScrollTop] = useState(() => window.scrollY);
   const [toast, setToast] = useState({});
 
   const [secondaryNavLinks, setSecondaryNavLinks] = useState(null);
-
-  const cartCount = useSelector(selectCartCount);
 
   useMemo(() => {
     const current = location.pathname.split("/")[1];

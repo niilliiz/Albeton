@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
-import { useSelector, shallowEqual, useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 import Products from "../../data/products_data";
 import Link from "../../components/link/link";
@@ -28,7 +28,7 @@ const Packs = () => {
   const [filterOption, setFilterOption] = useState("All");
   const dispatch = useDispatch();
 
-  const currentUser = useSelector(selectCurrentUser, shallowEqual);
+  const currentUser = useSelector(selectCurrentUser);
   const cartItems = useSelector(selectCartItems);
 
   const navigate = useNavigate();
