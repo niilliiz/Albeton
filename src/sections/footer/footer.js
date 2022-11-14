@@ -48,13 +48,13 @@ const Footer = () => {
         <img
           className={styles.albetonLogo}
           src={AlbetonLogo}
-          alt="Albetonn Logo"
+          alt="Ableton Logo"
         />
       </div>
       <div className={styles.footer__main}>
         <div data-area="newsletter" className={styles.footer__main__card}>
-          <span className={styles.h3}>Sign up to our newsletter</span>
-          <p className={styles.content}>
+          <span className="h4 fw--700">Sign up to our newsletter</span>
+          <p className="h4">
             Enter your email address to stay up to date with the latest offers,
             tutorials, downloads, surveys and more.
           </p>
@@ -64,9 +64,9 @@ const Footer = () => {
           </div>
         </div>
         <div data-area="medias" className={styles.footer__main__card}>
-          <Link className={styles.card__link} content="Register Live or Push" />
-          <Link className={styles.card__link} content="About Albeton" />
-          <Link className={styles.card__link} content="Jobs" />
+          <Link className="h4" content="Register Live or Push" />
+          <Link className="h4" content="About Albeton" />
+          <Link className="h4" content="Jobs" />
 
           <div className={styles.row}>
             {MEDIAS.map((media) => (
@@ -80,43 +80,31 @@ const Footer = () => {
           </div>
         </div>
         <div data-area="education" className={styles.footer__main__card}>
-          <span className={styles.h3}>Education</span>
+          <span className="h4 fw--700">Education</span>
+          <Link className="h4" content="Offers for students and teachers" />
+          <Link className="h4" content="Albeton for Classroom" />
           <Link
-            className={styles.card__link}
-            content="Offers for students and teachers"
-          />
-          <Link className={styles.card__link} content="Albeton for Classroom" />
-          <Link
-            className={styles.card__link}
+            className="h4"
             content="Albeton for Colleges and Universities"
           />
         </div>
         <div data-area="community" className={styles.footer__main__card}>
-          <span className={styles.h3}>Commuinity</span>
-          <Link
-            className={styles.card__link}
-            content="Find Albeton  User Groups"
-          />
-          <Link
-            className={styles.card__link}
-            content="Find Certified Training"
-          />
-          <Link
-            className={styles.card__link}
-            content="Become a Certified Trainer"
-          />
+          <span className="h4 fw--700">Commuinity</span>
+          <Link className="h4" content="Find Albeton  User Groups" />
+          <Link className="h4" content="Find Certified Training" />
+          <Link className="h4" content="Become a Certified Trainer" />
         </div>
         <div data-area="distributors" className={styles.footer__main__card}>
-          <span className={styles.h3}>Distributers</span>
-          <Link className={styles.card__link} content="Find Distributers" />
-          <Link className={styles.card__link} content="Try Push in-store" />
+          <span className="h4 fw--700">Distributers</span>
+          <Link className="h4" content="Find Distributers" />
+          <Link className="h4" content="Try Push in-store" />
         </div>
       </div>
 
       <div className={styles.footer__footer}>
         <ul className={styles.footer__nav}>
           {FOOTER_NAV.map((nav, index) => (
-            <li key={`${nav}-${index + 1}`} className={styles.h3}>
+            <li key={`${nav}-${index + 1}`} className="h5 fw--700">
               <a href="/">{nav}</a>
             </li>
           ))}
@@ -124,7 +112,7 @@ const Footer = () => {
 
         <div className={styles.row}>
           <Logo width="50" />
-          <span className={styles.h3}>Berlin</span>
+          <span className="h4 fw--700">Berlin</span>
         </div>
       </div>
     </footer>

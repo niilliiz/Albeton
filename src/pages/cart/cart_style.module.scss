@@ -6,33 +6,8 @@
   @include Flex($direction: column, $gap: $space-2);
 
   h1 {
-    font-size: $fs-34;
-    font-weight: $fw-600;
     padding-bottom: 1rem;
     border-bottom: 1px solid $clr-neutral-300;
-  }
-  .primary {
-    color: $clr-primary;
-  }
-  .secondary {
-    color: $clr-secondary;
-  }
-
-  .h2 {
-    font-size: $fs-16;
-  }
-
-  .h3 {
-    font-size: $fs-14;
-  }
-
-  .fw--700 {
-    font-weight: $fw-700;
-  }
-
-  .display--inline {
-    display: inline-flex;
-    margin-inline-start: $space-0_5;
   }
 
   .row {
@@ -119,17 +94,6 @@
   @include lg {
     @include Flex($gap: $space-4);
     justify-content: space-between;
-
-    h1 {
-      font-size: $fs-40;
-    }
-
-    .h2 {
-      font-size: $fs-18;
-    }
-    .h3 {
-      font-size: $fs-16;
-    }
 
     &__main {
       flex: 1 0 60%;

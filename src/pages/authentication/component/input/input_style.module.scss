@@ -15,14 +15,6 @@
     font-weight: $fw-700;
   }
 
-  .warning {
-    color: $clr-secondary;
-  }
-
-  .cyan {
-    color: $clr-cyan;
-  }
-
   @include md {
     .h4 {
       font-size: $fs-14;

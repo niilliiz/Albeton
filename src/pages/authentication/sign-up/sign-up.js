@@ -106,7 +106,7 @@ const SignUp = () => {
           labelContent="Name *"
           onChange={(e) => setField({ ...field, name: e.target.value })}
           element={
-            <h4 className={`${styles.h4} ${styles.cyan}`}>
+            <h4 className={`${styles.h4} clr--cyan`}>
               So that we know what to call you if we email you
             </h4>
           }

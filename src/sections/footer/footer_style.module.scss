@@ -4,10 +4,6 @@
   @include Container("medium");
   @include Flex($direction: column, $gap: $space-2);
 
-  .h3 {
-    font-weight: $fw-700;
-  }
-
   .row {
     margin-top: 0.5rem;
     flex-wrap: wrap;
@@ -75,7 +71,6 @@
     @include Flex(column);
     .footer__nav {
       @include Flex(column, $space-0_5);
-      font-size: $fs-14;
     }
 
     .row {

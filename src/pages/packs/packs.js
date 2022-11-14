@@ -69,32 +69,30 @@ const Packs = () => {
 
   const getPrice = (product) => {
     if (product.isNew) {
-      return <span className={styles.h3}>Included in Live 11 Suits</span>;
+      return <span className="h5">Included in Live 11 Suits</span>;
     } else if (product.price != null) {
       return (
         <span
-          className={`${styles.h2} ${
-            product.discounted_price ? styles.lineThrough : ""
+          className={`h4 ${
+            product.discounted_price ? "text--lineThrough" : ""
           }`}
         >
           EUR {product.price}
         </span>
       );
     }
-    return <span>Free</span>;
+    return <span className="h4">Free</span>;
   };
 
   return (
     <main className={styles.packs}>
       <div className={styles.packs__banner}>
-        <h1 className={styles.h1}>
-          Plucked Strings by Cinematique Instruments
-        </h1>
-        <span className={styles.h3}>
+        <h1 className="xh">Plucked Strings by Cinematique Instruments</h1>
+        <span className="h2">
           A collection of unique - and highly versatile - stringed
         </span>
         <Link
-          className={styles.link}
+          className={`${styles.link} h3`}
           content="Learn more"
           size="14"
           underline
@@ -114,8 +112,8 @@ const Packs = () => {
           {FILTER_OPTIONS.map((option) => (
             <li
               onClick={() => setFilterOption(option.key)}
-              className={`${styles.h2} ${
-                option.key === filterOption ? styles.underline : ""
+              className={`h4 fw--600 ${
+                option.key === filterOption ? "text--underline" : ""
               }`}
               key={option.key}
             >
@@ -125,7 +123,7 @@ const Packs = () => {
         </ul>
       </div>
       <div className={styles.packs__header}>
-        <h2>
+        <h2 className="h2">
           {filterOption} ({products.length})
         </h2>
       </div>
@@ -135,9 +133,7 @@ const Packs = () => {
           <div key={product.id} className={styles.card}>
             <div className={styles["img--wrapper"]}>
               {product.isNew && (
-                <div className={`${styles.label} ${styles.h3}`}>
-                  New in Live 11
-                </div>
+                <div className={`${styles.label} h5`}>New in Live 11</div>
               )}
               <img
                 src={`../../packs/images/${product.img}.jpg`}
@@ -145,21 +141,19 @@ const Packs = () => {
               />
             </div>
             <span
-              className={styles.h3}
+              className="h5"
               style={{ color: OPTION_COLOR[product.category] }}
             >
               {product.category}
             </span>
             <div>
-              <span className={`${styles.h2} ${styles.primary}`}>
-                {product.name}
-              </span>
-              <span className={`${styles.h3} ${styles.by}`}>
-                by <span className={styles.primary}>{product.by}</span>
+              <span className="h4 clr--primary">{product.name}</span>
+              <span className={`h5 ${styles.by}`}>
+                by <span className="clr--primary">{product.by}</span>
               </span>
             </div>
 
-            <p className={styles.h3}>{product.description}</p>
+            <p className={`h5 ${styles.description}`}>{product.description}</p>
 
             {getPrice(product)}
             {product.discounted_price ? (

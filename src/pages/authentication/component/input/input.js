@@ -27,7 +27,7 @@ const Input = ({
         onChange={onChange}
       />
       {helperText && (
-        <span className={`${styles.h4} ${styles.warning}`}>{helperText}</span>
+        <span className={`${styles.h4} clr--secondary`}>{helperText}</span>
       )}
       {element && element}
     </div>

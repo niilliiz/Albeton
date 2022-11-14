@@ -15,28 +15,26 @@ const CartItem = ({ product }) => {
   return (
     <div className={styles.cart_item}>
       <div className={`${styles.info}`}>
-        <span className={`${styles.h2} ${styles["fw--700"]}`}>{title}</span>
-        <p className={styles.h3}>
-          {description.substring(0, 100)}
-          {description.length > 100 ? "..." : ""}
+        <h2 className="h3">{title}</h2>
+        <p className="h4">
+          {description.substring(0, 120)}
+          {description.length > 120 ? "..." : ""}
         </p>
       </div>
       <div className={`${styles.price}`}>
         <div
-          className={`${styles.price} ${styles.h2} ${styles.row}  ${styles["fw--700"]}`}
+          className={`h3 ${styles.price}  ${styles.row}  fw--700`}
           style={{ display: isFree ? "none" : "flex" }}
         >
           <span className={onSale ? styles["price--discounted"] : ""}>
             EUR {price}
           </span>
           {discounted_price && (
-            <span className={` ${styles.secondary}`}>
-              EUR {discounted_price}
-            </span>
+            <span className="clr--secondary">EUR {discounted_price}</span>
           )}
         </div>
         <button
-          className={`${styles.primary} ${styles.h3} ${styles["fw--700"]}`}
+          className="clr--primary h4 fw--700"
           onClick={() => dispatch(removeItemsFromCart(cartItems, id))}
         >
           Remove

@@ -4,18 +4,6 @@
 .packs {
   @include Flex($direction: column, $gap: $space-0_5);
 
-  .underline {
-    text-decoration: underline;
-  }
-
-  .primary {
-    color: $clr-primary;
-  }
-
-  .lineThrough {
-    text-decoration: line-through;
-  }
-
   &__banner {
     @include Container(medium);
     @include Flex($direction: column, $gap: $space-1);
@@ -27,20 +15,6 @@
     height: 400px;
     color: $clr-yellow;
     margin-bottom: 3rem;
-
-    .h1 {
-      font-size: $fs-24;
-      font-weight: $fw-600;
-    }
-
-    .h3 {
-      font-weight: $fw-500;
-      font-size: $fs-20;
-    }
-
-    .link {
-      font-size: $fs-16;
-    }
   }
 
   &__header {
@@ -52,8 +26,6 @@
   &__filter {
     @include Container(medium);
     padding-bottom: 0 !important;
-
-    font-weight: $fw-700;
 
     > select {
       color: $clr-neutral-800;
@@ -86,7 +58,7 @@
 
       font-weight: $fw-700;
 
-      > p.h3 {
+      .description {
         flex-grow: 1;
         margin-bottom: 1.5rem;
       }
@@ -106,11 +78,6 @@
         img {
           object-fit: cover;
         }
-      }
-
-      .h3 {
-        font-size: $fs-14;
-        font-weight: $fw-700;
       }
 
       > div {
@@ -150,31 +117,8 @@
   @include md {
     background-position: center right;
 
-    &__banner {
-      .h1 {
-        font-size: $fs-34;
-        font-weight: $fw-700;
-      }
-
-      .h3 {
-        font-size: $fs-24;
-        font-weight: $fw-600;
-      }
-    }
     &__cards {
       @include Grid($repeat: 3, $row-gap: $space-3, $col-gap: $space-3);
-    }
-  }
-
-  @include lg {
-    &__banner {
-      .h1 {
-        font-size: $fs-46;
-      }
-
-      .link {
-        font-size: $fs-20;
-      }
     }
   }
 

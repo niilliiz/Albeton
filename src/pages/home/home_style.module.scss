@@ -15,33 +15,10 @@
 
   h1 {
     @include Flex($direction: column, $gap: $space-0_5);
-    font-size: $fs-20;
-    font-weight: $fw-700;
   }
 
-  .link {
-    font-size: $fs-16;
-  }
-
-  @include breakpoint {
-    h1 {
-      font-size: $fs-28;
-    }
-
-    .link {
-      font-size: $fs-20;
-    }
-  }
   @include lg {
     height: 800px;
     margin-bottom: 4rem;
-
-    h1 {
-      font-size: $fs-61;
-    }
-
-    .link {
-      font-size: $fs-28;
-    }
   }
 }

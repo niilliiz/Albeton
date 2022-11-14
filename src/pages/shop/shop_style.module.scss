@@ -16,46 +16,8 @@
     background-size: cover;
     height: 500px;
 
-    &__h2 {
-      font-size: $fs-28;
-    }
-    &__h3 {
-      font-size: $fs-20;
-    }
-
-    &__h4 {
-      font-size: $fs-16;
-    }
-
-    &__h5 {
-      font-size: $fs-14;
-    }
-
     &__button {
       @include Button;
-    }
-
-    .clr--primary {
-      color: $clr-primary;
-    }
-
-    .display--inline {
-      display: inline-flex;
-      margin-inline-start: $space-0_5;
-    }
-    .clr--neutral {
-      color: $clr-neutral-600;
-    }
-
-    .text--underline {
-      text-decoration: dotted;
-    }
-
-    .bold--700 {
-      font-weight: $fw-700;
-    }
-    .bold--600 {
-      font-weight: $fw-700;
     }
 
     &[data-card="live"] {
@@ -126,23 +88,6 @@
       &[data-card="security"],
       &[data-card="question"] {
         height: max-content;
-      }
-    }
-  }
-
-  @include lg {
-    .card {
-      &__h2 {
-        font-size: $fs-40;
-      }
-      &__h3 {
-        font-size: $fs-34;
-      }
-      &__h4 {
-        font-size: $fs-20;
-      }
-      &__h5 {
-        font-size: $fs-16;
       }
     }
   }

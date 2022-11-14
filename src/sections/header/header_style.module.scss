@@ -55,7 +55,7 @@
     align-items: center;
     z-index: 1;
     font-weight: $fw-600;
-    font-size: $fs-20;
+    font-size: $fs-18;
 
     &--border {
       border-bottom: 1px solid $clr-neutral-400;
@@ -66,6 +66,7 @@
       align-items: center;
 
       font-size: $fs-14;
+      cursor: pointer;
 
       .cart {
         cursor: pointer;
@@ -162,7 +163,6 @@
       align-self: stretch;
       align-items: center;
       font-weight: $fw-700;
-      font-size: $fs-20;
 
       &__menu {
         display: none;
@@ -189,11 +189,7 @@
           flex-grow: 1;
 
           li > a {
-            font-size: $fs-14;
-
             &.active {
-              font-size: $fs-16;
-
               color: $clr-secondary;
             }
           }

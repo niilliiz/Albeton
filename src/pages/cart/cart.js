@@ -8,9 +8,9 @@ import {
 
 import Link from "../../components/link/link";
 import PaymentLogos from "../../components/payment_logo/payment_logo";
+import CartItem from "./component/cart_item/cart_item.js";
 
 import styles from "./cart_style.module.scss";
-import CartItem from "./component/cart_item/cart_item.js";
 
 const Cart = () => {
   const cartItems = useSelector(selectCartItems);
@@ -19,7 +19,7 @@ const Cart = () => {
   return (
     <main className={styles.cart}>
       <div className={styles.cart__main}>
-        <h1>Cart</h1>
+        <h1 className="h1">Cart</h1>
         <div className={styles.cards}>
           {cartItems.map((item) => (
             <CartItem product={item} key={item.id} />
@@ -27,7 +27,7 @@ const Cart = () => {
         </div>
         <div className={`${styles.footer}`}>
           <div className={`${styles.footer__detail}`}>
-            <div className={`${styles.row} ${styles.h2} ${styles["fw--700"]}`}>
+            <div className={`${styles.row} h2 fw--700`}>
               <span>Total</span>
               <span>EUR {cartTotal}</span>
             </div>
@@ -37,13 +37,11 @@ const Cart = () => {
       </div>
       <div className={styles.cart__footer}>
         <div className={styles.payment}>
-          <p className={`${styles.h2} ${styles["fw--700"]}`}>
-            Payments methods
-          </p>
-          <span className={styles.h3}>
+          <h2 className="h3">Payments methods</h2>
+          <span className="h4">
             We accept payments via Credit Card, PayPal, iDEAL, Google Pay.
             <Link
-              className={`${styles["primary"]} ${styles["display--inline"]}`}
+              className="clr--primary display--inline"
               content="Learn more"
             />
           </span>

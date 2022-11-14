@@ -4,8 +4,6 @@
 .register {
   @include Flex($direction: column, $gap: $space-1);
   > h1 {
-    font-size: $fs-34;
-    font-weight: $fw-600;
     padding-bottom: 1rem;
     margin-bottom: 1rem;
     border-bottom: 1px solid $clr-neutral-300;
@@ -14,10 +12,6 @@
   .h4 {
     font-size: $fs-12;
     font-weight: $fw-700;
-  }
-
-  .cyan {
-    color: $clr-cyan;
   }
 
   form {

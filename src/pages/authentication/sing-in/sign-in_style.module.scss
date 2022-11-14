@@ -4,9 +4,7 @@
 .login {
   @include Flex($direction: column, $gap: $space-1);
 
-  > h1 {
-    font-size: $fs-34;
-    font-weight: $fw-600;
+  h1 {
     padding-bottom: 1rem;
     border-bottom: 1px solid $clr-neutral-300;
   }

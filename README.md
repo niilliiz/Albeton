@@ -17,20 +17,18 @@ You may also see any lint errors in the console.
 #### TODOs
 
 1. container
-2. font-family should to be better
-3. _click on logo must close the menu_
-4. header: lists must be a separate component
-5. _packs: label_
-6. auth page: white space
-7. home page
-8. _click on sign out must close the menu_
-9. button can be component instead of mixin
-10. sign out ui -> pointer cursor
-11. toast
-12. redirect registration
-13. if they choose repetitive product => toast
-14. add to cart successfully toast
-15. empty state for cart page
-16. show account contact if the user is logged in or registered
-17. _price and discount is not correct_
-18. price in cart ui
+2. _click on logo must close the menu_
+3. header: lists must be a separate component
+4. _packs: label_
+5. auth page: white space
+6. home page
+7. _click on sign out must close the menu_
+8. button can be component instead of mixin
+9. sign out ui -> pointer cursor
+10. toast
+11. if they choose repetitive product => toast
+12. add to cart successfully toast
+13. empty state for cart page
+14. show account contact if the user is logged in or registered
+15. _price and discount is not correct_
+16. price in cart ui
