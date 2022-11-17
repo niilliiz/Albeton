@@ -11,9 +11,5 @@
 
   @include md {
     @include Flex($direction: row, $gap: $space-4);
-
-    .h4 {
-      font-size: $fs-14;
-    }
   }
 }
