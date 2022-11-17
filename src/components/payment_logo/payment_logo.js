@@ -1,13 +1,13 @@
 import React from "react";
 
-import Visa from "../../asset/images/visa.png";
-import GooglePay from "../../asset/images/google-pay.png";
-import iDEAL from "../../asset/images/ideal.png";
-import JCB from "../../asset/images/jcb.png";
-import MasterCard from "../../asset/images/mastercard.png";
-import PayPal from "../../asset/images/worldpay-paypal.png";
-
-const PAYMENTS_LOGO = [Visa, MasterCard, JCB, PayPal, iDEAL, GooglePay];
+const PAYMENTS_LOGO = [
+  "https://ableton-production.imgix.net/payment-icons/visa.png?fm=png",
+  "https://ableton-production.imgix.net/payment-icons/mastercard.png?fm=png",
+  "https://ableton-production.imgix.net/payment-icons/jcb.png?fm=png",
+  "https://ableton-production.imgix.net/payment-icons/worldpay-paypal.png?fm=png",
+  "https://ableton-production.imgix.net/payment-icons/ideal.png?fm=png",
+  "https://ableton-production.imgix.net/payment-icons/google-pay.png?fm=png",
+];
 
 const PaymentLogos = () => {
   return (

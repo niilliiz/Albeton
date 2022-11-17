@@ -1,7 +1,7 @@
 const PRODUCTS = [
   {
     id: "06ac02a2-5780-11ed-9b6a-0242ac120002",
-    img: "pack-max1",
+    img: "https://cdn-resources.ableton.com/resources/filer_thumbnails/unsorted-uploads/aw_microtuner_1000x1000.jpg__300x300_q85_crop_subsampling-2_upscale.jpg",
     category: "Max for Live",
     name: "Microtuner",
     by: "Ableton",
@@ -15,7 +15,7 @@ const PRODUCTS = [
   },
   {
     id: "8ab3323a-7f13-4e30-b47b-025658ec6673",
-    img: "pack-sound6",
+    img: "https://cdn-resources.ableton.com/resources/filer_thumbnails/images/aw_hyperreal_1000x1000.jpg__300x300_q85_crop_subsampling-2_upscale.jpg",
     category: "Sound",
     name: "String Quartet",
     by: "Spitifire Audio",
@@ -29,7 +29,7 @@ const PRODUCTS = [
   },
   {
     id: "6caf7246-5780-11ed-9b6a-0242ac120002",
-    img: "pack-max3",
+    img: "https://cdn-resources.ableton.com/resources/filer_thumbnails/images/company/aw_chiralbyfors_1000x1000.jpg__300x300_q85_crop_subsampling-2_upscale.jpg",
     category: "Max for Live",
     name: "Slink Devices",
     by: "Hypnus Records",
@@ -43,7 +43,7 @@ const PRODUCTS = [
   },
   {
     id: "baa5fa3e-b412-4172-abbf-1854ce9ab255",
-    img: "pack-sound4",
+    img: "https://cdn-resources.ableton.com/resources/filer_thumbnails/unsorted-uploads/aw_cinimatique_1000x1000.jpg__300x300_q85_crop_subsampling-2_upscale.jpg",
     category: "Sound",
     name: "Big Band Essentials 2",
     by: "ProjectSam",
@@ -57,7 +57,7 @@ const PRODUCTS = [
   },
   {
     id: "acec54aa-5780-11ed-9b6a-0242ac120002",
-    img: "pack-si1",
+    img: "https://cdn-resources.ableton.com/resources/filer_thumbnails/75/57/75579316-45d5-4237-a814-43c890b3a5dc/operator.png__300x300_q85_crop_subsampling-2_upscale.jpg",
     category: "Software Instruments",
     name: "Wavetable",
     by: "Ableton",
@@ -71,7 +71,7 @@ const PRODUCTS = [
   },
   {
     id: "8fc09738-5820-11ed-9b6a-0242ac120002",
-    img: "pack-sound7",
+    img: "https://cdn-resources.ableton.com/resources/filer_thumbnails/images/aw_nostalgique_1000.jpg__300x300_q85_crop_subsampling-2_upscale.jpg",
     category: "Sound",
     name: "Voice Box",
     by: "Ableton",
@@ -85,7 +85,7 @@ const PRODUCTS = [
   },
   {
     id: "e0138844-5780-11ed-9b6a-0242ac120002",
-    img: "pack-si2",
+    img: "https://cdn-resources.ableton.com/resources/filer_thumbnails/4c/97/4c979ace-ba3e-440d-be4c-c6a6ac42f40d/sampler.png__300x300_q85_crop_subsampling-2_upscale.jpg",
     category: "Software Instruments",
     name: "Sampler",
     by: "Ableton",
@@ -99,7 +99,7 @@ const PRODUCTS = [
   },
   {
     id: "38fa34c8-577f-11ed-9b6a-0242ac120002",
-    img: "pack-sound2",
+    img: "https://cdn-resources.ableton.com/resources/filer_thumbnails/images/aw_bigbandessentials2_1000x1000_CfBt1Nb.jpg__300x300_q85_crop_subsampling-2_upscale.jpg",
     category: "Sound",
     name: "HYPER-REAL",
     by: "Comakid",
@@ -113,7 +113,7 @@ const PRODUCTS = [
   },
   {
     id: "82f465b2-577f-11ed-9b6a-0242ac120002",
-    img: "pack-sound3",
+    img: "https://cdn-resources.ableton.com/resources/filer_thumbnails/unsorted-uploads/aw_modeselektor_1000x1000.jpg__300x300_q85_crop_subsampling-2_upscale.jpg",
     category: "Sound",
     name: "Nostalgique",
     by: "Puremagnetik",
@@ -127,7 +127,7 @@ const PRODUCTS = [
   },
   {
     id: "464f196c-5780-11ed-9b6a-0242ac120002",
-    img: "pack-max2",
+    img: "https://cdn-resources.ableton.com/resources/filer_thumbnails/unsorted-uploads/pc_octoplus_1000x1000_M8I4CEa.png__300x300_q85_crop_subsampling-2_upscale.jpg",
     category: "Max for Live",
     name: "Chiral",
     by: "Fors",
@@ -141,7 +141,7 @@ const PRODUCTS = [
   },
   {
     id: "09cf700e-5820-11ed-9b6a-0242ac120002",
-    img: "pack-sound5",
+    img: "https://cdn-resources.ableton.com/resources/filer_thumbnails/unsorted-uploads/artwork_close_up_1000x1000_2.jpg__300x300_q85_crop_subsampling-2_upscale.jpg",
     category: "Sound",
     name: "Extended Sounds",
     by: "Modeselektor",
@@ -155,7 +155,7 @@ const PRODUCTS = [
   },
   {
     id: "acc60fcc-69f7-4d07-8a9c-657e02966a5d",
-    img: "pack-sound1",
+    img: "https://cdn-resources.ableton.com/resources/filer_thumbnails/unsorted-uploads/artwork_close_up_1000x1000_3.jpg__300x300_q85_crop_subsampling-2_upscale.jpg",
     category: "Sound",
     name: "Plucked Strings",
     by: "Cinematique Instruments",

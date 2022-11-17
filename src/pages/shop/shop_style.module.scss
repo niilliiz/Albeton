@@ -21,10 +21,10 @@
     }
 
     &[data-card="live"] {
-      background-image: url(../../asset/images/live--square.jpg);
+      background-image: url("https://ableton-production.imgix.net/shop/live--square.jpg?fit=crop&auto=format&fm=jpg");
     }
     &[data-card="push"] {
-      background-image: url(../../asset/images/push--square.jpg);
+      background-image: url("https://ableton-production.imgix.net/shop/push--square.jpg?fit=crop&auto=format&fm=jpg");
       color: $clr-neutral-1;
     }
     &[data-card="student"] {
@@ -32,7 +32,7 @@
       background-color: $clr-purple;
     }
     &[data-card="max-for-live"] {
-      background-image: url(../../asset/images/max-for-live--square.jpg);
+      background-image: url("https://ableton-production.imgix.net/shop/max-for-live--square.jpg?fit=crop&auto=format&fm=jpg");
       color: $clr-neutral-1;
     }
     &[data-card="making-music"] {
