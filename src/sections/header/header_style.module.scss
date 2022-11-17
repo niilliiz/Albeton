@@ -38,6 +38,9 @@
       }
 
       > a {
+        display: block;
+        flex-grow: 1;
+
         &.active {
           font-weight: $fw-700;
           color: $clr-neutral-900;
