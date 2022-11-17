@@ -1,5 +1,5 @@
 import React from "react";
-import { CheckCircle, Warning } from "phosphor-react";
+import { CheckCircle, Warning, X } from "phosphor-react";
 import styles from "./toast_style.module.scss";
 
 const STYLES = {
@@ -9,6 +9,10 @@ const STYLES = {
   },
   error: {
     color: "#fa5252",
+    icon: <X size={24} />,
+  },
+  warning: {
+    color: "#fbfa61",
     icon: <Warning size={24} />,
   },
 };

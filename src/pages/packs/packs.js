@@ -2,11 +2,13 @@ import React, { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
-import Products from "../../data/products_data";
-import Link from "../../components/link/link";
 import { selectCurrentUser } from "../../store/user/user_selector";
 import { addItemsToCart } from "../../store/cart/cart_action";
 import { selectCartItems } from "../../store/cart/cart_selector";
+
+import Products from "../../data/products_data";
+import Link from "../../components/link/link";
+import Toast from "../../components/toast/toast";
 
 import styles from "./packs_style.module.scss";
 
@@ -25,6 +27,7 @@ const OPTION_COLOR = {
 };
 
 const Packs = () => {
+  const [toast, setToast] = useState({});
   const [filterOption, setFilterOption] = useState("All");
   const dispatch = useDispatch();
 
@@ -35,19 +38,29 @@ const Packs = () => {
 
   const handleAddItemsToCart = (product) => {
     if (currentUser) {
-      dispatch(
-        addItemsToCart(cartItems, {
-          id: product.id,
-          title: `${product.name} by ${product.by}`,
-          description: product.description,
-          price: product.price,
-          discounted_price: product.discounted_price,
-          isFree: product.isFree,
-          priceToPay: product.isFree
-            ? 0
-            : product.discounted_price || product.price,
-        })
-      );
+      const isInCart = cartItems.find((item) => item.id === product.id);
+      console.log(isInCart);
+      if (isInCart === undefined) {
+        dispatch(
+          addItemsToCart(cartItems, {
+            id: product.id,
+            title: `${product.name} by ${product.by}`,
+            description: product.description,
+            price: product.price,
+            discounted_price: product.discounted_price,
+            isFree: product.isFree,
+            priceToPay: product.isFree
+              ? 0
+              : product.discounted_price || product.price,
+          })
+        );
+        navigate("/cart");
+      } else {
+        setToast({
+          type: "warning",
+          message: "You've already chosen this item. please choose another one",
+        });
+      }
     } else {
       navigate("/auth");
     }
@@ -86,6 +99,7 @@ const Packs = () => {
 
   return (
     <main className={styles.packs}>
+      <Toast message={toast.message} type={toast.type} />
       <div className={styles.packs__banner}>
         <h1 className="xh">Plucked Strings by Cinematique Instruments</h1>
         <span className="h2">

@@ -14,7 +14,7 @@
     background-repeat: no-repeat;
     height: 400px;
     color: $clr-yellow;
-    margin-bottom: 3rem;
+    margin-bottom: 0rem;
   }
 
   &__header {
@@ -52,7 +52,7 @@
   &__cards {
     @include Container(medium);
     @include Grid($row-gap: $space-3);
-
+    padding-top: 2rem !important;
     .card {
       @include Flex($direction: column, $gap: $space-0_5);
 
