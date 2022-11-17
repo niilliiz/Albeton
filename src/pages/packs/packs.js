@@ -59,7 +59,7 @@ const Packs = () => {
       } else {
         setToast({
           type: "warning",
-          message: "You've already chosen this item. please choose another one",
+          message: "You've already chosen this item.",
         });
       }
     } else {

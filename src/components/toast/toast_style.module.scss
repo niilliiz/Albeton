@@ -22,7 +22,7 @@
   }
 
   &.showToast {
-    animation: showToast 4s ease-in-out 1;
+    animation: showToast 4s ease-in-out;
   }
 
   @include lg {

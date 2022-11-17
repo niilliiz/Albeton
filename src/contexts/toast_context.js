@@ -45,7 +45,7 @@ export const ToastProvider = ({ children }) => {
   useEffect(() => {
     setTimeout(
       () => dispatch({ type: "clear", toast: { message: "", type: "" } }),
-      5100
+      5000
     );
   }, [counter]);
 

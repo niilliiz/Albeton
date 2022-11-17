@@ -21,9 +21,10 @@ const STYLES = {
 const Toast = () => {
   const { toast } = useContext(ToastContext);
   const { message, type } = toast;
+
   const element = (
     <div
-      className={`${styles.toast} ${type !== null ? styles.showToast : ""}`}
+      className={`${styles.toast} ${!!type ? styles.showToast : ""}`}
       style={{
         color: STYLES[type]?.color,
       }}
