@@ -2,7 +2,7 @@
 @import "../../styles/media.scss";
 
 .cart {
-  @include Container("medium");
+  @include Container(medium);
   @include Flex($direction: column, $gap: $space-2);
 
   h1 {
