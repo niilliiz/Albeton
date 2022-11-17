@@ -8,15 +8,12 @@
     @include lg {
       padding: 1rem 2rem;
     }
-  } @else if $type == "medium" {
-    padding: 3.5rem 2.5rem;
+  }
+
+  @if $type == "medium" {
+    padding: 3rem 2rem;
     @include lg {
       padding: 4rem;
-    }
-  } @else if $type == "large" {
-    padding: 3.5rem 2.5rem 0;
-    @include lg {
-      padding: 12rem 8rem 5rem;
     }
   }
 }
