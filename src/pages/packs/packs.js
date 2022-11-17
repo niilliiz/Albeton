@@ -1,6 +1,8 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
+
+import { ToastContext } from "../../contexts/toast_context";
 
 import { selectCurrentUser } from "../../store/user/user_selector";
 import { addItemsToCart } from "../../store/cart/cart_action";
@@ -8,7 +10,6 @@ import { selectCartItems } from "../../store/cart/cart_selector";
 
 import Products from "../../data/products_data";
 import Link from "../../components/link/link";
-import Toast from "../../components/toast/toast";
 
 import styles from "./packs_style.module.scss";
 
@@ -27,7 +28,6 @@ const OPTION_COLOR = {
 };
 
 const Packs = () => {
-  const [toast, setToast] = useState({});
   const [filterOption, setFilterOption] = useState("All");
   const dispatch = useDispatch();
 
@@ -36,10 +36,11 @@ const Packs = () => {
 
   const navigate = useNavigate();
 
+  const { setToast } = useContext(ToastContext);
+
   const handleAddItemsToCart = (product) => {
     if (currentUser) {
       const isInCart = cartItems.find((item) => item.id === product.id);
-      console.log(isInCart);
       if (isInCart === undefined) {
         dispatch(
           addItemsToCart(cartItems, {
@@ -99,7 +100,6 @@ const Packs = () => {
 
   return (
     <main className={styles.packs}>
-      <Toast message={toast.message} type={toast.type} />
       <div className={styles.packs__banner}>
         <h1 className="xh">Plucked Strings by Cinematique Instruments</h1>
         <span className="h2">

@@ -1,6 +1,7 @@
-import React from "react";
-import { useState } from "react";
-import Toast from "../../../components/toast/toast";
+import React, { useState, useContext } from "react";
+
+import { ToastContext } from "../../../contexts/toast_context";
+
 import {
   signInWithGooglePopup,
   singInUserWithEmailAndPass,
@@ -17,9 +18,10 @@ const FIELD = {
 const SingIn = () => {
   const [field, setField] = useState(FIELD);
   const { email, password } = field;
-  const [toast, setToast] = useState({});
 
   const [errors, setErrors] = useState({});
+
+  const { setToast } = useContext(ToastContext);
 
   const resetField = () => {
     setField(FIELD);
@@ -83,7 +85,6 @@ const SingIn = () => {
 
   return (
     <section className={styles.login}>
-      <Toast message={toast.message} type={toast.type} />
       <h1>Log in</h1>
       <strong>Why do I need to log in?</strong>
       <p>

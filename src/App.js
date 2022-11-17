@@ -15,6 +15,8 @@ import {
 import { useDispatch } from "react-redux";
 import { setCurrentUser } from "./store/user/user_action";
 
+import { ToastProvider } from "./contexts/toast_context";
+
 import Layout from "./layout/layout";
 import Home from "./pages/home/home";
 import Shop from "./pages/shop/shop";
@@ -46,7 +48,11 @@ function App() {
     return unsubscribe;
   }, []);
 
-  return <RouterProvider router={router} />;
+  return (
+    <ToastProvider>
+      <RouterProvider router={router} />
+    </ToastProvider>
+  );
 }
 
 export default App;

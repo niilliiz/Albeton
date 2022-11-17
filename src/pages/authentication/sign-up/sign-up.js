@@ -1,6 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React from "react";
-import { useState } from "react";
+import React, { useState, useContext } from "react";
 
 import Input from "../component/input/input";
 import {
@@ -8,7 +7,7 @@ import {
   createUserDocumentFromAuth,
 } from "../../../utils/firebase";
 
-import Toast from "../../../components/toast/toast";
+import { ToastContext } from "../../../contexts/toast_context";
 import styles from "./sign-up_style.module.scss";
 import { useMemo } from "react";
 
@@ -21,11 +20,12 @@ const FIELD = {
 
 const SignUp = () => {
   const [field, setField] = useState(FIELD);
-  const [toast, setToast] = useState({});
 
   const { email, password, confirm_password, name } = field;
 
   const [errors, setErrors] = useState({});
+
+  const { setToast } = useContext(ToastContext);
 
   useMemo(() => {
     if (password !== confirm_password) {
@@ -90,8 +90,6 @@ const SignUp = () => {
 
   return (
     <section className={styles.register}>
-      <Toast message={toast.message} type={toast.type} />
-
       <h1>Sing Up</h1>
       <strong>New Customer? Please create an account.</strong>
       <p>

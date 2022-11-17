@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ToastContext } from "../../contexts/toast_context";
 import { CheckCircle, Warning, X } from "phosphor-react";
 import styles from "./toast_style.module.scss";
 
@@ -17,7 +18,9 @@ const STYLES = {
   },
 };
 
-const Toast = ({ message = "", type = null }) => {
+const Toast = () => {
+  const { toast } = useContext(ToastContext);
+  const { message, type } = toast;
   const element = (
     <div
       className={`${styles.toast} ${type !== null ? styles.showToast : ""}`}
@@ -31,4 +34,5 @@ const Toast = ({ message = "", type = null }) => {
   );
   return type && message && element;
 };
+
 export default Toast;

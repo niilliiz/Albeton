@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect, useState, useRef, useMemo } from "react";
+import React, { useEffect, useState, useRef, useMemo, useContext } from "react";
 import { userSingOut } from "../../utils/firebase";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { CaretDown } from "phosphor-react";
@@ -8,11 +8,11 @@ import { useSelector } from "react-redux";
 import NavLinks from "../../data/nav_data";
 import Logo from "../../components/logo/logo";
 import DisableScroll from "../../components/UI/disable_scroll";
-import Toast from "../../components/toast/toast";
 import { selectCurrentUser } from "../../store/user/user_selector";
 import { selectCartCount } from "../../store/cart/cart_selector";
 
 import styles from "./header_style.module.scss";
+import { ToastContext } from "../../contexts/toast_context";
 
 const Header = () => {
   const headerRef = useRef(null);
@@ -23,9 +23,10 @@ const Header = () => {
 
   const [isOpen, setIsOpen] = useState(false);
   const [lastScrollTop, setLastScrollTop] = useState(() => window.scrollY);
-  const [toast, setToast] = useState({});
 
   const [secondaryNavLinks, setSecondaryNavLinks] = useState(null);
+
+  const { setToast } = useContext(ToastContext);
 
   useMemo(() => {
     const current = location.pathname.split("/")[1];
@@ -77,7 +78,6 @@ const Header = () => {
       ref={headerRef}
       className={`${styles.header} ${isOpen ? styles["header--bg"] : ""}`}
     >
-      <Toast message={toast.message} type={toast.type} />
       <DisableScroll isHidden={isOpen} />
       {/* ---------------PRIMARY NAVBAR-------------- */}
       <div
