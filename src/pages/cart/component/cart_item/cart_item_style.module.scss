@@ -15,10 +15,11 @@
   .info {
     max-width: 50%;
   }
-  .price {
+  .price--wrapper {
     @include Flex($direction: column, $gap: $space-0_25);
 
     .price {
+      @include Flex($direction: column, $gap: $space-0_25);
       &--discounted {
         text-decoration: line-through;
       }
@@ -28,9 +29,18 @@
       align-self: flex-end;
     }
   }
-  @include lg {
-    .h3 {
-      font-size: $fs-16;
+  @include md {
+    .price--wrapper {
+      .price {
+        @include Flex($direction: row, $gap: $space-0_5);
+        &--discounted {
+          text-decoration: line-through;
+        }
+      }
+
+      > button {
+        align-self: flex-end;
+      }
     }
   }
 }

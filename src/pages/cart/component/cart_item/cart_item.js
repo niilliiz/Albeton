@@ -21,7 +21,7 @@ const CartItem = ({ product }) => {
           {description.length > 120 ? "..." : ""}
         </p>
       </div>
-      <div className={`${styles.price}`}>
+      <div className={`${styles["price--wrapper"]}`}>
         <div
           className={`h3 ${styles.price}  ${styles.row}  fw--700`}
           style={{ display: isFree ? "none" : "flex" }}
