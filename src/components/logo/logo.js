@@ -11,7 +11,6 @@ const Logo = ({
   return (
     <Link to="/" className={`${styles.logo} ${className}`} onClick={onClick}>
       <svg
-        role="img"
         className={styles.logo}
         width={width}
         height={height}
