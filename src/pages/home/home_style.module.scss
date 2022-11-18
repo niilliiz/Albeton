@@ -2,10 +2,10 @@
 @import "../../styles/media.scss";
 
 .home {
-  @include Container(medium);
+  @include Container(large);
   @include Flex($direction: column, $gap: $space-1);
 
-  background-image: url(../../asset/images/home_banner.jpg);
+  background-image: url("https://ableton-production.imgix.net/live/creation-space-front-10.jpg?auto=compress%2Cformat&w=768");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
