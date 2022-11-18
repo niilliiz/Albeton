@@ -1,5 +1,6 @@
+/* eslint-disable no-unused-expressions */
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect, useState, useRef, useMemo, useContext } from "react";
+import React, { useEffect, useState, useRef, useContext } from "react";
 import { userSingOut } from "../../utils/firebase";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { CaretDown } from "phosphor-react";
@@ -27,18 +28,6 @@ const Header = () => {
   const [secondaryNavLinks, setSecondaryNavLinks] = useState(null);
 
   const { setToast } = useContext(ToastContext);
-
-  useMemo(() => {
-    const current = location.pathname.split("/")[1];
-    const currentNav = NavLinks.find(
-      (nav) => nav.title.toLowerCase() === current
-    );
-    if (currentNav?.links?.length > 0) {
-      setSecondaryNavLinks(currentNav.links);
-    } else {
-      setSecondaryNavLinks(null);
-    }
-  }, [location]);
 
   const handleScrollEffect = () => {
     let currentScrollTop = window.scrollY;
@@ -72,6 +61,18 @@ const Header = () => {
       window.removeEventListener("scroll", handleScrollEffect);
     };
   }, [lastScrollTop]);
+
+  useEffect(() => {
+    const current = location.pathname.split("/")[1];
+    const currentNav = NavLinks.find(
+      (nav) => nav.title.toLowerCase() === current
+    );
+    if (currentNav?.links?.length > 0) {
+      setSecondaryNavLinks(currentNav.links);
+    } else {
+      setSecondaryNavLinks(null);
+    }
+  }, [location]);
 
   return (
     <header

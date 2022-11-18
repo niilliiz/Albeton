@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 
 import Input from "../component/input/input";
 import {
@@ -9,7 +9,6 @@ import {
 
 import { ToastContext } from "../../../contexts/toast_context";
 import styles from "./sign-up_style.module.scss";
-import { useMemo } from "react";
 
 const FIELD = {
   name: "",
@@ -26,25 +25,6 @@ const SignUp = () => {
   const [errors, setErrors] = useState({});
 
   const { setToast } = useContext(ToastContext);
-
-  useMemo(() => {
-    if (password !== confirm_password) {
-      setErrors({ ...errors, notEqualPassword: "Password is not the same" });
-    } else {
-      setErrors({ ...errors, notEqualPassword: null });
-    }
-  }, [confirm_password]);
-
-  useMemo(() => {
-    if (password.length > 0 && password.length < 6) {
-      setErrors({
-        ...errors,
-        weakPass: "Weak password. it must be at least 6 characters",
-      });
-    } else {
-      setErrors({ ...errors, weakPass: null });
-    }
-  }, [password]);
 
   const resetField = () => {
     setField(FIELD);
@@ -87,6 +67,25 @@ const SignUp = () => {
       setErrors(errors);
     }
   };
+
+  useEffect(() => {
+    if (password !== confirm_password) {
+      setErrors({ ...errors, notEqualPassword: "Password is not the same" });
+    } else {
+      setErrors({ ...errors, notEqualPassword: null });
+    }
+  }, [confirm_password]);
+
+  useEffect(() => {
+    if (password.length > 0 && password.length < 6) {
+      setErrors({
+        ...errors,
+        weakPass: "Weak password. it must be at least 6 characters",
+      });
+    } else {
+      setErrors({ ...errors, weakPass: null });
+    }
+  }, [password]);
 
   return (
     <section className={styles.register}>
