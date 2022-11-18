@@ -16,6 +16,13 @@
       padding: 4rem;
     }
   }
+
+  @if $type == "large" {
+    padding: 3rem 2rem;
+    @include lg {
+      padding: 8rem 6rem;
+    }
+  }
 }
 
 @mixin Flex($direction: row, $gap: 0) {
