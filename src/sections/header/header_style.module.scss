@@ -131,8 +131,7 @@
 
     overflow: auto;
     font-size: $fs-16;
-    font-weight: $fw-500;
-
+    font-weight: $fw-400;
     .list {
       @include Flex($direction: row, $gap: $space-2);
 
