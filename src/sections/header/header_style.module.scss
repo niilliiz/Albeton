@@ -27,7 +27,7 @@
   }
 
   .list {
-    flex-grow: 1;
+    // flex-grow: 1;
     @include Flex($direction: column, $gap: $space-2);
 
     li {
@@ -70,17 +70,6 @@
 
       font-size: $fs-14;
       cursor: pointer;
-
-      .cart {
-        cursor: pointer;
-
-        &__count {
-          color: $clr-neutral-1;
-          background-color: $clr-red;
-          padding: 0.1rem 0.4rem;
-          margin-inline-start: 0.3rem;
-        }
-      }
     }
 
     &__menu {
@@ -158,6 +147,10 @@
           fill: $clr-neutral-0;
         }
       }
+    }
+
+    .list {
+      flex-grow: 1;
     }
     .primary {
       @include Flex(row, $gap: $space-2);

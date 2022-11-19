@@ -14,6 +14,8 @@ import { selectCartCount } from "../../store/cart/cart_selector";
 
 import styles from "./header_style.module.scss";
 import { ToastContext } from "../../contexts/toast_context";
+import { useCallback } from "react";
+import CartIcon from "../../components/cart_icon/cart_icon";
 
 const Header = () => {
   const headerRef = useRef(null);
@@ -29,7 +31,7 @@ const Header = () => {
 
   const { setToast } = useContext(ToastContext);
 
-  const handleScrollEffect = () => {
+  const handleScrollEffect = useCallback(() => {
     let currentScrollTop = window.scrollY;
     if (lastScrollTop < currentScrollTop) {
       headerRef.current.classList.add(styles["header--top"]);
@@ -37,7 +39,7 @@ const Header = () => {
       headerRef.current.classList.remove(styles["header--top"]);
     }
     setLastScrollTop(currentScrollTop);
-  };
+  }, [lastScrollTop]);
 
   const handleSignOut = async () => {
     try {
@@ -140,14 +142,7 @@ const Header = () => {
             )}
 
             {currentUser && cartCount > 0 && (
-              <Link to="/cart">
-                <span className={styles.cart} onClick={() => setIsOpen(false)}>
-                  <span>Cart</span>
-                  {cartCount > 0 && (
-                    <span className={styles.cart__count}>{cartCount}</span>
-                  )}
-                </span>
-              </Link>
+              <CartIcon onClick={() => setIsOpen(false)} />
             )}
           </div>
         </nav>
