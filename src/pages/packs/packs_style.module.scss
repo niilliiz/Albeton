@@ -114,7 +114,7 @@
   }
 
   @include md {
-    background-position: center right;
+    background-position: center;
 
     &__cards {
       @include Grid($repeat: 3, $row-gap: $space-3, $col-gap: $space-3);
