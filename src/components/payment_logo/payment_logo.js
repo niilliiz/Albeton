@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 
 const PAYMENTS_LOGO = [
   "https://ableton-production.imgix.net/payment-icons/visa.png?fm=png",
@@ -9,7 +9,7 @@ const PAYMENTS_LOGO = [
   "https://ableton-production.imgix.net/payment-icons/google-pay.png?fm=png",
 ];
 
-const PaymentLogos = () => {
+const PaymentLogos = memo(() => {
   return (
     <>
       {PAYMENTS_LOGO.map((logo, index) => (
@@ -17,5 +17,5 @@ const PaymentLogos = () => {
       ))}
     </>
   );
-};
+});
 export default PaymentLogos;
