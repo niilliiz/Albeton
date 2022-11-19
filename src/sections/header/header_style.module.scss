@@ -27,8 +27,7 @@
   }
 
   .list {
-    // flex-grow: 1;
-    @include Flex($direction: column, $gap: $space-2);
+    @include Flex($direction: column, $gap: $space-1);
 
     li {
       &.disabled {
@@ -107,7 +106,7 @@
       }
 
       &.navigation--hid {
-        transform: translateY(-150%);
+        transform: translateY(-250%);
         transition: transform 0.5s ease-in-out;
       }
     }
