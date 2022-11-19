@@ -2,7 +2,7 @@ import React from "react";
 import Link from "../../components/link/link";
 import styles from "./home_style.module.scss";
 
-const Home = (props) => {
+const Home = () => {
   return (
     <main className={styles.home}>
       <h1 className="xh">
