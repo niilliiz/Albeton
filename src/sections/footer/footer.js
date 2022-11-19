@@ -1,6 +1,5 @@
 import React from "react";
 
-import AlbetonLogo from "../../asset/images/ableton.svg";
 import Facebook from "../../asset/images/facebook.svg";
 import Twitter from "../../asset/images/twitter.svg";
 import Youtube from "../../asset/images/youtube.svg";
@@ -47,7 +46,7 @@ const Footer = () => {
       <div className={styles.footer__header}>
         <img
           className={styles.albetonLogo}
-          src={AlbetonLogo}
+          src="https://cdn-resources.ableton.com/80bA26cPQ1hEJDFjpUKntxfqdmG3ZykO/static/images/ableton-wordmark.c025e3df71b3.svg"
           alt="Ableton Logo"
         />
       </div>
