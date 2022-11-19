@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect } from "react";
+import React, { useEffect, lazy, Suspense } from "react";
 import {
   Route,
   createBrowserRouter,
@@ -18,11 +18,15 @@ import { setCurrentUser } from "./store/user/user_action";
 import { ToastProvider } from "./contexts/toast_context";
 
 import Layout from "./layout/layout";
-import Home from "./pages/home/home";
-import Shop from "./pages/shop/shop";
-import Packs from "./pages/packs/packs";
-import Authentication from "./pages/authentication/authentication";
-import Cart from "./pages/cart/cart";
+import Spinner from "./components/spinner/spinner";
+
+const Home = lazy(() => import("./pages/home/home"));
+const Shop = lazy(() => import("./pages/shop/shop"));
+const Packs = lazy(() => import("./pages/packs/packs"));
+const Authentication = lazy(() =>
+  import("./pages/authentication/authentication")
+);
+const Cart = lazy(() => import("./pages/cart/cart"));
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -49,9 +53,11 @@ function App() {
   }, []);
 
   return (
-    <ToastProvider>
-      <RouterProvider router={router} />
-    </ToastProvider>
+    <Suspense fallback={<Spinner/>}>
+      <ToastProvider>
+        <RouterProvider router={router} />
+      </ToastProvider>
+    </Suspense>
   );
 }
 
