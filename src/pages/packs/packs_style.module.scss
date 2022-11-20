@@ -8,7 +8,7 @@
     @include Container(medium);
     @include Flex($direction: column, $gap: $space-1);
 
-    background-image: url("https://ableton-production.imgix.net/link/header.jpg?fit=crop&auto=format&fm=jpg");
+    background-image: url(../../asset/images/packs-banner.jpg);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
