@@ -149,7 +149,7 @@ const Packs = () => {
               {product.isNew && (
                 <div className={`${styles.label} h5`}>New in Live 11</div>
               )}
-              <img src={product.img} alt="Product" />
+              <img src={product.img} alt="Product" loading="lazy" />
             </div>
             <span
               className="h5"
