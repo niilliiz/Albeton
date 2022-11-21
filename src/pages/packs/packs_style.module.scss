@@ -8,7 +8,7 @@
     @include Container(medium);
     @include Flex($direction: column, $gap: $space-1);
 
-    background-image: url(../../asset/images/packs-banner.jpg);
+    background-image: url(../../asset/images/packs-banner.avif);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
