@@ -2,11 +2,11 @@ import { Outlet } from "react-router-dom";
 import Toast from "../components/toast/toast";
 import Footer from "../sections/footer/footer";
 import Header from "../sections/header/header";
-import styles from "./layout_style.module.scss";
+import "./layout_style.scss";
 
 function Layout() {
   return (
-    <div className={styles.layout}>
+    <div className="layout">
       <Toast />
       <Header />
       <Outlet />
