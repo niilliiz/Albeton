@@ -65,7 +65,7 @@
       .img--wrapper {
         position: relative;
         align-self: flex-start;
-        max-width: 70%;
+        max-width: 300px;
 
         .label {
           position: absolute;
@@ -105,9 +105,7 @@
 
       .card {
         .img--wrapper {
-          position: relative;
-          align-self: flex-start;
-          max-width: 100%;
+          max-width: 245px;
         }
       }
     }
@@ -118,6 +116,11 @@
 
     &__cards {
       @include Grid($repeat: 3, $row-gap: $space-3, $col-gap: $space-3);
+      .card {
+        .img--wrapper {
+          max-width: 220px;
+        }
+      }
     }
   }
 
@@ -127,9 +130,7 @@
 
       .card {
         .img--wrapper {
-          position: relative;
-          align-self: flex-start;
-          max-width: 80%;
+          max-width: 256px;
         }
       }
     }
