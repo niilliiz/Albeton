@@ -6,6 +6,10 @@ import { Link, NavLink, useLocation } from "react-router-dom";
 import { CaretDown } from "phosphor-react";
 import { useSelector } from "react-redux";
 
+import { ToastContext } from "../../contexts/toast_context";
+import { useCallback } from "react";
+import CartIcon from "../../components/cart_icon/cart_icon";
+
 import NavLinks from "../../data/nav_data";
 import Logo from "../../components/logo/logo";
 import DisableScroll from "../../components/UI/disable_scroll";
@@ -13,9 +17,6 @@ import { selectCurrentUser } from "../../store/user/user_selector";
 import { selectCartCount } from "../../store/cart/cart_selector";
 
 import styles from "./header_style.module.scss";
-import { ToastContext } from "../../contexts/toast_context";
-import { useCallback } from "react";
-import CartIcon from "../../components/cart_icon/cart_icon";
 
 const Header = () => {
   const headerRef = useRef(null);
