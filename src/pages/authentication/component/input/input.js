@@ -2,13 +2,13 @@ import React from "react";
 import styles from "./input_style.module.scss";
 const Input = ({
   className = "",
-  required = true,
-  value,
-  onChange,
-  type,
-  name,
-  placeholder,
-  labelContent,
+  required = false,
+  value = null,
+  onChange = () => null,
+  type = "text",
+  name = "",
+  placeholder = "",
+  labelContent = "",
   element = null,
   helperText = "",
 }) => {
