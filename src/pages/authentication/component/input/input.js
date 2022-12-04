@@ -3,8 +3,8 @@ import styles from "./input_style.module.scss";
 const Input = ({
   className = "",
   required = false,
-  value = null,
-  onChange = () => null,
+  value,
+  onChange,
   type = "text",
   name = "",
   placeholder = "",
