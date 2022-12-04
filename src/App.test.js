@@ -4,7 +4,6 @@ import SignUp from "./pages/authentication/sign-up/sign-up";
 import SignIn from "./pages/authentication/sing-in/sign-in";
 
 // --------------------SIGNUP TESTS---------------
-
 describe("SIGN UP TEST", () => {
   it("Input must be empty", () => {
     render(<SignUp />);
@@ -52,7 +51,6 @@ describe("SIGN UP TEST", () => {
 });
 
 // --------------------SIGN IN TESTS---------------
-
 describe("SIGN IN TEST", () => {
   it("Input must be empty", () => {
     render(<SignIn />);
