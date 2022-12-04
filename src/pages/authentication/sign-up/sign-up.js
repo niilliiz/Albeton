@@ -43,7 +43,7 @@ const SignUp = () => {
       });
       setToast({
         type: "success",
-        message: "congrats! You've just registered successfully! :)",
+        message: "congrats! You registered successfully! :)",
       });
       resetField();
     } catch (error) {
@@ -80,7 +80,7 @@ const SignUp = () => {
     if (password.length > 0 && password.length < 6) {
       setErrors({
         ...errors,
-        weakPass: "Weak password. it must be at least 6 characters",
+        weakPass: "Weak password. It must contain at least 6 characters",
       });
     } else {
       setErrors({ ...errors, weakPass: null });
@@ -98,6 +98,7 @@ const SignUp = () => {
       <form action="submit" onSubmit={nativeRegister}>
         <Input
           value={name}
+          required
           name="name"
           placeholder="Your name"
           labelContent="Name *"
@@ -112,6 +113,7 @@ const SignUp = () => {
           value={email}
           name="email"
           type="email"
+          required
           placeholder="Email"
           helperText={errors.isUsed}
           labelContent="Email *"
@@ -121,6 +123,7 @@ const SignUp = () => {
           value={password}
           name="password"
           type="password"
+          required
           helperText={errors.weakPass}
           placeholder="Password"
           labelContent="Password *"
@@ -130,6 +133,7 @@ const SignUp = () => {
           value={confirm_password}
           name="confirm_password"
           type="password"
+          required
           placeholder="Confirm the password"
           labelContent="Confirm password *"
           onChange={(e) =>
