@@ -98,6 +98,7 @@ const SingIn = () => {
           name="email"
           type="email"
           placeholder="Email"
+          required
           labelContent="Email *"
           helperText={errors.noFound}
           onChange={(e) => setField({ ...field, email: e.target.value })}
@@ -108,6 +109,7 @@ const SingIn = () => {
           name="password"
           type="password"
           placeholder="Password"
+          required
           labelContent="Password *"
           helperText={errors.wrongPassword}
           onChange={(e) => setField({ ...field, password: e.target.value })}
