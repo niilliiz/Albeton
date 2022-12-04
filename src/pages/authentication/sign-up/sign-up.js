@@ -70,7 +70,10 @@ const SignUp = () => {
 
   useEffect(() => {
     if (password !== confirm_password) {
-      setErrors({ ...errors, notEqualPassword: "Password is not the same" });
+      setErrors({
+        ...errors,
+        notEqualPassword: "Passwords don't match. Try again!",
+      });
     } else {
       setErrors({ ...errors, notEqualPassword: null });
     }
@@ -80,7 +83,7 @@ const SignUp = () => {
     if (password.length > 0 && password.length < 6) {
       setErrors({
         ...errors,
-        weakPass: "Weak password. It must contain at least 6 characters",
+        weakPass: "Weak password. It must contain at least 6 characters.",
       });
     } else {
       setErrors({ ...errors, weakPass: null });
