@@ -29,10 +29,9 @@ describe("SIGN UP TEST", () => {
 
     await userEvent.type(passwordElement, "12345");
 
-    const helperTextElement = screen.queryByText(
-      "Weak password. It must contain at least 6 characters."
-    );
-    expect(helperTextElement).toBeInTheDocument();
+    expect(
+      screen.getByText("Weak password. It must contain at least 6 characters.")
+    ).toBeInTheDocument();
   });
 
   it("Not equal password", async () => {
@@ -44,10 +43,9 @@ describe("SIGN UP TEST", () => {
     await userEvent.type(passwordElement, "123456");
     await userEvent.type(confirmPasswordElement, "12345");
 
-    const helperTextElement = screen.queryByText(
-      "Passwords don't match. Try again!"
-    );
-    expect(helperTextElement).toBeInTheDocument();
+    expect(
+      screen.getByText("Passwords don't match. Try again!")
+    ).toBeInTheDocument();
   });
 });
 
