@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 const path = require("path");
 
@@ -7,7 +8,7 @@ module.exports = {
   mode: "none",
   entry: path.join(__dirname, "src", "index.js"),
   output: {
-    filename: "bundle.js",
+    filename: "bundle.[contenthash].js",
     path: path.resolve(__dirname, "dist"),
   },
   module: {
@@ -42,5 +43,6 @@ module.exports = {
       template: path.join(__dirname, "public", "index.html"),
     }),
     new TerserPlugin(),
+    new CleanWebpackPlugin(),
   ],
 };
