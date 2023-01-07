@@ -7,7 +7,7 @@ const Home = () => {
     <main className={styles.home}>
       <h1 className="xh">
         <span>Note</span>
-        <span>Make new idea a habit</span>
+        <span>Make new idea a habittttttttttttttt</span>
       </h1>
       <Link
         className={`${styles.link} h3`}
