@@ -1,6 +1,6 @@
 # Ableton Clone
 
-Ableton. Web Application Clone using React, React-Router, Firebase, Redux, Sass, and Webpack.
+Ableton. Web Application Clone using React, React-Router, Firebase, Redux, Sass.
 
 ## Demo
 
@@ -12,7 +12,6 @@ You may need **VPN** in order to use the application properly.
 
 - [React](https://github.com/facebook/react)
 - [Redux](https://github.com/reduxjs/redux)
-- [webpack](https://github.com/webpack/webpack)
 - [Firebase](https://firebase.google.com/)
 - [Sass](https://github.com/sass)
 

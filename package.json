@@ -1,7 +1,6 @@
 {
   "name": "ableton",
   "version": "0.1.0",
-  "private": true,
   "dependencies": {
     "@apollo/client": "^3.7.1",
     "@testing-library/jest-dom": "^5.16.5",
@@ -45,7 +44,6 @@
     ]
   },
   "devDependencies": {
-    "@babel/core": "^7.20.5",
     "jest": "^29.3.1",
     "sass": "^1.56.1"
   }
