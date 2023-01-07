@@ -1,12 +1,18 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). I used [firebase](https://firebase.google.com) to be able to authenticate and may be needed to turn on vpn in order to use it properly. This is shallow copy of [albeton](https://www.ableton.com) only to practice React fundamentals.and also Redux library has been used to manage the states. -> this is [myableton](https://myableton.netlify.app)
+Ableton. Web Application Clone using React, React-Router, Firebase, Redux, Sass.
 
-## Available Scripts
+## Demo
 
-In the project directory, you can run:
+Demo:[myableton](https://myableton.netlify.app). You may need VPN in order to use the application properly.
 
-### `npm start`
+### Tech Stack
 
-Runs the app in the development mode.
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- [React](https://github.com/facebook/react)
+- [Redux](https://github.com/reduxjs/redux)
+- [Firebase](https://firebase.google.com/)
+
+#### Getting Started
+
+- install dependencies `npm start`
+- start project `npm start`
