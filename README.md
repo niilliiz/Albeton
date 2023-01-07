@@ -5,7 +5,8 @@ Ableton. Web Application Clone using React, React-Router, Firebase, Redux, Sass.
 ## Demo
 
 Demo:[myableton](https://myableton.netlify.app).
-_You may need VPN in order to use the application properly._
+
+You may need **VPN** in order to use the application properly.
 
 ### Tech Stack
 
