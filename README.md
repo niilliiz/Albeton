@@ -17,5 +17,5 @@ You may need **VPN** in order to use the application properly.
 
 #### Getting Started
 
-- install dependencies `npm start`
+- install dependencies `npm install`
 - start project `npm start`
