@@ -6,6 +6,7 @@ import Youtube from "../../asset/images/youtube.svg";
 import Instagram from "../../asset/images/instagram.svg";
 import Link from "../../components/link/link";
 import Logo from "../../components/logo/logo";
+
 import styles from "./footer_style.module.scss";
 
 const MEDIAS = [
@@ -88,14 +89,14 @@ const Footer = () => {
           />
         </div>
         <div data-area="community" className={styles.footer__main__card}>
-          <span className="h4 fw--700">Commuinity</span>
+          <span className="h4 fw--700">Community</span>
           <Link className="h4" content="Find Albeton  User Groups" />
           <Link className="h4" content="Find Certified Training" />
           <Link className="h4" content="Become a Certified Trainer" />
         </div>
         <div data-area="distributors" className={styles.footer__main__card}>
-          <span className="h4 fw--700">Distributers</span>
-          <Link className="h4" content="Find Distributers" />
+          <span className="h4 fw--700">Distributors</span>
+          <Link className="h4" content="Find Distributors" />
           <Link className="h4" content="Try Push in-store" />
         </div>
       </div>

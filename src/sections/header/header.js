@@ -83,7 +83,7 @@ const Header = () => {
       className={`${styles.header} ${isOpen ? styles["header--bg"] : ""}`}
     >
       <DisableScroll isHidden={isOpen} />
-      {/* ---------------PRIMARY NAVBAR-------------- */}
+      {/* --------------- PRIMARY NAVBAR -------------- */}
       <div
         className={`${styles.primary} ${
           secondaryNavLinks ? styles["primary--border"] : ""
@@ -148,7 +148,7 @@ const Header = () => {
           </div>
         </nav>
       </div>
-      {/* ---------------SECONDARY NAVBAR IF THERE IS-------------- */}
+      {/* --------------- SECONDARY NAVBAR IF THERE IS ONE -------------- */}
       {secondaryNavLinks && (
         <nav className={styles.secondary}>
           <ul className={styles.list}>

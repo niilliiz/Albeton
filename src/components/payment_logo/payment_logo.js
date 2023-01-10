@@ -1,6 +1,6 @@
 import React, { memo } from "react";
 
-const PAYMENTS_LOGO = [
+const PAYMENT_LOGOS = [
   "https://ableton-production.imgix.net/payment-icons/visa.png?fm=png",
   "https://ableton-production.imgix.net/payment-icons/mastercard.png?fm=png",
   "https://ableton-production.imgix.net/payment-icons/jcb.png?fm=png",
@@ -12,7 +12,7 @@ const PAYMENTS_LOGO = [
 const PaymentLogos = memo(() => {
   return (
     <>
-      {PAYMENTS_LOGO.map((logo, index) => (
+      {PAYMENT_LOGOS.map((logo, index) => (
         <img key={index + 1} src={logo} alt="Payment logo" />
       ))}
     </>
