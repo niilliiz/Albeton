@@ -1,5 +1,7 @@
 import React from "react";
+
 import styles from "./input_style.module.scss";
+
 const Input = ({
   className = "",
   required = false,
@@ -9,8 +11,8 @@ const Input = ({
   name = "",
   placeholder = "",
   labelContent = "",
-  element = null,
   helperText = "",
+  helperTextClassName = "",
 }) => {
   return (
     <div className={`${styles.input} ${className}`}>
@@ -27,9 +29,10 @@ const Input = ({
         onChange={onChange}
       />
       {helperText && (
-        <span className={`${styles.h4} clr--secondary`}>{helperText}</span>
+        <span className={`h6 fw--700 clr--secondary ${helperTextClassName}`}>
+          {helperText}
+        </span>
       )}
-      {element && element}
     </div>
   );
 };
