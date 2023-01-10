@@ -13,9 +13,9 @@ You may need **VPN** in order to use the application properly.
 - [React](https://github.com/facebook/react)
 - [Redux](https://github.com/reduxjs/redux)
 - [Firebase](https://firebase.google.com/)
-- [Sass](https://sass-lang.com/)
+- [Sass](https://github.com/sass)
 
 #### Getting Started
 
-- install dependencies `npm start`
+- install dependencies `npm install`
 - start project `npm start`

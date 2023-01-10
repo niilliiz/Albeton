@@ -60,12 +60,12 @@ $space-4: 4rem;
 // 1280 + 1124 + 768
 
 $breakpoint: (
-  "sm": 30em,
   //480px
-  "md": 48em,
+  "sm": 30em,
   //768px
-  "lg": 64em,
+  "md": 48em,
   //1024px
-  "xl": 80em,
+  "lg": 64em,
   //1280px
+  "xl": 80em
 );
