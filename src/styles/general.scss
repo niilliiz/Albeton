@@ -90,6 +90,11 @@ h5,
   font-size: $fs-14;
 }
 
+h6,
+.h6 {
+  font-size: $fs-12;
+}
+
 @include md {
   .xh {
     font-size: $fs-34;
@@ -104,6 +109,11 @@ h5,
   h3,
   .h3 {
     font-size: $fs-20;
+  }
+
+  h6,
+  .h6 {
+    font-size: $fs-14;
   }
 }
 
