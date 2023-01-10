@@ -95,7 +95,7 @@ const SingIn = () => {
       <form action="submit" onSubmit={nativeLogin}>
         <Input
           value={email}
-          name="email"
+          name="signIn_email"
           type="email"
           placeholder="Email"
           required
@@ -106,7 +106,7 @@ const SingIn = () => {
 
         <Input
           value={password}
-          name="password"
+          name="signIn_password"
           type="password"
           placeholder="Password"
           required
