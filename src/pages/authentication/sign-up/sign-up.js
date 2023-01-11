@@ -106,12 +106,12 @@ const SignUp = () => {
           placeholder="Your name"
           labelContent="Name *"
           onChange={(e) => setField({ ...field, name: e.target.value })}
-          helperText=" So that we know what to call you if we email you"
+          helperText="So that we know what to call you if we email you"
           helperTextClassName="clr--cyan"
         />
         <Input
           value={email}
-          name="signOut_email"
+          name="signUp_email"
           type="email"
           required
           placeholder="Email"
@@ -121,7 +121,7 @@ const SignUp = () => {
         />
         <Input
           value={password}
-          name="signOut_password"
+          name="signUp_password"
           type="password"
           required
           helperText={errors.weakPass}
