@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import Link from "../../components/link/link";
 
@@ -53,9 +54,9 @@ const Shop = () => {
         <button className={styles.card__button}>Buy now</button>
         <p className="h4 fw--700">EUR 1479</p>
         <button className={styles.card__button}>Buy now</button>
-        <span className="h5 text--underline clr--neutral">
+        <a href="#" className="h5 text--underline clr--neutral">
           What is a crossgrade?
-        </span>
+        </a>
       </div>
       <div className={styles.card} data-card="making-music">
         <p className="h1">Making Music</p>
@@ -66,7 +67,8 @@ const Shop = () => {
         <p className="h4">
           Download for free in the following formats:
           <span className="clr--primary">
-            .pdf, .mobi (for Kindle), .epub (for all devices)
+            <a href="#">.pdf</a>,<a href="#">.mobi (for Kindle)</a>,
+            <a href="#">.epub (for all devices)</a>
           </span>
         </p>
         <Link
@@ -76,9 +78,15 @@ const Shop = () => {
         <p className="h4 fw--700">EUR 25</p>
         <button className={styles.card__button}>Buy now</button>
         <span className="h5 fw--700">
-          Also available on <span className="clr--primary">Amazon Kindle </span>{" "}
+          Also available on{" "}
+          <a href="#" className="clr--primary">
+            Amazon Kindle{" "}
+          </a>
           and
-          <span className="clr--primary"> Apple Books</span>
+          <a href="#" className="clr--primary">
+            {" "}
+            Apple Books
+          </a>
         </span>
         <span className="h5 clr--neutral">
           Published b Albeton, 340 pages, hardcover
