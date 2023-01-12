@@ -68,6 +68,20 @@ const SignUp = () => {
     }
   };
 
+  const handlePasswordChecking = (e) => {
+    const { tooShort } = e.target.validity;
+    if (tooShort) {
+      setErrors({
+        ...errors,
+        weakPass: "Weak password. It must contain at least 6 characters.",
+      });
+    } else {
+      setErrors({ ...errors, weakPass: null });
+    }
+
+    setField({ ...field, password: e.target.value });
+  };
+
   useEffect(() => {
     if (password !== confirm_password) {
       setErrors({
@@ -79,17 +93,6 @@ const SignUp = () => {
     }
   }, [confirm_password]);
 
-  useEffect(() => {
-    if (password.length > 0 && password.length < 6) {
-      setErrors({
-        ...errors,
-        weakPass: "Weak password. It must contain at least 6 characters.",
-      });
-    } else {
-      setErrors({ ...errors, weakPass: null });
-    }
-  }, [password]);
-
   return (
     <section className={styles.register}>
       <h1>Sing Up</h1>
@@ -100,46 +103,54 @@ const SignUp = () => {
       </p>
       <form action="submit" onSubmit={nativeRegister}>
         <Input
-          value={name}
           required
           name="name"
-          placeholder="Your name"
+          value={name}
+          autoComplete="name"
           labelContent="Name *"
-          onChange={(e) => setField({ ...field, name: e.target.value })}
-          helperText="So that we know what to call you if we email you"
+          placeholder="Your name"
           helperTextClassName="clr--cyan"
+          helperText="So that we know what to call you if we email you"
+          onChange={(e) => setField({ ...field, name: e.target.value })}
         />
         <Input
-          value={email}
-          name="signUp_email"
-          type="email"
           required
+          type="email"
+          value={email}
           placeholder="Email"
-          helperText={errors.isUsed}
+          name="signUp_email"
+          autoComplete="email"
+          aria_live="assertive"
           labelContent="Email *"
+          helperText={errors.isUsed}
           onChange={(e) => setField({ ...field, email: e.target.value })}
         />
         <Input
-          value={password}
-          name="signUp_password"
-          type="password"
           required
-          helperText={errors.weakPass}
+          minLength={6}
+          type="password"
+          value={password}
+          aria_live="assertive"
           placeholder="Password"
+          name="signUp_password"
           labelContent="Password *"
-          onChange={(e) => setField({ ...field, password: e.target.value })}
+          autocomplete="new-password"
+          helperText={errors.weakPass}
+          onChange={handlePasswordChecking}
         />
         <Input
-          value={confirm_password}
-          name="confirm_password"
-          type="password"
           required
-          placeholder="Confirm the password"
+          type="password"
+          autoComplete="off"
+          aria_live="assertive"
+          name="confirm_password"
+          value={confirm_password}
           labelContent="Confirm password *"
+          placeholder="Confirm the password"
+          helperText={errors.notEqualPassword}
           onChange={(e) =>
             setField({ ...field, confirm_password: e.target.value })
           }
-          helperText={errors.notEqualPassword}
         />
         <button type="submit" className={styles.button}>
           Create account

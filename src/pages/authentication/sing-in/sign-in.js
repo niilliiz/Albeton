@@ -94,45 +94,48 @@ const SingIn = () => {
       </p>
       <form action="submit" onSubmit={nativeLogin}>
         <Input
+          required
+          type="email"
           value={email}
           name="signIn_email"
-          type="email"
           placeholder="Email"
-          required
+          autoComplete="email"
+          aria_live="assertive"
           labelContent="Email *"
           helperText={errors.noFound}
           onChange={(e) => setField({ ...field, email: e.target.value })}
         />
 
         <Input
-          value={password}
-          name="signIn_password"
-          type="password"
-          placeholder="Password"
           required
+          type="password"
+          value={password}
+          aria_live="assertive"
+          name="signIn_password"
+          placeholder="Password"
           labelContent="Password *"
+          autocomplete="current-password"
           helperText={errors.wrongPassword}
           onChange={(e) => setField({ ...field, password: e.target.value })}
         />
 
-        <button onSubmit={nativeLogin} className={styles.button}>
+        <button type="submit" onSubmit={nativeLogin} className={styles.button}>
           Log in
         </button>
-      </form>
-      <form>
         <div>
           <label className={styles.h4}>
             Or You can Login with your Google account
           </label>
           <button
             onClick={googleLogin}
-            type="submit"
+            type="button"
             className={`${styles.button} ${styles["button--google"]}`}
           >
             Google
           </button>
         </div>
       </form>
+      <form></form>
     </section>
   );
 };

@@ -23,24 +23,18 @@ You may need **VPN** in order to use the application properly.
 ##### Tasks
 
 1. authentication forms
-   1. for attribute on label and id on input
-   2. name attribute
-   3. name + type + id + autocomplete
-   4. input -> aria-description="x". element -> id="x"
-   5. pattern
-   6. input:required
-   7. input:user-invalid
-   8. placeholder?
-   9. inputmode
-   10. tap target size -> 48px
-   11. :focus-visible -> keyboard user
-   12. css logic properties
-   13. security
-   14. test
-   15. autocomplete -> email - name - address form - payment form - password(sign in and sign up)
-   16. test
-   17. correct type
-   18. ...
+   1. _for attribute on label and id on input_
+   2. _name attribute_
+   3. _name + type + id + autocomplete_
+   4. _input -> aria-describedby="x". element -> id="x"_
+   5. _pattern_
+   6. _input:required_
+   7. _input:user-invalid_
+   8. _placeholder?_
+   9. _inputmode_
+   10. _tap target size -> 48px_
+   11. _:focus-visible -> keyboard user_
+   12. _css logic properties_
 2. check with form articles
 3. check accessability
 4. home page
@@ -60,3 +54,5 @@ You may need **VPN** in order to use the application properly.
 10. banners' background
 11. toast
     1. better solution than setTimeOut
+12. after registration -> redirect to packs page
+13. define propType

@@ -3,15 +3,21 @@ import React from "react";
 import styles from "./input_style.module.scss";
 
 const Input = ({
-  className = "",
-  required = false,
   value,
   onChange,
-  type = "text",
   name = "",
+  pattern = null,
+  type = "text",
+  className = "",
+  helperText = "",
+  required = false,
+  minLength = null,
+  maxLength = null,
   placeholder = "",
   labelContent = "",
-  helperText = "",
+  aria_live = "off",
+  autoComplete = "",
+  aria_description = "",
   helperTextClassName = "",
 }) => {
   return (
@@ -20,16 +26,25 @@ const Input = ({
         {labelContent}
       </label>
       <input
-        required={required}
-        type={type}
         id={name}
         name={name}
-        placeholder={placeholder}
+        type={type}
         value={value}
+        pattern={pattern}
         onChange={onChange}
+        required={required}
+        maxLength={maxLength}
+        minLength={minLength}
+        placeholder={placeholder}
+        autoComplete={autoComplete}
+        aria-describedby={aria_description}
       />
       {helperText && (
-        <span className={`h6 fw--700 clr--secondary ${helperTextClassName}`}>
+        <span
+          className={`h6 fw--700 clr--secondary ${helperTextClassName}`}
+          aria-live={aria_live}
+          id={aria_description}
+        >
           {helperText}
         </span>
       )}
