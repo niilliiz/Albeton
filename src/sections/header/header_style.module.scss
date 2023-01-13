@@ -31,7 +31,6 @@
 
     li {
       &.disabled {
-        pointer-events: none;
         font-size: $fs-16;
         color: $clr-neutral-400;
       }
@@ -75,7 +74,6 @@
       @include Flex($gap: $space-0_5);
 
       align-items: center;
-      flex-grow: 1;
       cursor: pointer;
 
       > svg {
@@ -151,6 +149,7 @@
     .list {
       flex-grow: 1;
     }
+
     .primary {
       @include Flex(row, $gap: $space-2);
 
