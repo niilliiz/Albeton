@@ -1,25 +1,32 @@
 /* eslint-disable no-unused-expressions */
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect, useState, useRef, useContext } from "react";
-import { userSingOut } from "../../utils/firebase";
-import { Link, NavLink, useLocation } from "react-router-dom";
-import { CaretDown } from "phosphor-react";
+import React, {
+  useEffect,
+  useState,
+  useRef,
+  useContext,
+  useCallback,
+} from "react";
+
 import { useSelector } from "react-redux";
-
+import { CaretDown } from "phosphor-react";
+import { userSingOut } from "../../utils/firebase";
 import { ToastContext } from "../../contexts/toast_context";
-import { useCallback } from "react";
-import CartIcon from "../../components/cart_icon/cart_icon";
+import { Link, NavLink, useLocation } from "react-router-dom";
+import { selectCartCount } from "../../store/cart/cart_selector";
+import { selectCurrentUser } from "../../store/user/user_selector";
 
+import "wicg-inert";
 import NavLinks from "../../data/nav_data";
 import Logo from "../../components/logo/logo";
+import CartIcon from "../../components/cart_icon/cart_icon";
 import DisableScroll from "../../components/UI/disable_scroll";
-import { selectCurrentUser } from "../../store/user/user_selector";
-import { selectCartCount } from "../../store/cart/cart_selector";
 
 import styles from "./header_style.module.scss";
 
 const Header = () => {
   const headerRef = useRef(null);
+  const primaryNavRef = useRef(null);
   const location = useLocation();
 
   const currentUser = useSelector(selectCurrentUser);
@@ -27,6 +34,7 @@ const Header = () => {
 
   const [isOpen, setIsOpen] = useState(false);
   const [lastScrollTop, setLastScrollTop] = useState(() => window.scrollY);
+  const [innerWidth, setInnerWidth] = useState(() => window.innerWidth);
 
   const [secondaryNavLinks, setSecondaryNavLinks] = useState(null);
 
@@ -57,6 +65,32 @@ const Header = () => {
       });
     }
   };
+
+  const handleResizeWindow = () => {
+    const { innerWidth } = window;
+    setInnerWidth(innerWidth);
+  };
+
+  useEffect(() => {
+    // inert: true -> make the browser to ignore the user input.
+    if (innerWidth < 1024) {
+      if (isOpen) {
+        primaryNavRef.current.inert = false;
+      } else {
+        primaryNavRef.current.inert = true;
+      }
+    } else {
+      primaryNavRef.current.inert = false;
+    }
+  }, [isOpen, innerWidth]);
+
+  useEffect(() => {
+    window.addEventListener("resize", handleResizeWindow);
+    return () => {
+      window.removeEventListener("resize", handleResizeWindow);
+    };
+  }, [innerWidth]);
+
   useEffect(() => {
     window.addEventListener("scroll", handleScrollEffect);
 
@@ -91,7 +125,7 @@ const Header = () => {
       >
         <Logo onClick={() => setIsOpen(false)} className={styles.logo} />
 
-        <div
+        <button
           className={styles.primary__menu}
           onClick={() => setIsOpen(!isOpen)}
         >
@@ -101,9 +135,10 @@ const Header = () => {
             weight="fill"
             className={`${isOpen ? styles.rotate : ""}`}
           />
-        </div>
+        </button>
 
         <nav
+          ref={primaryNavRef}
           className={`${styles.primary__navigation}
           ${isOpen ? styles["navigation--shown"] : styles["navigation--hid"]}
            `}
