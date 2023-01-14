@@ -2,23 +2,4 @@
 @import "../../styles/media.scss";
 
 .home {
-  @include Container(large);
-  @include Flex($direction: column, $gap: $space-1);
-
-  background-image: url("https://ableton-production.imgix.net/live/creation-space-front-10.jpg?auto=compress%2Cformat&w=768");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  height: 400px;
-  color: $clr-yellow;
-  margin-bottom: 3rem;
-
-  h1 {
-    @include Flex($direction: column, $gap: $space-0_5);
-  }
-
-  @include lg {
-    height: 800px;
-    margin-bottom: 4rem;
-  }
 }
