@@ -8,13 +8,13 @@ const Cell = ({
   cellClassName = "",
   title = "",
   subTitle = "",
-  linkClassName = "h4 fw--700",
+  linkClassName = "",
   ...otherProps
 }) => {
   return (
     <div className={`${styles.cell} ${cellClassName}`} data-cell={cellName}>
-      <p className="h2">{title}</p>
-      <p className="h4">{subTitle}</p>
+      <h2>{title}</h2>
+      <h3>{subTitle}</h3>
 
       <Link className={linkClassName} {...otherProps} />
     </div>
