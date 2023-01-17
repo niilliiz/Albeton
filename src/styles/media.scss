@@ -28,6 +28,7 @@
   }
 }
 
+// 600px
 @mixin breakpoint($bp: 37.5em) {
   @media (min-width: $bp) {
     @content;
