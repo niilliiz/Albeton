@@ -8,15 +8,16 @@ const Cell = ({
   cellClassName = "",
   title = "",
   subTitle = "",
+  haveLink = false,
   linkClassName = "",
   ...otherProps
 }) => {
   return (
     <div className={`${styles.cell} ${cellClassName}`} data-cell={cellName}>
-      <h2>{title}</h2>
-      <h3>{subTitle}</h3>
+      {title && <h2>{title}</h2>}
+      {subTitle && <h3>{subTitle}</h3>}
 
-      <Link className={linkClassName} {...otherProps} />
+      {haveLink && <Link className={linkClassName} {...otherProps} />}
     </div>
   );
 };
