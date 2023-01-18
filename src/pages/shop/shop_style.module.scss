@@ -20,33 +20,35 @@
       @include Button;
     }
 
-    &[data-card="live"] {
+    &.live {
       background-image: url("https://ableton-production.imgix.net/shop/live--square.jpg?fit=crop&auto=format&fm=jpg");
     }
-    &[data-card="push"] {
+
+    &.push {
       background-image: url("https://ableton-production.imgix.net/shop/push--square.jpg?fit=crop&auto=format&fm=jpg");
       color: $clr-neutral-1;
     }
-    &[data-card="student"] {
+
+    &.student {
       height: max-content;
       background-color: $clr-purple;
     }
-    &[data-card="max-for-live"] {
+    &.max-for-live {
       background-image: url("https://ableton-production.imgix.net/shop/max-for-live--square.jpg?fit=crop&auto=format&fm=jpg");
       color: $clr-neutral-1;
     }
-    &[data-card="making-music"] {
+    &.making-music {
       background-color: $clr-neutral-100;
     }
-    &[data-card="packs"] {
+    &.packs {
       background-color: $clr-green;
       height: 250px;
     }
-    &[data-card="merchandise"] {
+    &.merchandise {
       background-color: $clr-cyan;
       height: 250px;
     }
-    &[data-card="payment-methods"] {
+    &.payment-methods {
       height: max-content;
       .payment--wrapper {
         @include Grid($repeat: 5);
@@ -58,8 +60,8 @@
         }
       }
     }
-    &[data-card="security"],
-    &[data-card="question"] {
+    &.security,
+    &.question {
       height: max-content;
     }
   }
@@ -70,12 +72,11 @@
     .card {
       height: 550px;
 
-      &[data-card="student"] {
-        // grid-area:
+      &.student {
         grid-column: span 2;
       }
 
-      &[data-card="payment-methods"] {
+      &.payment-methods {
         .payment--wrapper {
           @include Grid($repeat: 6);
 
@@ -85,8 +86,8 @@
           }
         }
       }
-      &[data-card="security"],
-      &[data-card="question"] {
+      &.security,
+      &.question {
         height: max-content;
       }
     }
