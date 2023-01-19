@@ -5,7 +5,7 @@
   @include Flex($direction: column, $gap: $space-2);
 
   &__header {
-    @include Flex();
+    @include Flex;
     justify-content: space-between;
     align-items: center;
 
@@ -14,6 +14,15 @@
       color: $clr-primary;
       font-weight: $fw-600;
       font-size: $fs-18;
+
+      .category {
+        @include Flex;
+        align-items: center;
+
+        > svg {
+          margin-inline-start: $space-0_25;
+        }
+      }
     }
   }
 
