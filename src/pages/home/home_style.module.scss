@@ -2,4 +2,10 @@
 @import "../../styles/media.scss";
 
 .home {
+  > main {
+    .rows {
+      @include Container(medium);
+      @include Flex($direction: column, $gap: $space-3);
+    }
+  }
 }
