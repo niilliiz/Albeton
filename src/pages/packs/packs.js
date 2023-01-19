@@ -158,10 +158,10 @@ const Packs = () => {
               {product.category}
             </span>
             <div>
-              <span className="h4 clr--primary">{product.name}</span>
-              <span className={`h5 ${styles.by}`}>
+              <h4 className="h4 clr--primary">{product.name}</h4>
+              <h5 className={`h5 ${styles.by}`}>
                 by <span className="clr--primary">{product.by}</span>
-              </span>
+              </h5>
             </div>
 
             <p className={`h5 ${styles.description}`}>{product.description}</p>
