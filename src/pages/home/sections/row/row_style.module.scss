@@ -1,0 +1,58 @@
+@import "../../../../styles/utilities.scss";
+@import "../../../../styles/media.scss";
+
+.row {
+  @include Flex($direction: column, $gap: $space-2);
+
+  &__header {
+    @include Flex();
+    justify-content: space-between;
+    align-items: center;
+
+    .categories {
+      display: none;
+      color: $clr-primary;
+      font-weight: $fw-600;
+      font-size: $fs-18;
+    }
+  }
+
+  &__posts {
+    @include Grid($row-gap: $space-3);
+
+    .post {
+      @include Flex($direction: column, $gap: $space-0_5);
+
+      > h4 {
+        line-height: 1.3;
+      }
+    }
+  }
+
+  .more {
+    align-self: center;
+    font-weight: $fw-600;
+  }
+
+  @include breakpoint {
+    &__posts {
+      @include Grid($repeat: 2, $row-gap: $space-3, $col-gap: $space-3);
+    }
+  }
+
+  @include lg {
+    &__header {
+      .categories {
+        @include Flex($gap: $space-0_5);
+      }
+    }
+
+    .more {
+      display: none;
+    }
+
+    &__posts {
+      @include Grid($repeat: 3, $row-gap: $space-3, $col-gap: $space-3);
+    }
+  }
+}

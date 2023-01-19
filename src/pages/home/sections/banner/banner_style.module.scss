@@ -15,7 +15,7 @@
   }
 
   .cell__left {
-    background-image: url("https://ableton-production.imgix.net/uploads/homepage-teasers/392_Year_RoundUp3_xdKVXy1.jpg?auto=format&fit=crop&fm=jpg&h=535&ixjsv=1.1.3&w=803");
+    background-image: url("https://cdn-resources.ableton.com/resources/uploads/zinnia/thumb_346_GeorgeFitzgerald5.jpg.600x340_q85_crop_upscale.jpg");
     width: 100%;
     padding-bottom: 40%;
     font-size: $fs-20;
@@ -30,7 +30,7 @@
     }
   }
   .cell__middle {
-    background-image: url("https://ableton-production.imgix.net/uploads/homepage-teasers/392_Year_RoundUp5_KtMYBl8.jpg?auto=format&fit=crop&fm=jpg&h=306&ixjsv=1.1.3&w=459");
+    background-image: url("https://cdn-resources.ableton.com/resources/uploads/zinnia/thumb_Stefan.jpg.600x340_q85_crop_upscale.jpg");
     width: 90vw;
     font-size: $fs-18;
 
@@ -43,11 +43,11 @@
     }
 
     > * {
-      color: $clr-cyan;
+      color: $clr-purple;
     }
   }
   .cell__right {
-    background-image: url("https://ableton-production.imgix.net/uploads/homepage-teasers/392_Year_RoundUp4_I3ynQcZ.jpg?auto=format&fit=crop&fm=jpg&h=306&ixjsv=1.1.3&w=459");
+    background-image: url("https://cdn-resources.ableton.com/resources/uploads/zinnia/thumb_800x400_NOTE_News.jpg.600x340_q85_crop_upscale.jpg");
     width: 80vw;
     font-size: $fs-18;
     padding-bottom: 20%;
@@ -89,7 +89,7 @@
       width: 50vw;
       font-size: $fs-24;
       z-index: 2;
-      padding: 3vw 3vw 10vw;
+      padding: 3vw 3vw 12vw;
       h2 {
         font-size: $fs-40;
       }
@@ -97,7 +97,7 @@
     .cell__right,
     .cell__middle {
       font-size: $fs-20;
-      padding: 5vw 3vw 3vw;
+      padding: 3vw 3vw 3vw;
       h2 {
         font-size: $fs-28;
       }
@@ -116,6 +116,7 @@
       top: 15%;
       width: 35%;
       height: 40%;
+      z-index: 0;
     }
   }
 }
