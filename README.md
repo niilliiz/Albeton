@@ -14,6 +14,8 @@ You may need **VPN** in order to use the application properly.
 - [Redux](https://github.com/reduxjs/redux)
 - [Firebase](https://firebase.google.com/)
 - [Sass](https://github.com/sass)
+- [Testing Library](https://github.com/testing-library)
+- [Jest](https://github.com/facebook/jest)
 
 #### Getting Started
 

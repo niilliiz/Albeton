@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
+import { CaretRight } from "phosphor-react";
 
 import Link from "../../../../components/link/link";
 import Post from "../../components/post/post";
@@ -13,8 +14,11 @@ const Row = ({ row }) => {
         <h2 className="h2">{row.title}</h2>
         <ul className={styles.categories}>
           {row.categories.map((category) => (
-            <li key={category}>
-              <a href="#">{category}</a>
+            <li key={category} className={styles.category}>
+              <a href="#">{category} </a>
+              {row.categories.length === 1 && (
+                <CaretRight size={12} weight="bold" />
+              )}
             </li>
           ))}
         </ul>
